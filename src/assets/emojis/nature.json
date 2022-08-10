@@ -1,0 +1,891 @@
+[
+  {
+    "emoji": "🐵",
+    "skin_tone_support": false,
+    "name": "monkey_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐒",
+    "skin_tone_support": false,
+    "name": "monkey",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦍",
+    "skin_tone_support": false,
+    "name": "gorilla",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🦧",
+    "skin_tone_support": false,
+    "name": "orangutan",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🐶",
+    "skin_tone_support": false,
+    "name": "dog_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐕",
+    "skin_tone_support": false,
+    "name": "dog",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦮",
+    "skin_tone_support": false,
+    "name": "guide_dog",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🐕‍🦺",
+    "skin_tone_support": false,
+    "name": "service_dog",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🐩",
+    "skin_tone_support": false,
+    "name": "poodle",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐺",
+    "skin_tone_support": false,
+    "name": "wolf",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦊",
+    "skin_tone_support": false,
+    "name": "fox",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🦝",
+    "skin_tone_support": false,
+    "name": "raccoon",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🐱",
+    "skin_tone_support": false,
+    "name": "cat_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐈",
+    "skin_tone_support": false,
+    "name": "cat",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦁",
+    "skin_tone_support": false,
+    "name": "lion",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐯",
+    "skin_tone_support": false,
+    "name": "tiger_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐅",
+    "skin_tone_support": false,
+    "name": "tiger",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐆",
+    "skin_tone_support": false,
+    "name": "leopard",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐴",
+    "skin_tone_support": false,
+    "name": "horse_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐎",
+    "skin_tone_support": false,
+    "name": "horse",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦄",
+    "skin_tone_support": false,
+    "name": "unicorn",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦓",
+    "skin_tone_support": false,
+    "name": "zebra",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🦌",
+    "skin_tone_support": false,
+    "name": "deer",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🐮",
+    "skin_tone_support": false,
+    "name": "cow_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐂",
+    "skin_tone_support": false,
+    "name": "ox",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐃",
+    "skin_tone_support": false,
+    "name": "water_buffalo",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐄",
+    "skin_tone_support": false,
+    "name": "cow",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐷",
+    "skin_tone_support": false,
+    "name": "pig_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐖",
+    "skin_tone_support": false,
+    "name": "pig",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐗",
+    "skin_tone_support": false,
+    "name": "boar",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐽",
+    "skin_tone_support": false,
+    "name": "pig_nose",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐏",
+    "skin_tone_support": false,
+    "name": "ram",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐑",
+    "skin_tone_support": false,
+    "name": "ewe",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐐",
+    "skin_tone_support": false,
+    "name": "goat",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐪",
+    "skin_tone_support": false,
+    "name": "camel",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐫",
+    "skin_tone_support": false,
+    "name": "two_hump_camel",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦙",
+    "skin_tone_support": false,
+    "name": "llama",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🦒",
+    "skin_tone_support": false,
+    "name": "giraffe",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🐘",
+    "skin_tone_support": false,
+    "name": "elephant",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦏",
+    "skin_tone_support": false,
+    "name": "rhinoceros",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🦛",
+    "skin_tone_support": false,
+    "name": "hippopotamus",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🐭",
+    "skin_tone_support": false,
+    "name": "mouse_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐁",
+    "skin_tone_support": false,
+    "name": "mouse",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐀",
+    "skin_tone_support": false,
+    "name": "rat",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐹",
+    "skin_tone_support": false,
+    "name": "hamster",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐰",
+    "skin_tone_support": false,
+    "name": "rabbit_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐇",
+    "skin_tone_support": false,
+    "name": "rabbit",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐿️",
+    "skin_tone_support": false,
+    "name": "chipmunk",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦔",
+    "skin_tone_support": false,
+    "name": "hedgehog",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🦇",
+    "skin_tone_support": false,
+    "name": "bat",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🐻",
+    "skin_tone_support": false,
+    "name": "bear",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐨",
+    "skin_tone_support": false,
+    "name": "koala",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐼",
+    "skin_tone_support": false,
+    "name": "panda",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦥",
+    "skin_tone_support": false,
+    "name": "sloth",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🦦",
+    "skin_tone_support": false,
+    "name": "otter",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🦨",
+    "skin_tone_support": false,
+    "name": "skunk",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🦘",
+    "skin_tone_support": false,
+    "name": "kangaroo",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🦡",
+    "skin_tone_support": false,
+    "name": "badger",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🐾",
+    "skin_tone_support": false,
+    "name": "paw_prints",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦃",
+    "skin_tone_support": false,
+    "name": "turkey",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐔",
+    "skin_tone_support": false,
+    "name": "chicken",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐓",
+    "skin_tone_support": false,
+    "name": "rooster",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐣",
+    "skin_tone_support": false,
+    "name": "hatching_chick",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐤",
+    "skin_tone_support": false,
+    "name": "baby_chick",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐥",
+    "skin_tone_support": false,
+    "name": "front_facing_baby_chick",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐦",
+    "skin_tone_support": false,
+    "name": "bird",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐧",
+    "skin_tone_support": false,
+    "name": "penguin",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🕊️",
+    "skin_tone_support": false,
+    "name": "dove",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦅",
+    "skin_tone_support": false,
+    "name": "eagle",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🦆",
+    "skin_tone_support": false,
+    "name": "duck",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🦢",
+    "skin_tone_support": false,
+    "name": "swan",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🦉",
+    "skin_tone_support": false,
+    "name": "owl",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🦩",
+    "skin_tone_support": false,
+    "name": "flamingo",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🦚",
+    "skin_tone_support": false,
+    "name": "peacock",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🦜",
+    "skin_tone_support": false,
+    "name": "parrot",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🐸",
+    "skin_tone_support": false,
+    "name": "frog",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐊",
+    "skin_tone_support": false,
+    "name": "crocodile",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐢",
+    "skin_tone_support": false,
+    "name": "turtle",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦎",
+    "skin_tone_support": false,
+    "name": "lizard",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🐍",
+    "skin_tone_support": false,
+    "name": "snake",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐲",
+    "skin_tone_support": false,
+    "name": "dragon_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐉",
+    "skin_tone_support": false,
+    "name": "dragon",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦕",
+    "skin_tone_support": false,
+    "name": "sauropod",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🦖",
+    "skin_tone_support": false,
+    "name": "t_rex",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🐳",
+    "skin_tone_support": false,
+    "name": "spouting_whale",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐋",
+    "skin_tone_support": false,
+    "name": "whale",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐬",
+    "skin_tone_support": false,
+    "name": "dolphin",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐟",
+    "skin_tone_support": false,
+    "name": "fish",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐠",
+    "skin_tone_support": false,
+    "name": "tropical_fish",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐡",
+    "skin_tone_support": false,
+    "name": "blowfish",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦈",
+    "skin_tone_support": false,
+    "name": "shark",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🐙",
+    "skin_tone_support": false,
+    "name": "octopus",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐚",
+    "skin_tone_support": false,
+    "name": "spiral_shell",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐌",
+    "skin_tone_support": false,
+    "name": "snail",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦋",
+    "skin_tone_support": false,
+    "name": "butterfly",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🐛",
+    "skin_tone_support": false,
+    "name": "bug",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐜",
+    "skin_tone_support": false,
+    "name": "ant",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐝",
+    "skin_tone_support": false,
+    "name": "honeybee",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🐞",
+    "skin_tone_support": false,
+    "name": "lady_beetle",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦗",
+    "skin_tone_support": false,
+    "name": "cricket",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🕷️",
+    "skin_tone_support": false,
+    "name": "spider",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🕸️",
+    "skin_tone_support": false,
+    "name": "spider_web",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦂",
+    "skin_tone_support": false,
+    "name": "scorpion",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦟",
+    "skin_tone_support": false,
+    "name": "mosquito",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🦠",
+    "skin_tone_support": false,
+    "name": "microbe",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "💐",
+    "skin_tone_support": false,
+    "name": "bouquet",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌸",
+    "skin_tone_support": false,
+    "name": "cherry_blossom",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💮",
+    "skin_tone_support": false,
+    "name": "white_flower",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🏵️",
+    "skin_tone_support": false,
+    "name": "rosette",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌹",
+    "skin_tone_support": false,
+    "name": "rose",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥀",
+    "skin_tone_support": false,
+    "name": "wilted_flower",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🌺",
+    "skin_tone_support": false,
+    "name": "hibiscus",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌻",
+    "skin_tone_support": false,
+    "name": "sunflower",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌼",
+    "skin_tone_support": false,
+    "name": "blossom",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌷",
+    "skin_tone_support": false,
+    "name": "tulip",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌱",
+    "skin_tone_support": false,
+    "name": "seedling",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌲",
+    "skin_tone_support": false,
+    "name": "evergreen_tree",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌳",
+    "skin_tone_support": false,
+    "name": "deciduous_tree",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌴",
+    "skin_tone_support": false,
+    "name": "palm_tree",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌵",
+    "skin_tone_support": false,
+    "name": "cactus",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌾",
+    "skin_tone_support": false,
+    "name": "sheaf_of_rice",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌿",
+    "skin_tone_support": false,
+    "name": "herb",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "☘️",
+    "skin_tone_support": false,
+    "name": "shamrock",
+    "unicode_version": "4.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍀",
+    "skin_tone_support": false,
+    "name": "four_leaf_clover",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍁",
+    "skin_tone_support": false,
+    "name": "maple_leaf",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍂",
+    "skin_tone_support": false,
+    "name": "fallen_leaf",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍃",
+    "skin_tone_support": false,
+    "name": "leaf_fluttering_in_wind",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  }
+]

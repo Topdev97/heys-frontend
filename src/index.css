@@ -1,0 +1,201 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .white-border {
+    @apply border-shadow border border-white hover:border-white;
+  }
+
+  .btn-white {
+    @apply p-2 text-white flex justify-center	items-center hover:brightness-110 active:brightness-125 white-border rounded transition duration-200;
+  }
+  .btn-dark {
+    @apply p-2 text-black flex justify-center	items-center hover:brightness-90 active:brightness-75 border border-grey4 hover:border-grey4 rounded transition duration-200;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .modal-btn {
+    @apply opacity-50 px-6 py-2 rounded-md sm:w-auto text-base sm:text-sm font-medium;
+  }
+  .modal-btn-save {
+    @apply modal-btn bg-primary  text-white hover:bg-blue-900;
+  }
+  .modal-btn-cancel {
+    @apply modal-btn mr-3 inline-flex justify-center border border-gray-300 shadow-sm bg-white text-default hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  }
+
+  input {
+    @apply mb-2;
+  }
+
+  .link {
+    @apply text-thgreen6 hover:text-thgreen2 hover:underline active:text-thgreen3 cursor-pointer
+  }
+  .link-dark {
+    @apply text-thgreen1 hover:text-thgreen2 hover:underline active:text-thgreen3 cursor-pointer
+  }
+
+  .backdrop {
+    @apply fixed top-0 bottom-0 left-0 right-0 z-20 backdrop-blur-sm;
+  }
+}
+
+.border-shadow {
+  -webkit-box-shadow: 0px 0px 2px 1px rgba(255,255,255,0.2);
+  box-shadow: 0px 0px 2px 1px rgba(255,255,255,0.2);
+}
+
+.container {
+  max-width: 960px!important;
+}
+
+
+i {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  backdrop-filter: blur(2px);
+}
+
+.fade-modal {
+  animation: modal 0.3s linear;
+}
+
+@keyframes modal {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group label {
+  position: absolute;
+  transform-origin: top left;
+  top: 14px;
+  left: 10px;
+  font-size: 16px;
+  pointer-events: none;
+  -webkit-transition: all 0.15s ease-out 0s;
+  transition: all 0.15s ease-out 0s;
+}
+
+.form-group input:focus ~ label,
+.form-group input:not(:focus):valid ~ label,
+.form-group select ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:not(:focus):valid ~ label {
+  transform: translateY(-6px) scale(.75);
+  color: #116530;
+}
+
+.divider-line {
+  flex: 1;
+}
+
+.emoji-picker {
+  right: -12px;
+  bottom: -228px;
+}
+
+.min-w-200 {
+  min-width: 200px;
+}
+
+.absolute-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.absolute-center-x {
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.max-w-800 {
+  max-width: 800px;
+}
+
+
+/*  RETAIN BELOW THIS LINE */
+
+html, body, #app {
+  height: 100%;
+}
+
+h1 {
+  font-size: 2.0rem;
+}
+h2 {
+  font-size: 1.8rem;
+}
+h3 {
+  font-size: 1.6rem;
+}
+h4 {
+  font-size: 1.4rem;
+}
+h5 {
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.45rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  h4 {
+    font-size: 1.15rem;
+  }
+  h5 {
+    font-size: 1.0rem;
+  }
+}
+
+
+.bg-gradient{
+  position: relative;
+  z-index: 0;
+}
+
+.bg-gradient:before {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  content: " ";
+  background-image: -moz-linear-gradient(180deg, rgba(7, 68, 73, 0.3), #074449),-moz-linear-gradient(70deg, #072046 22%, #0c400b);
+  background-image: -webkit-linear-gradient(180deg, rgba(7, 68, 73, 0.3), #074449),-webkit-linear-gradient(70deg, #072046 22%, #0c400b);
+  background-image: -o-linear-gradient(180deg, rgba(7, 68, 73, 0.3), #074449),-o-linear-gradient(70deg, #072046 22%, #0c400b);
+  background-image: -ms-linear-gradient(180deg, rgba(7, 68, 73, 0.3), #074449),-ms-linear-gradient(70deg, #072046 22%, #0c400b);
+  background-image: linear-gradient(180deg, rgba(7, 68, 73, 0.3), #074449),linear-gradient(70deg, #072046 22%, #0c400b);
+}

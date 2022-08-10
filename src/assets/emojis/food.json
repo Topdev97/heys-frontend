@@ -1,0 +1,849 @@
+[
+  {
+    "emoji": "🍇",
+    "skin_tone_support": false,
+    "name": "grapes",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍈",
+    "skin_tone_support": false,
+    "name": "melon",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍉",
+    "skin_tone_support": false,
+    "name": "watermelon",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍊",
+    "skin_tone_support": false,
+    "name": "tangerine",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍋",
+    "skin_tone_support": false,
+    "name": "lemon",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍌",
+    "skin_tone_support": false,
+    "name": "banana",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍍",
+    "skin_tone_support": false,
+    "name": "pineapple",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥭",
+    "skin_tone_support": false,
+    "name": "mango",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🍎",
+    "skin_tone_support": false,
+    "name": "red_apple",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍏",
+    "skin_tone_support": false,
+    "name": "green_apple",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍐",
+    "skin_tone_support": false,
+    "name": "pear",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍑",
+    "skin_tone_support": false,
+    "name": "peach",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍒",
+    "skin_tone_support": false,
+    "name": "cherries",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍓",
+    "skin_tone_support": false,
+    "name": "strawberry",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥝",
+    "skin_tone_support": false,
+    "name": "kiwi_fruit",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🍅",
+    "skin_tone_support": false,
+    "name": "tomato",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥥",
+    "skin_tone_support": false,
+    "name": "coconut",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🥑",
+    "skin_tone_support": false,
+    "name": "avocado",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🍆",
+    "skin_tone_support": false,
+    "name": "eggplant",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥔",
+    "skin_tone_support": false,
+    "name": "potato",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🥕",
+    "skin_tone_support": false,
+    "name": "carrot",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🌽",
+    "skin_tone_support": false,
+    "name": "ear_of_corn",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌶️",
+    "skin_tone_support": false,
+    "name": "hot_pepper",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥒",
+    "skin_tone_support": false,
+    "name": "cucumber",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🥬",
+    "skin_tone_support": false,
+    "name": "leafy_green",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🥦",
+    "skin_tone_support": false,
+    "name": "broccoli",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🧄",
+    "skin_tone_support": false,
+    "name": "garlic",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🧅",
+    "skin_tone_support": false,
+    "name": "onion",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🍄",
+    "skin_tone_support": false,
+    "name": "mushroom",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥜",
+    "skin_tone_support": false,
+    "name": "peanuts",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🌰",
+    "skin_tone_support": false,
+    "name": "chestnut",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍞",
+    "skin_tone_support": false,
+    "name": "bread",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥐",
+    "skin_tone_support": false,
+    "name": "croissant",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🥖",
+    "skin_tone_support": false,
+    "name": "baguette_bread",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🥨",
+    "skin_tone_support": false,
+    "name": "pretzel",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🥯",
+    "skin_tone_support": false,
+    "name": "bagel",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🥞",
+    "skin_tone_support": false,
+    "name": "pancakes",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🧇",
+    "skin_tone_support": false,
+    "name": "waffle",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🧀",
+    "skin_tone_support": false,
+    "name": "cheese_wedge",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍖",
+    "skin_tone_support": false,
+    "name": "meat_on_bone",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍗",
+    "skin_tone_support": false,
+    "name": "poultry_leg",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥩",
+    "skin_tone_support": false,
+    "name": "cut_of_meat",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🥓",
+    "skin_tone_support": false,
+    "name": "bacon",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🍔",
+    "skin_tone_support": false,
+    "name": "hamburger",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍟",
+    "skin_tone_support": false,
+    "name": "french_fries",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍕",
+    "skin_tone_support": false,
+    "name": "pizza",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌭",
+    "skin_tone_support": false,
+    "name": "hot_dog",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥪",
+    "skin_tone_support": false,
+    "name": "sandwich",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🌮",
+    "skin_tone_support": false,
+    "name": "taco",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🌯",
+    "skin_tone_support": false,
+    "name": "burrito",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥙",
+    "skin_tone_support": false,
+    "name": "stuffed_flatbread",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🧆",
+    "skin_tone_support": false,
+    "name": "falafel",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🥚",
+    "skin_tone_support": false,
+    "name": "egg",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🍳",
+    "skin_tone_support": false,
+    "name": "cooking",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥘",
+    "skin_tone_support": false,
+    "name": "shallow_pan_of_food",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🍲",
+    "skin_tone_support": false,
+    "name": "pot_of_food",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥣",
+    "skin_tone_support": false,
+    "name": "bowl_with_spoon",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🥗",
+    "skin_tone_support": false,
+    "name": "green_salad",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🍿",
+    "skin_tone_support": false,
+    "name": "popcorn",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🧈",
+    "skin_tone_support": false,
+    "name": "butter",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🧂",
+    "skin_tone_support": false,
+    "name": "salt",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🥫",
+    "skin_tone_support": false,
+    "name": "canned_food",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🍱",
+    "skin_tone_support": false,
+    "name": "bento_box",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍘",
+    "skin_tone_support": false,
+    "name": "rice_cracker",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍙",
+    "skin_tone_support": false,
+    "name": "rice_ball",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍚",
+    "skin_tone_support": false,
+    "name": "cooked_rice",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍛",
+    "skin_tone_support": false,
+    "name": "curry_rice",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍜",
+    "skin_tone_support": false,
+    "name": "steaming_bowl",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍝",
+    "skin_tone_support": false,
+    "name": "spaghetti",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍠",
+    "skin_tone_support": false,
+    "name": "roasted_sweet_potato",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍢",
+    "skin_tone_support": false,
+    "name": "oden",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍣",
+    "skin_tone_support": false,
+    "name": "sushi",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍤",
+    "skin_tone_support": false,
+    "name": "fried_shrimp",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍥",
+    "skin_tone_support": false,
+    "name": "fish_cake_with_swirl",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥮",
+    "skin_tone_support": false,
+    "name": "moon_cake",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🍡",
+    "skin_tone_support": false,
+    "name": "dango",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥟",
+    "skin_tone_support": false,
+    "name": "dumpling",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🥠",
+    "skin_tone_support": false,
+    "name": "fortune_cookie",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🥡",
+    "skin_tone_support": false,
+    "name": "takeout_box",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🦀",
+    "skin_tone_support": false,
+    "name": "crab",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🦞",
+    "skin_tone_support": false,
+    "name": "lobster",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🦐",
+    "skin_tone_support": false,
+    "name": "shrimp",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🦑",
+    "skin_tone_support": false,
+    "name": "squid",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🦪",
+    "skin_tone_support": false,
+    "name": "oyster",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🍦",
+    "skin_tone_support": false,
+    "name": "soft_ice_cream",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍧",
+    "skin_tone_support": false,
+    "name": "shaved_ice",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍨",
+    "skin_tone_support": false,
+    "name": "ice_cream",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍩",
+    "skin_tone_support": false,
+    "name": "doughnut",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍪",
+    "skin_tone_support": false,
+    "name": "cookie",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎂",
+    "skin_tone_support": false,
+    "name": "birthday_cake",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍰",
+    "skin_tone_support": false,
+    "name": "shortcake",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🧁",
+    "skin_tone_support": false,
+    "name": "cupcake",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🥧",
+    "skin_tone_support": false,
+    "name": "pie",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🍫",
+    "skin_tone_support": false,
+    "name": "chocolate_bar",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍬",
+    "skin_tone_support": false,
+    "name": "candy",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍭",
+    "skin_tone_support": false,
+    "name": "lollipop",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍮",
+    "skin_tone_support": false,
+    "name": "custard",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍯",
+    "skin_tone_support": false,
+    "name": "honey_pot",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍼",
+    "skin_tone_support": false,
+    "name": "baby_bottle",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥛",
+    "skin_tone_support": false,
+    "name": "glass_of_milk",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "☕",
+    "skin_tone_support": false,
+    "name": "hot_beverage",
+    "unicode_version": "4.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍵",
+    "skin_tone_support": false,
+    "name": "teacup_without_handle",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍶",
+    "skin_tone_support": false,
+    "name": "sake",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍾",
+    "skin_tone_support": false,
+    "name": "bottle_with_popping_cork",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍷",
+    "skin_tone_support": false,
+    "name": "wine_glass",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍸",
+    "skin_tone_support": false,
+    "name": "cocktail_glass",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍹",
+    "skin_tone_support": false,
+    "name": "tropical_drink",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍺",
+    "skin_tone_support": false,
+    "name": "beer_mug",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍻",
+    "skin_tone_support": false,
+    "name": "clinking_beer_mugs",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥂",
+    "skin_tone_support": false,
+    "name": "clinking_glasses",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🥃",
+    "skin_tone_support": false,
+    "name": "tumbler_glass",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🥤",
+    "skin_tone_support": false,
+    "name": "cup_with_straw",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🧃",
+    "skin_tone_support": false,
+    "name": "beverage_box",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🧉",
+    "skin_tone_support": false,
+    "name": "mate",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🧊",
+    "skin_tone_support": false,
+    "name": "ice",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🥢",
+    "skin_tone_support": false,
+    "name": "chopsticks",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🍽️",
+    "skin_tone_support": false,
+    "name": "fork_and_knife_with_plate",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🍴",
+    "skin_tone_support": false,
+    "name": "fork_and_knife",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥄",
+    "skin_tone_support": false,
+    "name": "spoon",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🔪",
+    "skin_tone_support": false,
+    "name": "kitchen_knife",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🏺",
+    "skin_tone_support": false,
+    "name": "amphora",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  }
+]

@@ -1,0 +1,555 @@
+[
+  {
+    "emoji": "🎃",
+    "skin_tone_support": false,
+    "name": "jack_o_lantern",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎄",
+    "skin_tone_support": false,
+    "name": "christmas_tree",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎆",
+    "skin_tone_support": false,
+    "name": "fireworks",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎇",
+    "skin_tone_support": false,
+    "name": "sparkler",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🧨",
+    "skin_tone_support": false,
+    "name": "firecracker",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "✨",
+    "skin_tone_support": false,
+    "name": "sparkles",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎈",
+    "skin_tone_support": false,
+    "name": "balloon",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎉",
+    "skin_tone_support": false,
+    "name": "party_popper",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎊",
+    "skin_tone_support": false,
+    "name": "confetti_ball",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎋",
+    "skin_tone_support": false,
+    "name": "tanabata_tree",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎍",
+    "skin_tone_support": false,
+    "name": "pine_decoration",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎎",
+    "skin_tone_support": false,
+    "name": "japanese_dolls",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎏",
+    "skin_tone_support": false,
+    "name": "carp_streamer",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎐",
+    "skin_tone_support": false,
+    "name": "wind_chime",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎑",
+    "skin_tone_support": false,
+    "name": "moon_viewing_ceremony",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🧧",
+    "skin_tone_support": false,
+    "name": "red_envelope",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🎀",
+    "skin_tone_support": false,
+    "name": "ribbon",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎁",
+    "skin_tone_support": false,
+    "name": "wrapped_gift",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎗️",
+    "skin_tone_support": false,
+    "name": "reminder_ribbon",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎟️",
+    "skin_tone_support": false,
+    "name": "admission_tickets",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎫",
+    "skin_tone_support": false,
+    "name": "ticket",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎖️",
+    "skin_tone_support": false,
+    "name": "military_medal",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🏆",
+    "skin_tone_support": false,
+    "name": "trophy",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🏅",
+    "skin_tone_support": false,
+    "name": "sports_medal",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥇",
+    "skin_tone_support": false,
+    "name": "1st_place_medal",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🥈",
+    "skin_tone_support": false,
+    "name": "2nd_place_medal",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🥉",
+    "skin_tone_support": false,
+    "name": "3rd_place_medal",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "⚽",
+    "skin_tone_support": false,
+    "name": "soccer_ball",
+    "unicode_version": "5.2",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "⚾",
+    "skin_tone_support": false,
+    "name": "baseball",
+    "unicode_version": "5.2",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥎",
+    "skin_tone_support": false,
+    "name": "softball",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🏀",
+    "skin_tone_support": false,
+    "name": "basketball",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🏐",
+    "skin_tone_support": false,
+    "name": "volleyball",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🏈",
+    "skin_tone_support": false,
+    "name": "american_football",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🏉",
+    "skin_tone_support": false,
+    "name": "rugby_football",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎾",
+    "skin_tone_support": false,
+    "name": "tennis",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥏",
+    "skin_tone_support": false,
+    "name": "flying_disc",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🎳",
+    "skin_tone_support": false,
+    "name": "bowling",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🏏",
+    "skin_tone_support": false,
+    "name": "cricket_game",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🏑",
+    "skin_tone_support": false,
+    "name": "field_hockey",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🏒",
+    "skin_tone_support": false,
+    "name": "ice_hockey",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥍",
+    "skin_tone_support": false,
+    "name": "lacrosse",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🏓",
+    "skin_tone_support": false,
+    "name": "ping_pong",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🏸",
+    "skin_tone_support": false,
+    "name": "badminton",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥊",
+    "skin_tone_support": false,
+    "name": "boxing_glove",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🥋",
+    "skin_tone_support": false,
+    "name": "martial_arts_uniform",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🥅",
+    "skin_tone_support": false,
+    "name": "goal_net",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "⛳",
+    "skin_tone_support": false,
+    "name": "flag_in_hole",
+    "unicode_version": "5.2",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "⛸️",
+    "skin_tone_support": false,
+    "name": "ice_skate",
+    "unicode_version": "5.2",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎣",
+    "skin_tone_support": false,
+    "name": "fishing_pole",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤿",
+    "skin_tone_support": false,
+    "name": "diving_mask",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🎽",
+    "skin_tone_support": false,
+    "name": "running_shirt",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎿",
+    "skin_tone_support": false,
+    "name": "skis",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🛷",
+    "skin_tone_support": false,
+    "name": "sled",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🥌",
+    "skin_tone_support": false,
+    "name": "curling_stone",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🎯",
+    "skin_tone_support": false,
+    "name": "direct_hit",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🪀",
+    "skin_tone_support": false,
+    "name": "yo_yo",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🪁",
+    "skin_tone_support": false,
+    "name": "kite",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🎱",
+    "skin_tone_support": false,
+    "name": "pool_8_ball",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🔮",
+    "skin_tone_support": false,
+    "name": "crystal_ball",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🧿",
+    "skin_tone_support": false,
+    "name": "nazar_amulet",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🎮",
+    "skin_tone_support": false,
+    "name": "video_game",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🕹️",
+    "skin_tone_support": false,
+    "name": "joystick",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎰",
+    "skin_tone_support": false,
+    "name": "slot_machine",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎲",
+    "skin_tone_support": false,
+    "name": "game_die",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🧩",
+    "skin_tone_support": false,
+    "name": "puzzle_piece",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🧸",
+    "skin_tone_support": false,
+    "name": "teddy_bear",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "♠️",
+    "skin_tone_support": false,
+    "name": "spade_suit",
+    "unicode_version": "1.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "♥️",
+    "skin_tone_support": false,
+    "name": "heart_suit",
+    "unicode_version": "1.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "♦️",
+    "skin_tone_support": false,
+    "name": "diamond_suit",
+    "unicode_version": "1.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "♣️",
+    "skin_tone_support": false,
+    "name": "club_suit",
+    "unicode_version": "1.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "♟️",
+    "skin_tone_support": false,
+    "name": "chess_pawn",
+    "unicode_version": "1.1",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🃏",
+    "skin_tone_support": false,
+    "name": "joker",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🀄",
+    "skin_tone_support": false,
+    "name": "mahjong_red_dragon",
+    "unicode_version": "5.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎴",
+    "skin_tone_support": false,
+    "name": "flower_playing_cards",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎭",
+    "skin_tone_support": false,
+    "name": "performing_arts",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🖼️",
+    "skin_tone_support": false,
+    "name": "framed_picture",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🎨",
+    "skin_tone_support": false,
+    "name": "artist_palette",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🧵",
+    "skin_tone_support": false,
+    "name": "thread",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🧶",
+    "skin_tone_support": false,
+    "name": "yarn",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  }
+]

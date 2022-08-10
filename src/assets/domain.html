@@ -1,0 +1,197 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://heystacks.org/favicon.ico?v=2">
+
+  <title>heystacks</title>
+  <meta name="description" content="heystacks">
+  <meta http-equiv="refresh" content="5; URL=https://heystacks.org" />
+
+  <meta property="og:type" content="heystacks">
+  <meta property="og:url" content="https://heystacks.org">
+  <meta property="og:title" content="heystacks">
+  <meta property="og:description" content="Discover the best public Google docs">
+  <meta property="og:image" content="https://heystacks.org/banner.jpg">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://heystacks.org">
+  <meta property="twitter:title" content="heystacks">
+  <meta property="twitter:description" content="Discover the best public Google docs">
+  <meta property="twitter:image" content="https://heystacks.org/banner.jpg">
+
+  <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="font" href="https://fonts.gstatic.com/s/raleway/v15/1Ptug8zYS_SKggPNyC0ITw.woff2" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" as="font" href="https://fonts.gstatic.com/s/raleway/v22/1Ptug8zYS_SKggPNyC0ITw.woff2" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900&display=swap" as="style" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700,900&display=swap">-->
+
+  <link rel="canonical" href="https://heystacks.org" />
+  <meta name="description" content="Discover the best public Google docs">
+  <meta name="keywords" content="Google, Google Docs, Google Sheets, wiki, google drive, google drive wiki, Excel, documents, document, spreadsheet, presentation, Online, learn, public, open data, open knowledge, crowd, crowdsource, community, public documents, collaboration">
+
+  <style>
+    @font-face {
+      font-family: "Raleway";
+      font-weight: 400;
+      src: url(/frontend/public/fonts/woff2/1Ptug8zYS_SKggPNyC0ITw.woff2) format('woff2');
+    }
+    @font-face {
+      font-family: "Raleway";
+      font-weight: 500;
+      src: url(/frontend/public/fonts/woff2/1Ptug8zYS_SKggPNyC0ITw.woff2) format('woff2');
+    }
+    html {
+      font-family: 'Raleway', 'Roboto', Arial, sans-serif;
+      background-color: #074246;
+      background: -moz-linear-gradient(72deg, rgba(7,54,70,1) 0%, rgba(7,66,70,1) 50%, rgba(28,64,54,1) 100%);
+      background: -webkit-linear-gradient(72deg, rgba(7,54,70,1) 0%, rgba(7,66,70,1) 50%, rgba(28,64,54,1) 100%);
+      background: linear-gradient(72deg, rgba(7,54,70,1) 0%, rgba(7,66,70,1) 50%, rgba(28,64,54,1) 100%);
+      color: white;
+      margin: 0;
+      font-size: 22px;
+      height: 100%;
+    }
+    body {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      margin: 0;
+    }
+    .main-div {
+      padding: 10px;
+      max-width: 650px;
+      margin-top: -5%;
+    }
+    @media screen and (max-width: 600px) {
+      html {
+        font-size: 16px;
+      }
+      .main-div {
+        margin-top: 10px;
+      }
+    }
+    a {
+      text-decoration: inherit;
+      color: #f06139;
+    }
+    a:hover {
+      color: #f06139;
+      text-decoration: underline;
+    }
+    a:active {
+      color: #f06139;
+    }
+    .logo-link {
+      text-decoration: none !important;
+    }
+    .logo-link svg {
+      width: 26px;
+      border-radius: 3px;
+      margin: 0 0 -3px 2px;
+    }
+    #spinner {
+      border: 4px solid lightgrey;
+      border-top: 4px solid #074246;
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      animation: spin 1.2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+
+  <script>
+    window.addEventListener('load', function () {
+      const updateDots = function (remainingDots) {
+        document.getElementById('dots').textContent = '.'.repeat(remainingDots)
+      }
+      setTimeout(function() {updateDots(3)}, 1000)
+      setTimeout(function() {updateDots(2)}, 2000)
+      setTimeout(function() {updateDots(1)}, 3000)
+      setTimeout(function() {updateDots(0)}, 4000)
+      setTimeout(function() {window.location = 'https://heystacks.org'}, 7000)
+    })
+  </script>
+
+</head>
+
+<body>
+  <div class="main-div">
+    Are you looking for
+    <div>
+      <div>
+        <a href="https://heystacks.org" title="heystacks" style="color: white !important; text-decoration: none;">
+          <svg alt="heystacks logo" style="width: 2.6em; margin: 19px 5px -4px -7px" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 800.000000 800.000000" preserveAspectRatio="xMidYMid meet">
+            <rect x="10" y="10" width="700" height="700" fill="white"></rect>
+            <g transform="translate(0.000000,800.000000) scale(0.100000,-0.100000)" fill="#D95632" stroke="none">
+              <path d="M0 4000 l0 -4000 4000 0 4000 0 0 4000 0 4000 -4000 0 -4000 0 0 -4000z m6740 1695 l0 -445 -2315 0 -2315 0 0 445 0 445 2315 0 2315 0 0 -445z m-870 -1730 l0 -445 -2315 0 -2315 0 0 445 0 445 2315 0 2315 0 0 -445z"/>
+            </g>
+          </svg>
+          <h1 style="display: inline-block; font-weight: 500; margin-bottom: 0; font-size: 2.7em; margin-top: 5px">heystacks</h1>
+        </a>
+      </div>
+      <h3 style="margin-top: 3px; font-size: 1.2em; line-height: 1.4em; font-weight: 200;">
+        Discover the best public<br>
+        Google docs
+        <a class="logo-link" href="https://heystacks.org/?type=docs">
+          <svg alt="Google" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 64.000000 64.000000" preserveAspectRatio="xMidYMid meet">
+            <rect x="5" y="5" width="55" height="55" fill="white"></rect>
+            <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#4285F4" stroke="none">
+              <path d="M 0.648 639.352 L 0.648 1.409 L 639.352 0.648 L 639.352 639.352 L 0.648 639.352 Z M 500 465 L 500 430 L 320 430 L 140 430 L 140 465 L 140 500 L 320 500 L 500 500 L 500 465 Z M 500 325 L 500 290 L 320 290 L 140 290 L 140 325 L 140 360 L 320 360 L 500 360 L 500 325 Z M 390 185 L 390 150 L 265 150 L 140 150 L 140 185 L 140 220 L 265 220 L 390 220 L 390 185 Z"></path>
+            </g>
+          </svg>
+        </a>
+        <a class="logo-link" href="https://heystacks.org/?type=sheets">
+          <svg alt="Google" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 64.000000 64.000000" preserveAspectRatio="xMidYMid meet">
+            <rect x="5" y="5" width="55" height="55" fill="white"></rect>
+            <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#0F9D58" stroke="none">
+              <path d="M0 320 l0 -320 320 0 320 0 0 320 0 320 -320 0 -320 0 0 -320z m280 180 l0 -70 145 0 145 0 0 -35 0 -35 -145 0 -145 0 0 -145 0 -145 -35 0 -35 0 0 145 0 145 -70 0 -70 0 0 35 0 35 70 0 70 0 0 70 0 70 35 0 35 0 0 -70z"/>
+            </g>
+          </svg>
+        </a>
+        <a class="logo-link" href="https://heystacks.org/?type=slides">
+          <svg alt="Google" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 64.000000 64.000000" preserveAspectRatio="xMidYMid meet">
+            <rect x="5" y="5" width="55" height="55" fill="white"></rect>
+            <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#F4B400" stroke="none">
+              <path d="M0 320 l0 -320 320 0 320 0 0 320 0 320 -320 0 -320 0 0 -320z m570 0 l0 -140 -250 0 -250 0 0 140 0 140 250 0 250 0 0 -140z"/>
+            </g>
+          </svg>
+        </a>
+      </h3>
+    </div>
+    <br/>
+    <div>
+      <div class="mr-2.5">
+        <div id="spinner"></div>
+      </div>
+      Redirecting to <a href="https://heystacks.org" title="heystacks">heystacks.org</a> now
+      <div id="dots" style="display: inline-block; width: 16px; font-weight: 700; text-align: left">....</div>
+    </div>
+    <br/>
+    <br/>
+    <div>
+      <small style="color: darkgray">
+        (If instead you're inquiring about heystacks Solutions, please email <span class="font-bold">info@heystacks.com</span>)
+      </small>
+    </div>
+    <noscript>
+      <div>
+        <br/>
+        <br/>
+        <a href="https://heystacks.org" title="heystacks">Click here if you are not redirected automatically.</a>
+      </div>
+    </noscript>
+  </div>
+</body>
+
+</html>

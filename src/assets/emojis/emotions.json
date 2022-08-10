@@ -1,0 +1,1045 @@
+[
+  {
+    "emoji": "😀",
+    "skin_tone_support": false,
+    "name": "grinning_face",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😃",
+    "skin_tone_support": false,
+    "name": "grinning_face_with_big_eyes",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😄",
+    "skin_tone_support": false,
+    "name": "grinning_face_with_smiling_eyes",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😁",
+    "skin_tone_support": false,
+    "name": "beaming_face_with_smiling_eyes",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😆",
+    "skin_tone_support": false,
+    "name": "grinning_squinting_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😅",
+    "skin_tone_support": false,
+    "name": "grinning_face_with_sweat",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤣",
+    "skin_tone_support": false,
+    "name": "rolling_on_the_floor_laughing",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "😂",
+    "skin_tone_support": false,
+    "name": "face_with_tears_of_joy",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🙂",
+    "skin_tone_support": false,
+    "name": "slightly_smiling_face",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🙃",
+    "skin_tone_support": false,
+    "name": "upside_down_face",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😉",
+    "skin_tone_support": false,
+    "name": "winking_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😊",
+    "skin_tone_support": false,
+    "name": "smiling_face_with_smiling_eyes",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😇",
+    "skin_tone_support": false,
+    "name": "smiling_face_with_halo",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥰",
+    "skin_tone_support": false,
+    "name": "smiling_face_with_hearts",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "😍",
+    "skin_tone_support": false,
+    "name": "smiling_face_with_heart_eyes",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤩",
+    "skin_tone_support": false,
+    "name": "star_struck",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "😘",
+    "skin_tone_support": false,
+    "name": "face_blowing_a_kiss",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😗",
+    "skin_tone_support": false,
+    "name": "kissing_face",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "☺️",
+    "skin_tone_support": false,
+    "name": "smiling_face",
+    "unicode_version": "1.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😚",
+    "skin_tone_support": false,
+    "name": "kissing_face_with_closed_eyes",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😙",
+    "skin_tone_support": false,
+    "name": "kissing_face_with_smiling_eyes",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😋",
+    "skin_tone_support": false,
+    "name": "face_savoring_food",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😛",
+    "skin_tone_support": false,
+    "name": "face_with_tongue",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😜",
+    "skin_tone_support": false,
+    "name": "winking_face_with_tongue",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤪",
+    "skin_tone_support": false,
+    "name": "zany_face",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "😝",
+    "skin_tone_support": false,
+    "name": "squinting_face_with_tongue",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤑",
+    "skin_tone_support": false,
+    "name": "money_mouth_face",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤗",
+    "skin_tone_support": false,
+    "name": "hugging_face",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤭",
+    "skin_tone_support": false,
+    "name": "face_with_hand_over_mouth",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🤫",
+    "skin_tone_support": false,
+    "name": "shushing_face",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🤔",
+    "skin_tone_support": false,
+    "name": "thinking_face",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤐",
+    "skin_tone_support": false,
+    "name": "zipper_mouth_face",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤨",
+    "skin_tone_support": false,
+    "name": "face_with_raised_eyebrow",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "😐",
+    "skin_tone_support": false,
+    "name": "neutral_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😑",
+    "skin_tone_support": false,
+    "name": "expressionless_face",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😶",
+    "skin_tone_support": false,
+    "name": "face_without_mouth",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😏",
+    "skin_tone_support": false,
+    "name": "smirking_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😒",
+    "skin_tone_support": false,
+    "name": "unamused_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🙄",
+    "skin_tone_support": false,
+    "name": "face_with_rolling_eyes",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😬",
+    "skin_tone_support": false,
+    "name": "grimacing_face",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤥",
+    "skin_tone_support": false,
+    "name": "lying_face",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "😌",
+    "skin_tone_support": false,
+    "name": "relieved_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😔",
+    "skin_tone_support": false,
+    "name": "pensive_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😪",
+    "skin_tone_support": false,
+    "name": "sleepy_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤤",
+    "skin_tone_support": false,
+    "name": "drooling_face",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "😴",
+    "skin_tone_support": false,
+    "name": "sleeping_face",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😷",
+    "skin_tone_support": false,
+    "name": "face_with_medical_mask",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤒",
+    "skin_tone_support": false,
+    "name": "face_with_thermometer",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤕",
+    "skin_tone_support": false,
+    "name": "face_with_head_bandage",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤢",
+    "skin_tone_support": false,
+    "name": "nauseated_face",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🤮",
+    "skin_tone_support": false,
+    "name": "face_vomiting",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🤧",
+    "skin_tone_support": false,
+    "name": "sneezing_face",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🥵",
+    "skin_tone_support": false,
+    "name": "hot_face",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🥶",
+    "skin_tone_support": false,
+    "name": "cold_face",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "🥴",
+    "skin_tone_support": false,
+    "name": "woozy_face",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "😵",
+    "skin_tone_support": false,
+    "name": "dizzy_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤯",
+    "skin_tone_support": false,
+    "name": "exploding_head",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "🤠",
+    "skin_tone_support": false,
+    "name": "cowboy_hat_face",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🥳",
+    "skin_tone_support": false,
+    "name": "partying_face",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "😎",
+    "skin_tone_support": false,
+    "name": "smiling_face_with_sunglasses",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤓",
+    "skin_tone_support": false,
+    "name": "nerd_face",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🧐",
+    "skin_tone_support": false,
+    "name": "face_with_monocle",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "😕",
+    "skin_tone_support": false,
+    "name": "confused_face",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😟",
+    "skin_tone_support": false,
+    "name": "worried_face",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🙁",
+    "skin_tone_support": false,
+    "name": "slightly_frowning_face",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "☹️",
+    "skin_tone_support": false,
+    "name": "frowning_face",
+    "unicode_version": "1.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😮",
+    "skin_tone_support": false,
+    "name": "face_with_open_mouth",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😯",
+    "skin_tone_support": false,
+    "name": "hushed_face",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😲",
+    "skin_tone_support": false,
+    "name": "astonished_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😳",
+    "skin_tone_support": false,
+    "name": "flushed_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥺",
+    "skin_tone_support": false,
+    "name": "pleading_face",
+    "unicode_version": "11.0",
+    "emoji_version": "11.0"
+  },
+  {
+    "emoji": "😦",
+    "skin_tone_support": false,
+    "name": "frowning_face_with_open_mouth",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😧",
+    "skin_tone_support": false,
+    "name": "anguished_face",
+    "unicode_version": "6.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😨",
+    "skin_tone_support": false,
+    "name": "fearful_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😰",
+    "skin_tone_support": false,
+    "name": "anxious_face_with_sweat",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😥",
+    "skin_tone_support": false,
+    "name": "sad_but_relieved_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😢",
+    "skin_tone_support": false,
+    "name": "crying_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😭",
+    "skin_tone_support": false,
+    "name": "loudly_crying_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😱",
+    "skin_tone_support": false,
+    "name": "face_screaming_in_fear",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😖",
+    "skin_tone_support": false,
+    "name": "confounded_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😣",
+    "skin_tone_support": false,
+    "name": "persevering_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😞",
+    "skin_tone_support": false,
+    "name": "disappointed_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😓",
+    "skin_tone_support": false,
+    "name": "downcast_face_with_sweat",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😩",
+    "skin_tone_support": false,
+    "name": "weary_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😫",
+    "skin_tone_support": false,
+    "name": "tired_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🥱",
+    "skin_tone_support": false,
+    "name": "yawning_face",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "😤",
+    "skin_tone_support": false,
+    "name": "face_with_steam_from_nose",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😡",
+    "skin_tone_support": false,
+    "name": "pouting_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😠",
+    "skin_tone_support": false,
+    "name": "angry_face",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤬",
+    "skin_tone_support": false,
+    "name": "face_with_symbols_on_mouth",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "😈",
+    "skin_tone_support": false,
+    "name": "smiling_face_with_horns",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "👿",
+    "skin_tone_support": false,
+    "name": "angry_face_with_horns",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💀",
+    "skin_tone_support": false,
+    "name": "skull",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "☠️",
+    "skin_tone_support": false,
+    "name": "skull_and_crossbones",
+    "unicode_version": "1.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💩",
+    "skin_tone_support": false,
+    "name": "pile_of_poo",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤡",
+    "skin_tone_support": false,
+    "name": "clown_face",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "👹",
+    "skin_tone_support": false,
+    "name": "ogre",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "👺",
+    "skin_tone_support": false,
+    "name": "goblin",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "👻",
+    "skin_tone_support": false,
+    "name": "ghost",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "👽",
+    "skin_tone_support": false,
+    "name": "alien",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "👾",
+    "skin_tone_support": false,
+    "name": "alien_monster",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤖",
+    "skin_tone_support": false,
+    "name": "robot",
+    "unicode_version": "8.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😺",
+    "skin_tone_support": false,
+    "name": "grinning_cat",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😸",
+    "skin_tone_support": false,
+    "name": "grinning_cat_with_smiling_eyes",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😹",
+    "skin_tone_support": false,
+    "name": "cat_with_tears_of_joy",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😻",
+    "skin_tone_support": false,
+    "name": "smiling_cat_with_heart_eyes",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😼",
+    "skin_tone_support": false,
+    "name": "cat_with_wry_smile",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😽",
+    "skin_tone_support": false,
+    "name": "kissing_cat",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🙀",
+    "skin_tone_support": false,
+    "name": "weary_cat",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😿",
+    "skin_tone_support": false,
+    "name": "crying_cat",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "😾",
+    "skin_tone_support": false,
+    "name": "pouting_cat",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🙈",
+    "skin_tone_support": false,
+    "name": "see_no_evil_monkey",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🙉",
+    "skin_tone_support": false,
+    "name": "hear_no_evil_monkey",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🙊",
+    "skin_tone_support": false,
+    "name": "speak_no_evil_monkey",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💋",
+    "skin_tone_support": false,
+    "name": "kiss_mark",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💌",
+    "skin_tone_support": false,
+    "name": "love_letter",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💘",
+    "skin_tone_support": false,
+    "name": "heart_with_arrow",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💝",
+    "skin_tone_support": false,
+    "name": "heart_with_ribbon",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💖",
+    "skin_tone_support": false,
+    "name": "sparkling_heart",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💗",
+    "skin_tone_support": false,
+    "name": "growing_heart",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💓",
+    "skin_tone_support": false,
+    "name": "beating_heart",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💞",
+    "skin_tone_support": false,
+    "name": "revolving_hearts",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💕",
+    "skin_tone_support": false,
+    "name": "two_hearts",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💟",
+    "skin_tone_support": false,
+    "name": "heart_decoration",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "❣️",
+    "skin_tone_support": false,
+    "name": "heart_exclamation",
+    "unicode_version": "1.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💔",
+    "skin_tone_support": false,
+    "name": "broken_heart",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "❤️",
+    "skin_tone_support": false,
+    "name": "red_heart",
+    "unicode_version": "1.1",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🧡",
+    "skin_tone_support": false,
+    "name": "orange_heart",
+    "unicode_version": "10.0",
+    "emoji_version": "5.0"
+  },
+  {
+    "emoji": "💛",
+    "skin_tone_support": false,
+    "name": "yellow_heart",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💚",
+    "skin_tone_support": false,
+    "name": "green_heart",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💙",
+    "skin_tone_support": false,
+    "name": "blue_heart",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💜",
+    "skin_tone_support": false,
+    "name": "purple_heart",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🤎",
+    "skin_tone_support": false,
+    "name": "brown_heart",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "🖤",
+    "skin_tone_support": false,
+    "name": "black_heart",
+    "unicode_version": "9.0",
+    "emoji_version": "4.0"
+  },
+  {
+    "emoji": "🤍",
+    "skin_tone_support": false,
+    "name": "white_heart",
+    "unicode_version": "12.0",
+    "emoji_version": "12.1"
+  },
+  {
+    "emoji": "💯",
+    "skin_tone_support": false,
+    "name": "hundred_points",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💢",
+    "skin_tone_support": false,
+    "name": "anger_symbol",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💥",
+    "skin_tone_support": false,
+    "name": "collision",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💫",
+    "skin_tone_support": false,
+    "name": "dizzy",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💦",
+    "skin_tone_support": false,
+    "name": "sweat_droplets",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💨",
+    "skin_tone_support": false,
+    "name": "dashing_away",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🕳️",
+    "skin_tone_support": false,
+    "name": "hole",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💣",
+    "skin_tone_support": false,
+    "name": "bomb",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💬",
+    "skin_tone_support": false,
+    "name": "speech_balloon",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "👁️‍🗨️",
+    "skin_tone_support": false,
+    "name": "eye_in_speech_bubble",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🗨️",
+    "skin_tone_support": false,
+    "name": "left_speech_bubble",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "🗯️",
+    "skin_tone_support": false,
+    "name": "right_anger_bubble",
+    "unicode_version": "7.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💭",
+    "skin_tone_support": false,
+    "name": "thought_balloon",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  },
+  {
+    "emoji": "💤",
+    "skin_tone_support": false,
+    "name": "zzz",
+    "unicode_version": "6.0",
+    "emoji_version": "2.0"
+  }
+]
