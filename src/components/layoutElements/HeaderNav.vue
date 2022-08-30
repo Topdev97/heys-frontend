@@ -28,7 +28,7 @@ const gatheringsModal = ref(false)
         <h1 class="text-xl font-medium hidden xs:inline-block ml-1">heystack</h1>
       </router-link>
     </div>
-    <div>
+    <div class="flex">
       <AccountButton />
       <button
         title="Gatherings"

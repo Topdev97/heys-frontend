@@ -1,13 +1,14 @@
 <script lang="ts" setup>
 import { ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
-import { ethers } from 'ethers'
+import { ethers, BigNumber } from 'ethers'
 import {formatBalance, formatNumber, truncateAddress} from '../../utils'
 import useConnectedAccount from "../../composables/web3/useConnectedAccounts";
 import useMetaMaskProvider from "../../composables/web3/useMetaMaskProvider";
 import useNativeBalance from '../../composables/web3/useNativeBalance';
 import useTokenBalance from "../../composables/web3/useNativeBalance";
-import {TOKENS} from "../../utils/consts";
+import {TOKENS, USDC_ADDRESSES} from "../../utils/consts";
+import USDCAbi from '@/abis/USDCAbi.json'
 
 // consts
 const route = useRoute()
@@ -34,42 +35,72 @@ async function connectWallet() {
   }
 }
 
+async function approveWallet() {
+  console.log("qwew")
+  const signer = provider.getSigner()
+  const usdcInstance = new ethers.Contract(
+    USDC_ADDRESSES['USDC'],
+    USDCAbi,
+    signer
+  )
+  console.log("usdcInstance", usdcInstance)
+  let approvedAmount = 50;
+  try {
+
+    const tx = await usdcInstance.approve('0xc341333737C6CDec94D40B839b43684eA9B0e5D8', BigNumber.from(approvedAmount))
+    console.log('tx', tx)
+
+  } catch (error) {
+
+  }
+}
+
 </script>
 
 <template>
-  <div class="inline-block text-sm mr-3 hover:bg-white/10 active:bg-white/20 border border-white rounded-full cursor-pointer">
-    <router-link
-      v-if="account"
-      :to="{ path: `/g/${gatheringSlug}/govern`, query: { tab: 'Finance' } }"
-    >
-      <div class="inline-block">
-        <span
-          v-if="balance?._isBigNumber"
-          class="ml-2"
-        >
-          {{ `${formatNumber(formatBalance(balance))} ${TOKENS['80001'].MATIC.denom}` }}
-        </span>
-        <span
-          v-else
-          class="ml-2"
-        >
-          {{ balance }}
-        </span>
-      </div>
-      <div
-        class="inline-block rounded-full border-r border-white bg-thgreen4 px-2 py-1 ml-1"
-        @click="disconnectWallet"
+  <div class="flex">
+    <div class="inline-block text-sm mr-3 hover:bg-white/10 active:bg-white/20 border border-white rounded-full cursor-pointer">
+      <router-link
+        v-if="account"
+        :to="{ path: `/g/${gatheringSlug}/govern`, query: { tab: 'Finance' } }"
       >
-        {{ truncateAddress(account) }}
-      </div>
-    </router-link>
+        <div class="inline-block">
+          <span
+            v-if="balance?._isBigNumber"
+            class="ml-2"
+          >
+            {{ `${formatNumber(formatBalance(balance))} ${TOKENS['80001'].MATIC.denom}` }}
+          </span>
+          <span
+            v-else
+            class="ml-2"
+          >
+            {{ balance }}
+          </span>
+        </div>
+        <div
+          class="inline-block rounded-full border-r border-white bg-thgreen4 px-2 py-1 ml-1"
+          @click="disconnectWallet"
+        >
+          {{ truncateAddress(account) }}
+        </div>
+      </router-link>
+      <button
+        v-else
+        title="Connect wallet"
+        class="rounded px-3 py-1 border-none shadow-none"
+        @click="connectWallet"
+      >
+        Connect wallet
+      </button>
+  
+    </div>
     <button
-      v-else
-      title="Connect wallet"
-      class="rounded px-3 py-1 border-none shadow-none"
-      @click="connectWallet"
-    >
-      Connect wallet
+      title="Approve-button"
+      class="rounded-full px-3 py-1 border border-white mr-4"
+      @click="approveWallet"
+      >
+      Approve
     </button>
   </div>
 </template>
