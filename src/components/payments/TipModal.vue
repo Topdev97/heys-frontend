@@ -1,18 +1,18 @@
 <template>
   <div
-    class="fixed fade-modal overflow-auto bg-white rounded z-50 absolute-center"
+    class="overflow-auto fixed z-50 bg-white rounded fade-modal absolute-center"
     style="height: auto"
   >
-    <div class="w-full relative pt-12 px-4 sm:px-6 relative">
+    <div class="relative px-4 sm:px-6 pt-12 w-full">
       <div
+        class="absolute top-5 right-7 cursor-pointer"
         @click="$emit('close')"
-        class="cursor-pointer absolute top-5 right-7"
       >
-        <i class="fa fa-times text-2xl"></i>
+        <i class="text-2xl fa fa-times"></i>
       </div>
 
       <h3
-        class="display-1 font-normal mb-3 text-center text-default"
+        class="mb-3 font-normal text-center text-default display-1"
         :style="
           state.layoutData.onMobile
             ? { 'font-size': '1.5rem!important', 'line-height': '2.0rem' }
@@ -29,13 +29,13 @@
         <PaymentSelector />
       </div>
       <button
-        class="mt-5 mb-12 py-2 rounded w-full duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400"
+        class="py-2 mt-5 mb-12 w-full rounded duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400"
         :disabled="state.layoutData.addLoading"
         @click="tip()"
       >
         <i
           v-if="!state.layoutData.addLoading"
-          class="fa fa-plus text-xl mr-2 text-white"
+          class="mr-2 text-xl text-white fa fa-plus"
         ></i>
         <span class="text-xl text-white">{{
           state.layoutData.addLoading ? 'Tip...' : 'Tip'

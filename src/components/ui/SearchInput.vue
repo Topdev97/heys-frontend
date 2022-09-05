@@ -4,10 +4,10 @@
       (state.layoutData.searchFocused ? 'search-input-wrapper-focused ' : ' ') +
       (narrow ? 'search-input-wrapper-narrow' : '')
     "
-    class="search-input-wrapper bg-thgreen8 flex items-center relative white-border rounded-full my-2 mx-2 pl-3 pr-1 py-0.5"
+    class="flex relative items-center py-0.5 pr-1 pl-3 my-2 mx-2 bg-thgreen8 rounded-full search-input-wrapper white-border"
   >
-    <div class="ui input bg-transparent p-0 h-9">
-      <div class="search-icons flex items-center w-4 text-lightgrey">
+    <div class="p-0 h-9 bg-transparent ui input">
+      <div class="flex items-center w-4 text-lightgrey search-icons">
         <svg
           aria-hidden="true"
           focusable="false"
@@ -16,7 +16,7 @@
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
-          class="svg-inline--fa fa-plus fa-w-14 max-w-full max-h-full"
+          class="max-w-full max-h-full svg-inline--fa fa-plus fa-w-14"
         >
           <path
             fill="currentColor"
@@ -25,22 +25,22 @@
         </svg>
       </div>
       <input
-        v-on:keydown.enter="searchEnter()"
-        v-model="state.filterObj.search"
         ref="search-input"
-        @focus="state.layoutData.searchFocused = true"
-        @blur="state.layoutData.searchFocused = false"
-        @keydown="arrowKeyPress"
+        v-model="state.filterObj.search"
         type="text"
         :placeholder="narrow ? 'Search Heystack' : 'Search'"
         :class="state.filterObj.search.length ? '' : 'text-base'"
-        class="border-none mb-0 text-white h-9"
+        class="mb-0 h-9 text-white border-none"
+        @keydown.enter="searchEnter()"
+        @focus="state.layoutData.searchFocused = true"
+        @blur="state.layoutData.searchFocused = false"
+        @keydown="arrowKeyPress"
       />
     </div>
     <div class="w-4">
       <i
-        class="fa fa-times-circle search-icons m-0 cursor-pointer text-lightgrey"
         v-if="state.filterObj.search && !searching"
+        class="m-0 text-lightgrey cursor-pointer fa fa-times-circle search-icons"
         @click="
           () => {
             state.filterObj.search = ''
@@ -49,8 +49,8 @@
         "
       ></i>
       <i
-        class="fas fa-circle-notch fa-spin search-icons m-0 text-lightgrey"
         v-if="state.filterObj.search && searching"
+        class="m-0 text-lightgrey fas fa-circle-notch fa-spin search-icons"
       ></i>
     </div>
     <div
@@ -58,7 +58,7 @@
         (state.layoutData.searchFocused || state.dropdown.hover) &&
         filteredTags.length
       "
-      class="shadow-menu text-left search-dropdown absolute z-50 rounded bg-white left-4"
+      class="absolute left-4 z-50 text-left bg-white rounded shadow-menu search-dropdown"
       :style="{ bottom: -(filteredTags.length + 1) * 27 + 'px' }"
       @mouseenter="state.dropdown.hover = true"
       @mouseleave="state.dropdown.hover = false"
@@ -68,16 +68,17 @@
       </div>
       <a
         v-for="(tag, tid) in filteredTags"
+        :key="`tag-search-${tid}`"
         :href="'/?tags=' + tag.text"
         :title="tag.text"
         class="no-underline"
         @click="feedTagClick"
       >
         <div
+          :class="state.dropdown.active === tid ? 'dropdown-item-active' : ''"
+          class="px-2 max-w-full text-lg truncate text-emerald-800"
           @mouseenter="state.dropdown.active = tid"
           @mouseleave="state.dropdown.active = -1"
-          :class="state.dropdown.active === tid ? 'dropdown-item-active' : ''"
-          class="px-2 max-w-full truncate text-lg text-emerald-800"
         >
           {{ tag.text }}
         </div>
@@ -96,8 +97,8 @@ export default defineComponent({
     feed: { type: Boolean },
     narrow: { type: Boolean },
     searching: { type: Boolean },
-    initialSearch: { type: String },
-    existingTags: { type: Array },
+    initialSearch: { type: String, default: '' },
+    existingTags: { type: Array, default: () => [] },
   },
   emits: ['search', 'selected-tag'],
   setup(props, { emit }) {
@@ -142,12 +143,15 @@ export default defineComponent({
     const searchEnter = () => {
       if (state.dropdown.active !== -1) {
         if (props.feed) {
-          emit('selected-tag', filteredTags._value[state.dropdown.active].text)
+          emit(
+            'selected-tag',
+            filteredTags.value._value[state.dropdown.active].text
+          )
           state.filterObj.search = ''
           state.dropdown.active = -1
         } else {
           router.push(
-            '/?tags=' + filteredTags._value[state.dropdown.active].text
+            '/?tags=' + filteredTags.value._value[state.dropdown.active].text
           )
         }
       } else {
@@ -158,7 +162,10 @@ export default defineComponent({
     const feedTagClick = event => {
       if (props.feed) {
         event.preventDefault()
-        emit('selected-tag', filteredTags._value[state.dropdown.active].text)
+        emit(
+          'selected-tag',
+          filteredTags.value._value[state.dropdown.active].text
+        )
         state.filterObj.search = ''
         state.dropdown.active = -1
       }
@@ -167,7 +174,7 @@ export default defineComponent({
     const arrowKeyPress = event => {
       if (event.key === 'ArrowDown') {
         event.preventDefault()
-        if (filteredTags._value.length > state.dropdown.active + 1)
+        if (filteredTags.value._value.length > state.dropdown.active + 1)
           state.dropdown.active += 1
       }
       if (event.key === 'ArrowUp') {

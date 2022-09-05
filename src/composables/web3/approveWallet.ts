@@ -13,7 +13,7 @@ export default async function approveWallet(amount: number) {
     signer
   )
   console.log('usdcInstance', usdcInstance)
-  let approvedAmount = amount
+  const approvedAmount = amount
   try {
     const tx = await usdcInstance.approve(
       GATHERING_ADDRESSES['gOTB'],

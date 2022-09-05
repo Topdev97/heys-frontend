@@ -1,17 +1,17 @@
 <template>
   <div
-    class="fixed fade-modal overflow-auto bg-white rounded z-50 absolute-center"
+    class="overflow-auto fixed z-50 bg-white rounded fade-modal absolute-center"
   >
-    <div class="w-full h-full relative pt-12 px-4 sm:px-6 relative">
+    <div class="relative px-4 sm:px-6 pt-12 w-full h-full">
       <div
+        class="absolute top-5 right-7 cursor-pointer"
         @click="$emit('close')"
-        class="cursor-pointer absolute top-5 right-7"
       >
-        <i class="fa fa-times text-2xl"></i>
+        <i class="text-2xl fa fa-times"></i>
       </div>
 
       <h3
-        class="display-1 font-normal mb-3 text-center text-default"
+        class="mb-3 font-normal text-center text-default display-1"
         :style="
           state.layoutData.onMobile
             ? { 'font-size': '1.5rem!important', 'line-height': '2.0rem' }
@@ -21,12 +21,12 @@
         Share an interesting Doc, Sheet or Slide
       </h3>
 
-      <div class="text-center" v-if="state.layoutData.page === 'main'">
+      <div v-if="state.layoutData.page === 'main'" class="text-center">
         <br />
         <br />
         <br />
         <button
-          class="mt-5 mb-4 py-2 rounded w-1/2 duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400"
+          class="py-2 mt-5 mb-4 w-1/2 rounded duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400"
           :style="
             state.layoutData.onMobile
               ? { 'font-size': '0.8rem!important', 'min-width': '235px' }
@@ -34,12 +34,12 @@
           "
           @click="state.layoutData.page = 'existing'"
         >
-          <i class="fa fa-file-alt text-xl mr-2 text-white"></i>
+          <i class="mr-2 text-xl text-white fa fa-file-alt"></i>
           <span class="text-xl text-white">Share a link to existing doc</span>
         </button>
         <br />
         <button
-          class="mt-5 mb-4 py-2 rounded w-1/2 duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400"
+          class="py-2 mt-5 mb-4 w-1/2 rounded duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400"
           :style="
             state.layoutData.onMobile
               ? { 'font-size': '0.8rem!important', 'min-width': '235px' }
@@ -47,7 +47,7 @@
           "
           @click="state.layoutData.page = 'new'"
         >
-          <i class="fa fa-file text-xl mr-2 text-white"></i>
+          <i class="mr-2 text-xl text-white fa fa-file"></i>
           <span class="text-xl text-white">Write a new doc</span>
         </button>
       </div>
@@ -56,22 +56,22 @@
         class="sm:px-10 text-center"
       >
         <a
+          class="mb-4 hover:underline cursor-pointer text-emerald-800 active:text-emerald-600"
           @click="state.layoutData.page = 'main'"
-          class="mb-4 hover:underline text-emerald-800 active:text-emerald-600 cursor-pointer"
         >
-          <i class="fa fa-chevron-left mr-1"></i>
+          <i class="mr-1 fa fa-chevron-left"></i>
           Back
         </a>
         <br />
         <br />
         <br />
-        <div class="form-group mb-3">
+        <div class="mb-3 form-group">
           <input
-            type="text"
             id="url-input"
             ref="url-input"
-            class="bg-gray-200 rounded w-full outline-none px-3 pt-5 pb-3 text-default mb-0"
             v-model="state.newDocumentObj.url"
+            type="text"
+            class="px-3 pt-5 pb-3 mb-0 w-full text-default bg-gray-200 rounded outline-none"
             :error="
               state.newDocumentObj.errors.indexOf('url-error') >= 0 ||
               state.newDocumentObj.errors.indexOf('no-url') >= 0
@@ -91,7 +91,7 @@
           >
           <p
             v-if="state.newDocumentObj.errors.indexOf('url-error') >= 0"
-            class="text-red-500 text-left"
+            class="text-left text-red-500"
           >
             Incorrect url - please double check your link. It should be
             something like
@@ -99,13 +99,13 @@
           </p>
         </div>
 
-        <div class="form-group mb-3">
+        <div class="mb-3 form-group">
           <textarea
-            ref="new-modal-description"
             id="new-modal-description"
-            rows="4"
-            class="bg-gray-200 rounded w-full outline-none px-3 pt-5 pb-3 text-default"
+            ref="new-modal-description"
             v-model="state.newDocumentObj.description"
+            rows="4"
+            class="px-3 pt-5 pb-3 w-full text-default bg-gray-200 rounded outline-none"
             :error="state.newDocumentObj.errors.indexOf('no-description') >= 0"
             maxlength="1000"
             filled
@@ -122,10 +122,10 @@
             What is this doc about?
           </label>
           <div
+            class="absolute right-2 bottom-3 cursor-pointer emoji-picker-btn"
             @click="
               state.layoutData.emojiPicker = !state.layoutData.emojiPicker
             "
-            class="emoji-picker-btn cursor-pointer absolute bottom-3 right-2"
           >
             <i class="far fa-smile"></i>
           </div>
@@ -138,15 +138,11 @@
         </div>
         <div class="form-group">
           <input
-            ref="tags--1"
             id="tags-combobox--1"
-            class="bg-gray-200 rounded w-full outline-none px-3 pt-5 pb-3 text-default mb-0"
-            :items="existingTags"
+            ref="tags--1"
             v-model="state.newDocumentObj.tags"
-            @input="state.layoutData.comboboxInput = null"
-            @keydown="updateTagsOnComma"
-            @blur="addTag"
-            :search-input.sync="state.layoutData.comboboxInput"
+            class="px-3 pt-5 pb-3 mb-0 w-full text-default bg-gray-200 rounded outline-none"
+            :items="existingTags"
             :error="state.newDocumentObj.errors.indexOf('no-tags') >= 0"
             chips
             counter="2"
@@ -157,6 +153,9 @@
             auto-select-first
             filled
             required
+            @input="state.layoutData.comboboxInput = null"
+            @keydown="updateTagsOnComma"
+            @blur="addTag"
           />
           <label
             for="tags-combobox--1"
@@ -177,7 +176,7 @@
                 state.newDocumentObj.tagCandidate &&
                 state.newDocumentObj.tagCandidate !== 'No data available'
               "
-              class="text-left mb-0 z-20"
+              class="z-20 mb-0 text-left"
             >
               Enter:
               <strong>{{ state.newDocumentObj.tagCandidate }}</strong>
@@ -186,21 +185,21 @@
           </transition>
         </div>
         <button
-          class="mt-5 mb-6 py-2 rounded w-full duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400"
+          class="py-2 mt-5 mb-6 w-full rounded duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400"
           :disabled="state.layoutData.addLoading"
           @click="addDocument()"
         >
           <i
             v-if="!state.layoutData.addLoading"
-            class="fa fa-plus text-xl mr-2 text-white"
+            class="mr-2 text-xl text-white fa fa-plus"
           ></i>
           <span class="text-xl text-white">{{
             state.layoutData.addLoading ? 'Adding...' : 'Add new doc'
           }}</span>
         </button>
-        <div class="min-h-26 pb-12">
+        <div class="pb-12 min-h-26">
           <h5>Sponsor submission</h5>
-          <small class="mt-1 mb-4 block"
+          <small class="block mt-1 mb-4"
             >Sponsored docs are more likely to be included in the
             gathering</small
           >
@@ -208,27 +207,27 @@
           <!--          <small>If the doc is not approved, the funds will be returned</small>-->
         </div>
       </div>
-      <div v-if="state.layoutData.page === 'new'" class="text-center pb-6">
+      <div v-if="state.layoutData.page === 'new'" class="pb-6 text-center">
         <a
+          class="mb-4 hover:underline cursor-pointer text-emerald-800 active:text-emerald-600"
           @click="state.layoutData.page = 'main'"
-          class="mb-4 hover:underline text-emerald-800 active:text-emerald-600 cursor-pointer"
         >
-          <i class="fa fa-chevron-left mr-1"></i>
+          <i class="mr-1 fa fa-chevron-left"></i>
           Back
         </a>
         <br />
-        <p class="subheading font-normal text-lg mb-2 mt-7 text-default">
+        <p class="mt-7 mb-2 text-lg font-normal text-default subheading">
           1. Create a new:
         </p>
         <div class="flex justify-center">
           <a
             href="https://docs.new"
             target="_blank"
-            class="logo-link mx-2 flex items-center hover:underline text-emerald-800 active:text-emerald-600"
+            class="flex items-center mx-2 hover:underline logo-link text-emerald-800 active:text-emerald-600"
           >
             <svg
               alt="Google"
-              class="rounded mr-1 w-6"
+              class="mr-1 w-6 rounded"
               xmlns="http://www.w3.org/2000/svg"
               version="1.0"
               viewBox="0 0 64.000000 64.000000"
@@ -250,11 +249,11 @@
           <a
             href="https://sheets.new"
             target="_blank"
-            class="logo-link mx-2 flex items-center hover:underline text-emerald-800 active:text-emerald-600"
+            class="flex items-center mx-2 hover:underline logo-link text-emerald-800 active:text-emerald-600"
           >
             <svg
               alt="Google"
-              class="rounded mr-1 w-6"
+              class="mr-1 w-6 rounded"
               xmlns="http://www.w3.org/2000/svg"
               version="1.0"
               viewBox="0 0 64.000000 64.000000"
@@ -276,11 +275,11 @@
           <a
             href="https://slides.new"
             target="_blank"
-            class="logo-link mx-2 flex items-center hover:underline text-emerald-800 active:text-emerald-600"
+            class="flex items-center mx-2 hover:underline logo-link text-emerald-800 active:text-emerald-600"
           >
             <svg
               alt="Google"
-              class="rounded mr-1 w-6"
+              class="mr-1 w-6 rounded"
               xmlns="http://www.w3.org/2000/svg"
               version="1.0"
               viewBox="0 0 64.000000 64.000000"
@@ -301,26 +300,26 @@
           </a>
         </div>
 
-        <p class="subheading font-normal text-lg mb-2 mt-7 text-default">
+        <p class="mt-7 mb-2 text-lg font-normal text-default subheading">
           2. Make it public and copy the link:
         </p>
         <img
           alt="Share doc 1"
           src="/src/assets/img/nd1.jpg"
-          class="w-3/4 block mx-auto"
+          class="block mx-auto w-3/4"
         />
         <br />
         <img
           alt="Share doc 2"
           src="/src/assets/img/nd2.jpg"
-          class="w-3/4 block mx-auto"
+          class="block mx-auto w-3/4"
         />
 
-        <p class="subheading font-normal text-lg mb-2 mt-7 text-default">
+        <p class="mt-7 mb-2 text-lg font-normal text-default subheading">
           3. Add the link to heystacks:
           <a
+            class="hover:underline cursor-pointer text-emerald-800 active:text-emerald-600"
             @click="state.layoutData.page = 'existing'"
-            class="hover:underline text-emerald-800 active:text-emerald-600 cursor-pointer"
             >here</a
           >
         </p>
@@ -352,8 +351,8 @@ export default defineComponent({
     PaymentSelector,
   },
   props: {
-    existingTags: { type: Array },
-    gathering: { type: String },
+    existingTags: { type: Array, default: () => [] },
+    gathering: { type: String, default: '' },
   },
   emits: ['close', 'close-add-new-modal', 'close-approval-needed'],
   setup(props, { emit }) {
@@ -547,7 +546,7 @@ export default defineComponent({
     }
 
     const insertEmoji = emoji => {
-      const el = new_modal_description.$el.querySelector('textarea')
+      const el = new_modal_description.value.$el.querySelector('textarea')
       let cursorPos = el.selectionEnd
       state.newDocumentObj.description =
         state.newDocumentObj.description.substring(0, cursorPos) +

@@ -1,8 +1,8 @@
 import { NETWORKS, TOKENS } from '../../utils/consts'
 
 export default async function changeNetwork() {
-  let chainId: number = Number(NETWORKS.MATIC_MUMBAI)
-  let chainIdHex: string = Number(NETWORKS.MATIC_MUMBAI).toString(16)
+  const chainId = Number(NETWORKS.MATIC_MUMBAI)
+  const chainIdHex: string = Number(NETWORKS.MATIC_MUMBAI).toString(16)
 
   if (ethereum.networkVersion !== chainId) {
     try {

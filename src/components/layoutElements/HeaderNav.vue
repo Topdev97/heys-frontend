@@ -12,7 +12,7 @@ const gatheringsModal = ref(false)
     <div>
       <router-link
         :to="{ path: '/' }"
-        class="flex items-center active:opacity-75 opacity-90 transition duration-200 hover:scale-105"
+        class="flex items-center opacity-90 active:opacity-75 transition duration-200 hover:scale-105"
         title="heystacks"
       >
         <svg
@@ -35,7 +35,7 @@ const gatheringsModal = ref(false)
             />
           </g>
         </svg>
-        <h1 class="text-xl font-medium hidden xs:inline-block ml-1">
+        <h1 class="hidden xs:inline-block ml-1 text-xl font-medium">
           heystack
         </h1>
       </router-link>
@@ -44,7 +44,7 @@ const gatheringsModal = ref(false)
       <AccountButton />
       <button
         title="Gatherings"
-        class="md:inline-block px-2 py-1 text-sm hover:bg-white/10 active:bg-white/20 border border-white rounded transition duration-200 flex items-center"
+        class="flex md:inline-block items-center py-1 px-2 text-sm rounded border border-white transition duration-200 hover:bg-white/10 active:bg-white/20"
         @click="gatheringsModal = true"
       >
         <svg
@@ -66,8 +66,8 @@ const gatheringsModal = ref(false)
         class="fixed inset-0 bg-black/30 backdrop-blur-[2px]"
         aria-hidden="true"
       />
-      <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
-        <DialogPanel class="w-full max-w-[40rem] rounded bg-white p-8">
+      <div class="flex fixed inset-0 z-50 justify-center items-center p-4">
+        <DialogPanel class="p-8 w-full bg-white rounded max-w-[40rem]">
           <GatheringsModal />
         </DialogPanel>
       </div>

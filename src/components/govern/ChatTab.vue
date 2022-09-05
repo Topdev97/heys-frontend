@@ -4,7 +4,7 @@
   <div class="text-center">
     <button
       title="Discord"
-      class="inline-block px-4 py-1 min-w-[7rem] fill-white"
+      class="inline-block py-1 px-4 min-w-[7rem] fill-white"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
         <path

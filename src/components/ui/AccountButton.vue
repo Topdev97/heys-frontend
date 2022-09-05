@@ -40,7 +40,7 @@ async function connectWallet() {
 <template>
   <div class="flex">
     <div
-      class="inline-block text-sm mr-3 hover:bg-white/10 active:bg-white/20 border border-white rounded-full cursor-pointer"
+      class="inline-block mr-3 text-sm rounded-full border border-white cursor-pointer hover:bg-white/10 active:bg-white/20"
     >
       <router-link
         v-if="account"
@@ -59,7 +59,7 @@ async function connectWallet() {
           </span>
         </div>
         <div
-          class="inline-block rounded-full border-r border-white bg-thgreen4 px-2 py-1 ml-1"
+          class="inline-block py-1 px-2 ml-1 bg-thgreen4 rounded-full border-r border-white"
           @click="disconnectWallet"
         >
           {{ truncateAddress(account) }}
@@ -68,7 +68,7 @@ async function connectWallet() {
       <button
         v-else
         title="Connect wallet"
-        class="rounded px-3 py-1 border-none shadow-none"
+        class="py-1 px-3 rounded border-none shadow-none"
         @click="connectWallet"
       >
         Connect wallet
@@ -76,7 +76,7 @@ async function connectWallet() {
     </div>
     <button
       title="Approve-button"
-      class="rounded-full px-3 py-1 border border-white mr-4"
+      class="py-1 px-3 mr-4 rounded-full border border-white"
       @click="approveWallet(50)"
     >
       Approve
@@ -84,14 +84,14 @@ async function connectWallet() {
 
     <button
       title="Approve-button"
-      class="rounded-full px-3 py-1 border border-white mr-4"
+      class="py-1 px-3 mr-4 rounded-full border border-white"
       @click="changeNetwork"
     >
       Add Network
     </button>
     <button
       title="Approve-button"
-      class="rounded-full px-3 py-1 border border-white mr-4"
+      class="py-1 px-3 mr-4 rounded-full border border-white"
       @click="addToken"
     >
       Add USDC

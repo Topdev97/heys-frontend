@@ -36,16 +36,16 @@ watch(selectedTab, newTab => {
 
 <template>
   <LayoutDark>
-    <template v-slot:header-nav>
+    <template #header-nav>
       <HeaderNav />
     </template>
-    <template v-slot:header-content>
+    <template #header-content>
       <HeaderContent
-        :nav-link="{ label: '< Back', path: `/g/${gatheringSlug}` }"
+        :navLink="{ label: '< Back', path: `/g/${gatheringSlug}` }"
       />
     </template>
-    <template v-slot:command-band>
-      <div class="max-w-screen-md mx-auto text-center flex-center">
+    <template #command-band>
+      <div class="mx-auto max-w-screen-md text-center flex-center">
         <NavTab
           v-for="tab in tabs"
           :key="`tab-${tab}`"
@@ -55,14 +55,14 @@ watch(selectedTab, newTab => {
         />
       </div>
     </template>
-    <template v-slot:content>
-      <div class="max-w-screen-md mx-auto mb-12 pt-10">
+    <template #content>
+      <div class="pt-10 mx-auto mb-12 max-w-screen-md">
         <VoteTab v-if="selectedTab === 'Vote'" />
         <ChatTab v-if="selectedTab === 'Chat'" />
         <FinanceTab v-if="selectedTab === 'Finance'" />
       </div>
     </template>
-    <template v-slot:footer>
+    <template #footer>
       <Footer />
     </template>
   </LayoutDark>

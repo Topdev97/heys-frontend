@@ -20,7 +20,7 @@
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
-      class="svg-inline--fa fa-plus fa-w-14 max-h-full max-w-full"
+      class="max-w-full max-h-full svg-inline--fa fa-plus fa-w-14"
     >
       <path
         fill="currentColor"
@@ -29,8 +29,8 @@
     </svg>
     <div
       v-else-if="state.unicode.includes('<img')"
+      class="h-4 text-center"
       v-html="state.unicode"
-      class="text-center h-4"
     ></div>
     <div v-else class="text-center">{{ state.unicode }}</div>
   </div>
@@ -41,7 +41,7 @@ import { defineComponent, reactive, onBeforeMount } from 'vue'
 
 export default defineComponent({
   props: {
-    title: { type: String },
+    title: { type: String, default: '' },
   },
 
   setup(props) {
@@ -76,7 +76,6 @@ export default defineComponent({
       else if (props.title === 'finance') state.unicode = '💸️'
       else if (props.title === 'startup') state.unicode = '🦄️'
       else if (props.title === 'fitness') state.unicode = '💪️'
-      else if (props.title === 'films') state.unicode = '📽️'
       else if (props.title === 'VC') state.unicode = '🦄️️'
       else if (props.title === 'climate') state.unicode = '🌍️'
       else if (props.title === 'recipe') state.unicode = '🍲'

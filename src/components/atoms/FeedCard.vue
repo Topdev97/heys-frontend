@@ -12,7 +12,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div
-    class="mb-6 min-h-16 p-8 rounded"
+    class="p-8 mb-6 rounded min-h-16"
     :class="
       index % 2 === 0
         ? dark

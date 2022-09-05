@@ -70,21 +70,21 @@ function addedNewDoc(doc: Doc) {
 
 <template>
   <LayoutLight>
-    <template v-slot:header-nav>
+    <template #header-nav>
       <HeaderNav />
     </template>
-    <template v-slot:header-content>
+    <template #header-content>
       <HeaderContent
-        :nav-link="{ label: 'Govern', path: `/g/${gatheringSlug}/govern` }"
+        :navLink="{ label: 'Govern', path: `/g/${gatheringSlug}/govern` }"
       />
     </template>
-    <template v-slot:command-band>
-      <div class="max-w-screen-md mx-auto mb-4 text-center flex-center">
+    <template #command-band>
+      <div class="mx-auto mb-4 max-w-screen-md text-center flex-center">
         <SearchInput
           :feed="true"
-          :initial-search="filters.search"
+          :initialSearch="filters.search"
           :searching="false"
-          :existing-tags="[]"
+          :existingTags="[]"
           @search="
             search => {
               filters.search = search
@@ -98,7 +98,7 @@ function addedNewDoc(doc: Doc) {
         />
         <button
           title="Share an interesting Google doc"
-          class="btn-white px-4 py-2 m-2 bg-thgreen8"
+          class="py-2 px-4 m-2 bg-thgreen8 btn-white"
           @click="newDocumentModal = true"
         >
           <div style="width: 1rem" class="inline-block">
@@ -124,13 +124,13 @@ function addedNewDoc(doc: Doc) {
         </button>
         <button
           title="Tip"
-          class="btn-white px-4 py-2 m-2 bg-thgreen8"
+          class="py-2 px-4 m-2 bg-thgreen8 btn-white"
           @click="tipModal = true"
         >
           <span class="hidden sm:inline-block ml-2"> Tip </span>
         </button>
       </div>
-      <div class="max-w-screen-md mx-auto text-center flex-center flex-wrap">
+      <div class="flex-wrap mx-auto max-w-screen-md text-center flex-center">
         <TagButton
           v-for="tag in (docs?.remindingTags?.length
             ? docs?.remindingTags
@@ -146,11 +146,11 @@ function addedNewDoc(doc: Doc) {
         <span v-if="tags?.length > 10" class="ml-2"> ... </span>
       </div>
     </template>
-    <template v-slot:content>
-      <div class="max-w-screen-md mx-auto mb-12">
-        <div class="w-2/3 pt-6 sm:pt-12 pb-12 mx-auto flex items-center">
+    <template #content>
+      <div class="mx-auto mb-12 max-w-screen-md">
+        <div class="flex items-center pt-6 sm:pt-12 pb-12 mx-auto w-2/3">
           <div class="flex-grow border-t-2 border-gray-200"></div>
-          <span class="mb-0 px-4 uppercase font-extrabold">Results</span>
+          <span class="px-4 mb-0 font-extrabold uppercase">Results</span>
           <div class="flex-grow border-t-2 border-gray-200"></div>
         </div>
         <FeedCard
@@ -166,7 +166,7 @@ function addedNewDoc(doc: Doc) {
               :key="`tag-${did}-${tag}`"
               class="inline-block ml-1"
             >
-              <span @click="toggleTags(tag)" class="link">
+              <span class="link" @click="toggleTags(tag)">
                 {{ tag }}
               </span>
               •
@@ -186,14 +186,14 @@ function addedNewDoc(doc: Doc) {
         <button
           v-if="filters.page > 0"
           title="Previous page"
-          class="btn-white px-4 py-2 m-2 bg-thgreen1"
+          class="py-2 px-4 m-2 bg-thgreen1 btn-white"
           @click="filters.page -= 1"
         >
           {{ `<` }}
         </button>
         <button
           title="Previous page"
-          class="btn-white px-4 py-2 m-2 bg-thgreen1"
+          class="py-2 px-4 m-2 bg-thgreen1 btn-white"
           @click="filters.page += 1"
         >
           {{ `>` }}
@@ -205,10 +205,10 @@ function addedNewDoc(doc: Doc) {
           class="fixed inset-0 bg-black/30 backdrop-blur-[2px]"
           aria-hidden="true"
         />
-        <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <DialogPanel class="w-full max-w-[40rem] rounded bg-white p-8">
+        <div class="flex fixed inset-0 z-50 justify-center items-center p-4">
+          <DialogPanel class="p-8 w-full bg-white rounded max-w-[40rem]">
             <AddNewModal
-              :existing-tags="
+              :existingTags="
                 tags.map(tag => ({ text: tag.title, value: tag.title }))
               "
               :gathering="gatheringSlug"
@@ -222,8 +222,8 @@ function addedNewDoc(doc: Doc) {
           class="fixed inset-0 bg-black/30 backdrop-blur-[2px]"
           aria-hidden="true"
         />
-        <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <DialogPanel class="w-full max-w-[40rem] rounded bg-white p-8">
+        <div class="flex fixed inset-0 z-50 justify-center items-center p-4">
+          <DialogPanel class="p-8 w-full bg-white rounded max-w-[40rem]">
             <TipModal />
           </DialogPanel>
         </div>
@@ -240,7 +240,7 @@ function addedNewDoc(doc: Doc) {
         "
       ></div>
     </template>
-    <template v-slot:footer>
+    <template #footer>
       <Footer />
     </template>
   </LayoutLight>

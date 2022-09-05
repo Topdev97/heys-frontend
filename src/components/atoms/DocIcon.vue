@@ -71,8 +71,8 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
-    url: { type: String },
-    colorOverride: { type: String },
+    url: { type: String, default: '' },
+    colorOverride: { type: String, default: '' },
   },
 })
 </script>

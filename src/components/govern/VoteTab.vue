@@ -62,13 +62,13 @@ onMounted(async () => {
       <div>
         <button
           title="Approve"
-          class="btn-white inline-block px-4 py-1 mr-4 min-w-[7rem] text-thgreen2"
+          class="inline-block py-1 px-4 mr-4 text-thgreen2 btn-white min-w-[7rem]"
         >
           Approve
         </button>
         <button
           title="Reject"
-          class="btn-white inline-block px-4 py-1 min-w-[7rem] text-red"
+          class="inline-block py-1 px-4 text-red btn-white min-w-[7rem]"
         >
           Reject
         </button>

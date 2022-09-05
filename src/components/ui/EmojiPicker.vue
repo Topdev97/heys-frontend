@@ -1,35 +1,35 @@
 <template>
   <div
-    class="emoji-picker bg-white shadow-menu text-center w-300"
-    v-on:click.stop
-    v-on:contextmenu.stop
+    class="text-center bg-white emoji-picker shadow-menu w-300"
+    @click.stop
+    @contextmenu.stop
   >
     <div class="rounded">
       <div class="pt-2">
         <span
           v-for="(tab, tid) in state.tabs"
           :key="tid"
-          @click="state.activeTab = tab"
           :class="tab === state.activeTab ? 'font-semibold' : 'opacity-50'"
           class="cursor-pointer"
           :title="tab"
+          @click="state.activeTab = tab"
         >
           {{ getTabEmoji(tab) }}
         </span>
       </div>
-      <div class="emoji-search mx-4 my-3">
+      <div class="my-3 mx-4 emoji-search">
         <input
-          class="w-full py-1 outline-none border-b border-solid border-gray-500 text-default"
-          label="Search"
           id="search"
           v-model="state.search"
+          class="py-1 w-full text-default border-b border-gray-500 border-solid outline-none"
+          label="Search"
           autocompele="false"
           autofocus
           required
         />
         <label for="search">Search</label>
       </div>
-      <div class="px-1 pb-2 overflow-auto opacity-75 h-180">
+      <div class="overflow-auto px-1 pb-2 opacity-75 h-180">
         <div v-if="!loading">
           <span
             v-for="(emoji, eid) in state.currentEmojis.filter(
@@ -45,8 +45,8 @@
             {{ emoji.emoji }}
           </span>
         </div>
-        <div v-else class="text-center pt-8">
-          <i class="fas fa-circle-notch fa-spin text-xl"></i>
+        <div v-else class="pt-8 text-center">
+          <i class="text-xl fas fa-circle-notch fa-spin"></i>
         </div>
       </div>
     </div>

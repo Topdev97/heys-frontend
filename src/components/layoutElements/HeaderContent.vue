@@ -22,7 +22,7 @@ const { gathering } = useGathering(gatheringSlug)
 
 <template>
   <div
-    class="d-flex justify-center align-center text-center max-w-screen-md mx-auto pt-6 pb-8"
+    class="justify-center pt-6 pb-8 mx-auto max-w-screen-md text-center d-flex align-center"
   >
     <h1 class="font-medium">{{ gathering?.name }}</h1>
     <h2 class="mb-2 text-xl">{{ gathering?.description }}</h2>
@@ -30,7 +30,7 @@ const { gathering } = useGathering(gatheringSlug)
       <span>gTES</span> • <span>Price: $0.003</span> •
       <span>Market cap: $21m</span> •
       <span>
-        <ChartBarIcon class="h-5 link inline-block pb-1 ml-1 fill-thgreen1" />
+        <ChartBarIcon class="inline-block pb-1 ml-1 h-5 link fill-thgreen1" />
       </span>
     </div>
     <div>

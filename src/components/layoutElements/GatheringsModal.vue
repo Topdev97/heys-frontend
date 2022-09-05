@@ -2,21 +2,21 @@
   <div>
     <div v-if="state.layoutData.page === 'list'">
       <div>
-        <h3 class="display-1 font-normal text-center text-default mb-3">
+        <h3 class="mb-3 font-normal text-center text-default display-1">
           Gatherings
         </h3>
-        <h4 class="text-default text-center">
+        <h4 class="text-center text-default">
           A space for public Google docs about specific topics
         </h4>
       </div>
 
       <div class="min-h-700">
         <button
-          class="w-3/5 mt-5 mb-8 mx-auto py-2 block text-xl text-white rounded duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400 min-w-200"
+          class="block py-2 mx-auto mt-5 mb-8 w-3/5 text-xl text-white rounded duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400 min-w-200"
           :disabled="state.layoutData.addLoading"
           @click="state.layoutData.page = 'add'"
         >
-          <i class="fa fa-plus mr-2 text-white"></i>
+          <i class="mr-2 text-white fa fa-plus"></i>
           New gathering
         </button>
         <div
@@ -26,7 +26,7 @@
         >
           <router-link
             :to="{ path: '/s/' + space.slug }"
-            class="space-link no-underline text-orange-600"
+            class="no-underline space-link text-orange-600"
           >
             s/{{ space.name }}<br />
             <span class="font-normal text-default">
@@ -39,27 +39,27 @@
 
     <div v-else-if="state.layoutData.page === 'add'">
       <div
+        class="flex justify-center items-center mx-auto mt-6 mb-8 w-3/5 text-center text-default cursor-pointer"
         @click="state.layoutData.page = 'list'"
-        class="flex justify-center items-center w-3/5 mt-6 mb-8 mx-auto text-center cursor-pointer text-default"
       >
-        <i class="fas fa-angle-left mr-2 text-xl"></i>
+        <i class="mr-2 text-xl fas fa-angle-left"></i>
         Back
       </div>
 
-      <p class="subheading font-medium my-6 pt-3 text-default">
+      <p class="pt-3 my-6 font-medium text-default subheading">
         Create a gathering which is a custom feed of your public Google docs.
         You can control which docs are included as well as the look and feel of
         the feed.
       </p>
 
-      <div class="form-group mb-3">
+      <div class="mb-3 form-group">
         <input
-          type="text"
-          required
           id="space-name"
           ref="space-name"
-          class="bg-gray-200 rounded w-full outline-none px-3 pt-5 pb-3 text-default mb-0"
           v-model="state.newSpaceObj.name"
+          type="text"
+          required
+          class="px-3 pt-5 pb-3 mb-0 w-full text-default bg-gray-200 rounded outline-none"
           :error="
             state.newSpaceObj.errors.indexOf('no-name') >= 0 ||
             state.newSpaceObj.errors.indexOf('name-duplicate') >= 0 ||
@@ -80,13 +80,13 @@
         >
         <p
           v-if="state.newSpaceObj.errors.indexOf('name-duplicate') >= 0"
-          class="text-red-500 text-left"
+          class="text-left text-red-500"
         >
           This name already exists - please use a different one
         </p>
         <p
           v-if="state.newSpaceObj.errors.indexOf('name-error') >= 0"
-          class="text-ted-500 text-left"
+          class="text-left text-ted-500"
         >
           Please use only letters, numbers and "_" or "-"
         </p>
@@ -98,9 +98,9 @@
           <textarea
             id="space-description"
             ref="space-description"
-            rows="4"
-            class="bg-gray-200 rounded w-full outline-none px-3 pt-5 pb-3 text-default"
             v-model="state.newSpaceObj.description"
+            rows="4"
+            class="px-3 pt-5 pb-3 w-full text-default bg-gray-200 rounded outline-none"
             :error="state.newSpaceObj.errors.indexOf('no-description') >= 0"
             maxlength="1000"
             required
@@ -117,29 +117,29 @@
           >
         </div>
         <div
+          class="absolute right-2 bottom-3 cursor-pointer emoji-picker-btn"
           @click="state.layoutData.emojiPicker = !state.layoutData.emojiPicker"
-          class="emoji-picker-btn cursor-pointer absolute bottom-3 right-2"
         >
           <i class="far fa-smile"></i>
         </div>
         <EmojiPicker
           v-if="state.layoutData.emojiPicker"
-          class="emoji-picker absolute z-50"
+          class="absolute z-50 emoji-picker"
           @select-emoji="insertEmoji"
           @close="state.layoutData.emojiPicker = false"
         ></EmojiPicker>
       </div>
 
-      <div class="form-group mb-3">
+      <div class="mb-3 form-group">
         <input
-          ref="space-email"
           id="space-email"
-          class="bg-gray-200 rounded w-full outline-none px-3 pt-5 pb-3 text-default mb-0"
+          ref="space-email"
           v-model="state.newSpaceObj.emailAddress"
+          class="px-3 pt-5 pb-3 mb-0 w-full text-default bg-gray-200 rounded outline-none"
           :error="state.newSpaceObj.errors.indexOf('no-email-address') >= 0"
-          @keyup.enter="addSpace()"
           filled
           required
+          @keyup.enter="addSpace()"
         />
         <label
           for="space-email"
@@ -156,29 +156,28 @@
       <div class="text-default">Colors</div>
       <div>
         <input
-          type="color"
           id="html5colorpicker2"
           v-model="state.newSpaceObj.colors.color2"
-          class="cursor-pointer mx-3 w-10 h-10 border-none outline-none mb-0"
+          type="color"
+          class="mx-3 mb-0 w-10 h-10 border-none cursor-pointer outline-none"
         />
         <input
-          type="color"
           id="html5colorpicker3"
           v-model="state.newSpaceObj.colors.color3"
-          class="cursor-pointer mx-3 w-10 h-10 border-none outline-none mb-0"
+          type="color"
+          class="mx-3 mb-0 w-10 h-10 border-none cursor-pointer outline-none"
         />
         <input
-          type="color"
           id="html5colorpicker1"
           v-model="state.newSpaceObj.colors.color1"
-          class="cursor-pointer mx-3 w-10 h-10 border-none outline-none mb-0"
+          type="color"
+          class="mx-3 mb-0 w-10 h-10 border-none cursor-pointer outline-none"
         />
       </div>
 
       <button
-        @click="addSpace()"
         :disabled="state.layoutData.addLoading"
-        class="w-full text-white mt-5 mb-4 rounded py-2.5 text-lg font-medium hover:opacity-75 duration-500"
+        class="py-2.5 mt-5 mb-4 w-full text-lg font-medium text-white rounded hover:opacity-75 duration-500"
         :style="{
           'background-image':
             'linear-gradient(180deg, rgba(7, 68, 73, 0.3), ' +
@@ -189,10 +188,11 @@
             state.newSpaceObj.colors.color3 +
             ')',
         }"
+        @click="addSpace()"
       >
         <i
           v-if="!state.layoutData.addLoading"
-          class="fa fa-plus mr-1 text-white"
+          class="mr-1 text-white fa fa-plus"
         ></i>
         {{ state.layoutData.addLoading ? 'Adding...' : 'Add gathering' }}
       </button>
