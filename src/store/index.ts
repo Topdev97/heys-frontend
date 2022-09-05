@@ -1,25 +1,23 @@
-import { createStore } from 'vuex';
+import { createStore } from 'vuex'
 
 export const store = createStore({
-    state: {
-      space: null,
+  state: {
+    space: null,
+  },
+  mutations: {
+    setSpace(state, spaceObj) {
+      state.space = spaceObj
     },
-    mutations: {
-      setSpace (state, spaceObj) {
-        state.space = spaceObj
-      },
-  
-      removeSpace (state) {
-        state.space = null
-      }
+
+    removeSpace(state) {
+      state.space = null
     },
-    actions: {
+  },
+  actions: {},
+  modules: {},
+  getters: {
+    getSpaceData: state => {
+      return state.space
     },
-    modules: {
-    },
-    getters: {
-      getSpaceData: state => {
-        return state.space
-      }
-    }
-});
+  },
+})

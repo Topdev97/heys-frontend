@@ -1,5 +1,5 @@
 import { useQuery } from 'vue-query'
-import useMetaMaskProvider from "./useMetaMaskProvider";
+import useMetaMaskProvider from './useMetaMaskProvider'
 
 export default function useConnectedAccount() {
   const { provider } = useMetaMaskProvider()
@@ -8,7 +8,8 @@ export default function useConnectedAccount() {
     ['connectedAccounts', !!provider],
     () => {
       if (provider) {
-        return ethereum.request({ method: 'eth_accounts' })
+        return ethereum
+          .request({ method: 'eth_accounts' })
           .then(r => r[0] ?? '')
       } else {
         return ''

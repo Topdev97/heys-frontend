@@ -1,16 +1,24 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
-import FeedCard from "../../components/atoms/FeedCard.vue";
-import { GATHERING_ADDRESSES } from '../../utils/consts';
+import FeedCard from '../../components/atoms/FeedCard.vue'
+import { GATHERING_ADDRESSES } from '../../utils/consts'
 import gatheringAbi from '@/abis/GatheringAbi.json'
 import { ethers } from 'ethers'
 import { Contract, Provider } from 'ethers-multicall'
-import { Doc } from '../../utils/types';
+import { Doc } from '../../utils/types'
 
 // state
 const votes = [
-  { title: 'The country calling 2022 the \'year of coffee\'', description: 'Coffee isn\'t just a drink in Saudi Arabia, it\'s an ancient tradition of hospitality – and as the country opens to tourism, it\'s also one of its most interesting draws.' },
-  { title: 'Can humanity leave nature behind?', description: 'In the face of environmental collapse, humanity may need to turn to artificial replacements for nature – how might we avoid the most dystopian of these futures?' },
+  {
+    title: "The country calling 2022 the 'year of coffee'",
+    description:
+      "Coffee isn't just a drink in Saudi Arabia, it's an ancient tradition of hospitality – and as the country opens to tourism, it's also one of its most interesting draws.",
+  },
+  {
+    title: 'Can humanity leave nature behind?',
+    description:
+      'In the face of environmental collapse, humanity may need to turn to artificial replacements for nature – how might we avoid the most dystopian of these futures?',
+  },
 ]
 const docsToVoteOn = ref([] as number[])
 
@@ -22,7 +30,7 @@ onMounted(async () => {
 
   const gatheringInstance = new Contract(
     GATHERING_ADDRESSES['gOTB'],
-    gatheringAbi.filter(abi => abi.type === 'function'),
+    gatheringAbi.filter(abi => abi.type === 'function')
   )
 
   const docIdsCall = [gatheringInstance.docsToVoteOn()]
@@ -34,7 +42,6 @@ onMounted(async () => {
   const response2: Doc[] = await ethcallProvider.all(docsCalls)
   console.log(response2)
 })
-
 </script>
 
 <template>
@@ -48,15 +55,9 @@ onMounted(async () => {
       <h5 class="mb-2">{{ vote.title }}</h5>
       <p class="mb-2">{{ vote.description }}</p>
       <div class="mb-4">
-        <small class="mr-2">
-          Turnout: 35%
-        </small>
-        <small class="mr-2">
-          Approved: 5k (50% rate)
-        </small>
-        <small class="mr-2">
-          Pass threshold: 25k
-        </small>
+        <small class="mr-2"> Turnout: 35% </small>
+        <small class="mr-2"> Approved: 5k (50% rate) </small>
+        <small class="mr-2"> Pass threshold: 25k </small>
       </div>
       <div>
         <button
@@ -67,7 +68,7 @@ onMounted(async () => {
         </button>
         <button
           title="Reject"
-          class="btn-white inline-block px-4 py-1  min-w-[7rem] text-red"
+          class="btn-white inline-block px-4 py-1 min-w-[7rem] text-red"
         >
           Reject
         </button>

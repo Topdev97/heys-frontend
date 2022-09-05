@@ -4,9 +4,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-  ],
+  plugins: [vue()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -21,9 +19,9 @@ export default defineConfig({
         target: 'http://localhost:1337',
         changeOrigin: true,
         // rewrite: (path) => path.replace(/^\/api/, '')
-      }
-    }
-  }
+      },
+    },
+  },
   // proxy: {
   //   '/api': {
   //     target: 'https://localhost:44305',

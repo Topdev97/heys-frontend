@@ -1,5 +1,5 @@
 import { useQuery } from 'vue-query'
-import {ethers} from "ethers";
+import { ethers } from 'ethers'
 
 export default function useMetaMaskProvider() {
   let provider = null
@@ -9,6 +9,6 @@ export default function useMetaMaskProvider() {
     console.log('Meta mask not installed')
   }
   return {
-    provider
+    provider,
   }
 }

@@ -1,7 +1,7 @@
-import { NETWORKS, USDC_ADDRESSES } from "../../utils/consts";
+import { NETWORKS, USDC_ADDRESSES } from '../../utils/consts'
 export default async function addToken() {
-  let chainId:number = Number(NETWORKS.MATIC_MUMBAI);
-  if (ethereum.networkVersion == chainId) { 
+  let chainId: number = Number(NETWORKS.MATIC_MUMBAI)
+  if (ethereum.networkVersion == chainId) {
     try {
       await ethereum.request({
         method: 'wallet_watchAsset',
@@ -16,7 +16,7 @@ export default async function addToken() {
         },
       })
     } catch (error) {
-      console.log("error", error)
+      console.log('error', error)
     }
   }
 }

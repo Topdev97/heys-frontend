@@ -5,16 +5,16 @@ import SearchInput from '@/components/ui/SearchInput.vue'
 import TagButton from '@/components/atoms/TagButton.vue'
 import NavTab from '@/components/atoms/NavTab.vue'
 import { Doc, MarketData, Tag } from '../../utils/types'
-import useDocs from "../../composables/web2/useDocs";
-import HeaderNav from "@/components/layoutElements/HeaderNav.vue";
-import HeaderContent from "@/components/layoutElements/HeaderContent.vue";
-import Footer from "@/components/layoutElements/Footer.vue";
-import VoteTab from "../../components/govern/VoteTab.vue";
-import ChatTab from "../../components/govern/ChatTab.vue";
-import FinanceTab from "../../components/govern/FinanceTab.vue";
+import useDocs from '../../composables/web2/useDocs'
+import HeaderNav from '@/components/layoutElements/HeaderNav.vue'
+import HeaderContent from '@/components/layoutElements/HeaderContent.vue'
+import Footer from '@/components/layoutElements/Footer.vue'
+import VoteTab from '../../components/govern/VoteTab.vue'
+import ChatTab from '../../components/govern/ChatTab.vue'
+import FinanceTab from '../../components/govern/FinanceTab.vue'
 import useTags from '../../composables/web2/useTags'
 import useGathering from '../../composables/web2/useGathering'
-import {useRoute} from "vue-router";
+import { useRoute } from 'vue-router'
 
 // consts
 const route = useRoute()
@@ -25,14 +25,13 @@ const tabs = ['Vote', 'Chat', 'Finance']
 const selectedTab = ref(route?.query?.tab?.toString() ?? 'Vote')
 
 // watchers
-watch(selectedTab, (newTab) => {
+watch(selectedTab, newTab => {
   window.history.replaceState(
     { page: 'heystacks' },
     'heystacks',
     `/g/${gatheringSlug}/govern?tab=${newTab}`
   )
 })
-
 </script>
 
 <template>
@@ -41,7 +40,9 @@ watch(selectedTab, (newTab) => {
       <HeaderNav />
     </template>
     <template v-slot:header-content>
-      <HeaderContent :nav-link="{ label: '< Back', path: `/g/${gatheringSlug}` }" />
+      <HeaderContent
+        :nav-link="{ label: '< Back', path: `/g/${gatheringSlug}` }"
+      />
     </template>
     <template v-slot:command-band>
       <div class="max-w-screen-md mx-auto text-center flex-center">

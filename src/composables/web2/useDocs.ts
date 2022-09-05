@@ -1,8 +1,15 @@
 import { unref } from 'vue'
 import { useQuery } from 'vue-query'
 
-export default function useDocs(search, tags, page, sort, type, searchOption, gatheringSlug) {
-
+export default function useDocs(
+  search,
+  tags,
+  page,
+  sort,
+  type,
+  searchOption,
+  gatheringSlug
+) {
   const { data: docs, ...other } = useQuery(
     ['docs', search, tags, page, sort, type, searchOption, gatheringSlug],
     () => {
@@ -15,8 +22,8 @@ export default function useDocs(search, tags, page, sort, type, searchOption, ga
           sort: sort.value,
           type: type.value,
           searchOption: searchOption.value,
-          space: gatheringSlug.value
-        })
+          space: gatheringSlug.value,
+        }),
       }).then(r => r.json())
     }
   )

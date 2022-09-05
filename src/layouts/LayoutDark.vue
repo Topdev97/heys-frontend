@@ -1,8 +1,7 @@
 <template>
   <div class="text-gray-100">
     <div class="header-band pos-relative p-4 bg-thblue1 bg-gradient">
-      <div class="fixed top-0 left-0 w-full h-1 z-50 bg-thblue2">
-      </div>
+      <div class="fixed top-0 left-0 w-full h-1 z-50 bg-thblue2"></div>
       <div class="header-nav">
         <slot name="header-nav"></slot>
       </div>
@@ -26,7 +25,6 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  components: {
-  }
+  components: {},
 })
 </script>

@@ -1,12 +1,9 @@
 <script lang="ts" setup>
-
 // composable
 
 // state
 
-
 // methods
-
 </script>
 
 <template>
@@ -19,10 +16,7 @@
         filled
         required
       />
-      <label
-        for="token-input"
-        class="text-default"
-      >Amount</label>
+      <label for="token-input" class="text-default">Amount</label>
     </div>
     <div class="form-group sm:w-1/3 mb-3">
       <select

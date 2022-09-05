@@ -5,7 +5,9 @@
         <h3 class="display-1 font-normal text-center text-default mb-3">
           Gatherings
         </h3>
-        <h4 class="text-default text-center">A space for public Google docs about specific topics</h4>
+        <h4 class="text-default text-center">
+          A space for public Google docs about specific topics
+        </h4>
       </div>
 
       <div class="min-h-700">
@@ -26,9 +28,9 @@
             :to="{ path: '/s/' + space.slug }"
             class="space-link no-underline text-orange-600"
           >
-            s/{{space.name}}<br/>
+            s/{{ space.name }}<br />
             <span class="font-normal text-default">
-              {{space.description}}
+              {{ space.description }}
             </span>
           </router-link>
         </div>
@@ -36,13 +38,18 @@
     </div>
 
     <div v-else-if="state.layoutData.page === 'add'">
-      <div @click="state.layoutData.page = 'list'" class="flex justify-center items-center w-3/5 mt-6 mb-8 mx-auto text-center cursor-pointer text-default">
-        <i class="fas fa-angle-left mr-2 text-xl" ></i>
+      <div
+        @click="state.layoutData.page = 'list'"
+        class="flex justify-center items-center w-3/5 mt-6 mb-8 mx-auto text-center cursor-pointer text-default"
+      >
+        <i class="fas fa-angle-left mr-2 text-xl"></i>
         Back
       </div>
 
       <p class="subheading font-medium my-6 pt-3 text-default">
-        Create a gathering which is a custom feed of your public Google docs. You can control which docs are included as well as the look and feel of the feed.
+        Create a gathering which is a custom feed of your public Google docs.
+        You can control which docs are included as well as the look and feel of
+        the feed.
       </p>
 
       <div class="form-group mb-3">
@@ -53,15 +60,36 @@
           ref="space-name"
           class="bg-gray-200 rounded w-full outline-none px-3 pt-5 pb-3 text-default mb-0"
           v-model="state.newSpaceObj.name"
-          :error="state.newSpaceObj.errors.indexOf('no-name') >= 0 || state.newSpaceObj.errors.indexOf('name-duplicate') >= 0 || state.newSpaceObj.errors.indexOf('name-error') >= 0"
+          :error="
+            state.newSpaceObj.errors.indexOf('no-name') >= 0 ||
+            state.newSpaceObj.errors.indexOf('name-duplicate') >= 0 ||
+            state.newSpaceObj.errors.indexOf('name-error') >= 0
+          "
           filled
         />
         <label
           for="space-name"
-          :class="(state.newSpaceObj.errors.indexOf('no-name') >= 0 || state.newSpaceObj.errors.indexOf('name-duplicate') >= 0 || state.newSpaceObj.errors.indexOf('name-error') >= 0) ? `text-orange-600`: `text-default`"
-        >Name (slug format)</label>
-        <p v-if="state.newSpaceObj.errors.indexOf('name-duplicate') >= 0" class="text-red-500 text-left">This name already exists - please use a different one</p>
-        <p v-if="state.newSpaceObj.errors.indexOf('name-error') >= 0" class="text-ted-500 text-left">Please use only letters, numbers and "_" or "-"</p>
+          :class="
+            state.newSpaceObj.errors.indexOf('no-name') >= 0 ||
+            state.newSpaceObj.errors.indexOf('name-duplicate') >= 0 ||
+            state.newSpaceObj.errors.indexOf('name-error') >= 0
+              ? `text-orange-600`
+              : `text-default`
+          "
+          >Name (slug format)</label
+        >
+        <p
+          v-if="state.newSpaceObj.errors.indexOf('name-duplicate') >= 0"
+          class="text-red-500 text-left"
+        >
+          This name already exists - please use a different one
+        </p>
+        <p
+          v-if="state.newSpaceObj.errors.indexOf('name-error') >= 0"
+          class="text-ted-500 text-left"
+        >
+          Please use only letters, numbers and "_" or "-"
+        </p>
       </div>
 
       <div class="relative mb-3">
@@ -80,14 +108,19 @@
           ></textarea>
           <label
             for="space-description"
-            :class="state.newSpaceObj.errors.indexOf('no-description') >= 0 ? `text-orange-600` : `text-default`"
-          >Description</label>
+            :class="
+              state.newSpaceObj.errors.indexOf('no-description') >= 0
+                ? `text-orange-600`
+                : `text-default`
+            "
+            >Description</label
+          >
         </div>
         <div
           @click="state.layoutData.emojiPicker = !state.layoutData.emojiPicker"
           class="emoji-picker-btn cursor-pointer absolute bottom-3 right-2"
         >
-          <i class="far fa-smile" ></i>
+          <i class="far fa-smile"></i>
         </div>
         <EmojiPicker
           v-if="state.layoutData.emojiPicker"
@@ -110,7 +143,11 @@
         />
         <label
           for="space-email"
-          :class="state.newSpaceObj.errors.indexOf('no-email-address') >= 0 ? `text-orange-600` : `text-default`"
+          :class="
+            state.newSpaceObj.errors.indexOf('no-email-address') >= 0
+              ? `text-orange-600`
+              : `text-default`
+          "
         >
           Your gDrive email address (to verify ownership of the docs)
         </label>
@@ -123,45 +160,57 @@
           id="html5colorpicker2"
           v-model="state.newSpaceObj.colors.color2"
           class="cursor-pointer mx-3 w-10 h-10 border-none outline-none mb-0"
-        >
+        />
         <input
           type="color"
           id="html5colorpicker3"
           v-model="state.newSpaceObj.colors.color3"
           class="cursor-pointer mx-3 w-10 h-10 border-none outline-none mb-0"
-        >
+        />
         <input
           type="color"
           id="html5colorpicker1"
           v-model="state.newSpaceObj.colors.color1"
           class="cursor-pointer mx-3 w-10 h-10 border-none outline-none mb-0"
-        >
+        />
       </div>
 
       <button
         @click="addSpace()"
         :disabled="state.layoutData.addLoading"
         class="w-full text-white mt-5 mb-4 rounded py-2.5 text-lg font-medium hover:opacity-75 duration-500"
-        :style="{'background-image': 'linear-gradient(180deg, rgba(7, 68, 73, 0.3), ' + state.newSpaceObj.colors.color1 + '),linear-gradient(50deg, ' + state.newSpaceObj.colors.color2 + ' 22%, ' + state.newSpaceObj.colors.color3 + ')'}"
+        :style="{
+          'background-image':
+            'linear-gradient(180deg, rgba(7, 68, 73, 0.3), ' +
+            state.newSpaceObj.colors.color1 +
+            '),linear-gradient(50deg, ' +
+            state.newSpaceObj.colors.color2 +
+            ' 22%, ' +
+            state.newSpaceObj.colors.color3 +
+            ')',
+        }"
       >
-        <i v-if="!state.layoutData.addLoading" class="fa fa-plus mr-1 text-white"></i>
-        {{state.layoutData.addLoading ? 'Adding...' : 'Add gathering'}}
+        <i
+          v-if="!state.layoutData.addLoading"
+          class="fa fa-plus mr-1 text-white"
+        ></i>
+        {{ state.layoutData.addLoading ? 'Adding...' : 'Add gathering' }}
       </button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { reactive, defineComponent, onBeforeMount, nextTick } from 'vue';
+import { reactive, defineComponent, onBeforeMount, nextTick } from 'vue'
 import EmojiPicker from '@/components/ui/EmojiPicker.vue'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   components: {
     EmojiPicker,
   },
   props: {
-    extended: { type: Boolean }
+    extended: { type: Boolean },
   },
   setup() {
     const router = useRouter()
@@ -183,8 +232,8 @@ export default defineComponent({
           color1: '#074246',
           color2: '#073746',
           color3: '#074620',
-        }
-      }
+        },
+      },
     })
 
     onBeforeMount(() => {
@@ -207,14 +256,18 @@ export default defineComponent({
       state.newSpaceObj.errors = []
       state.layoutData.addLoading = true
       if (!state.newSpaceObj.name) state.newSpaceObj.errors.push('no-name')
-      if (!state.newSpaceObj.description) state.newSpaceObj.errors.push('no-description')
-      if (!state.newSpaceObj.emailAddress) state.newSpaceObj.errors.push('no-email-address')
-      if (!state.newSpaceObj.emailAddress.includes('@')) state.newSpaceObj.errors.push('no-email-address')
-      if (state.newSpaceObj.name.match(/[^A-Za-z0-9-_]+/g)) state.newSpaceObj.errors.push('name-error')
+      if (!state.newSpaceObj.description)
+        state.newSpaceObj.errors.push('no-description')
+      if (!state.newSpaceObj.emailAddress)
+        state.newSpaceObj.errors.push('no-email-address')
+      if (!state.newSpaceObj.emailAddress.includes('@'))
+        state.newSpaceObj.errors.push('no-email-address')
+      if (state.newSpaceObj.name.match(/[^A-Za-z0-9-_]+/g))
+        state.newSpaceObj.errors.push('name-error')
       if (!state.newSpaceObj.errors.length) {
         fetch('/api/spaces/add', {
           method: 'POST',
-          body: JSON.stringify(state.newSpaceObj)
+          body: JSON.stringify(state.newSpaceObj),
         }).then(r => {
           if (r.status !== 200) {
             r.json().then(r => {
@@ -236,10 +289,13 @@ export default defineComponent({
       }
     }
 
-    const insertEmoji = (emoji) => {
+    const insertEmoji = emoji => {
       const el = document.querySelector('textarea')
       let cursorPos = el.selectionEnd
-      state.newSpaceObj.description = state.newSpaceObj.description.substring(0, cursorPos) + emoji + state.newSpaceObj.description.substring(cursorPos)
+      state.newSpaceObj.description =
+        state.newSpaceObj.description.substring(0, cursorPos) +
+        emoji +
+        state.newSpaceObj.description.substring(cursorPos)
       cursorPos += 1
       nextTick(() => {
         el.setSelectionRange(cursorPos, cursorPos)
@@ -253,15 +309,15 @@ export default defineComponent({
       addSpace,
       insertEmoji,
     }
-  }
+  },
 })
 </script>
 <style scoped>
-  .display-1 {
-    font-size: 1.725rem;
-  }
+.display-1 {
+  font-size: 1.725rem;
+}
 
-  .min-h-700 {
-    min-height: 700px;
-  }
+.min-h-700 {
+  min-height: 700px;
+}
 </style>
