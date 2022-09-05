@@ -1,11 +1,18 @@
-<script lang="ts" setup>
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <ul class="max-w-screen-md mx-auto text-center">
-    <li class="inline-block mx-2"><a class="text-sm hover:text-link font-medium" href="#">About</a></li>
-    <li class="inline-block mx-2"><a class="text-sm hover:text-link font-medium" href="#">Company</a></li>
-    <li class="inline-block mx-2"><a class="text-sm hover:text-link font-medium" href="#">Services</a></li>
-    <li class="inline-block mx-2"><a class="text-sm hover:text-link font-medium" href="#">Testimonials</a></li>
+  <ul class="mx-auto max-w-screen-md text-center">
+    <li class="inline-block mx-2">
+      <a class="text-sm font-medium hover:text-link" href="#">About</a>
+    </li>
+    <li class="inline-block mx-2">
+      <a class="text-sm font-medium hover:text-link" href="#">Company</a>
+    </li>
+    <li class="inline-block mx-2">
+      <a class="text-sm font-medium hover:text-link" href="#">Services</a>
+    </li>
+    <li class="inline-block mx-2">
+      <a class="text-sm font-medium hover:text-link" href="#">Testimonials</a>
+    </li>
   </ul>
 </template>

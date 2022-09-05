@@ -1,7 +1,7 @@
 import { useQuery } from 'vue-query'
-import {ethers} from "ethers";
-import {computed, unref } from 'vue';
-import useMetaMaskProvider from "./useMetaMaskProvider";
+import { ethers } from 'ethers'
+import { computed, unref } from 'vue'
+import useMetaMaskProvider from './useMetaMaskProvider'
 
 export default function useNativeBalance(account: any, network: string) {
   const { provider } = useMetaMaskProvider()
@@ -22,7 +22,7 @@ export default function useNativeBalance(account: any, network: string) {
       }
     },
     {
-      enabled: isEnabled
+      enabled: isEnabled,
     }
   )
 

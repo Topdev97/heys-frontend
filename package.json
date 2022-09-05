@@ -4,7 +4,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.ts,.vue --max-warnings 0",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "prettier --check . --loglevel warn",
+    "prettier:fix": "npm run prettier -- --write"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.6.4",
@@ -12,9 +16,14 @@
     "@heroicons/vue": "^1.0.6",
     "@vitejs/plugin-vue": "^1.10.2",
     "autoprefixer": "^10.4.0",
-    "eslint": "^8.4.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-vue": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier-vue": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-tailwindcss": "^2.0.1",
+    "eslint-plugin-vue": "^9.3.0",
     "ethers": "^5.6.8",
     "ethers-multicall": "^0.2.3",
     "postcss": "^8.4.4",

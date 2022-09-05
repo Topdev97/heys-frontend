@@ -1,9 +1,13 @@
 import { useQuery } from 'vue-query'
-import {ethers} from "ethers";
-import {computed, unref } from 'vue';
-import useMetaMaskProvider from "./useMetaMaskProvider";
+import { ethers } from 'ethers'
+import { computed, unref } from 'vue'
+import useMetaMaskProvider from './useMetaMaskProvider'
 
-export default function useTokenBalance(account: any, tokenAddress: string, network: string) {
+export default function useTokenBalance(
+  account: any,
+  tokenAddress: string,
+  network: string
+) {
   const provider = useMetaMaskProvider()
 
   const acc = unref(account)
@@ -24,14 +28,14 @@ export default function useTokenBalance(account: any, tokenAddress: string, netw
       } else {
         const abi = [
           'function balanceOf(walletAddress) view returns (uint256)',
-          'function decimals() view returns (uint256)'
+          'function decimals() view returns (uint256)',
         ]
         const tokenContract = new ethers.Contract(tokenAddress, abi, provider)
         return tokenContract.balanceOf(account)
       }
     },
     {
-      enabled: isEnabled
+      enabled: isEnabled,
     }
   )
 

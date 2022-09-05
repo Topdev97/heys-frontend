@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 interface Props {
-  text: string,
+  text: string
   selected?: boolean
 }
 
@@ -9,7 +9,7 @@ defineProps<Props>()
 
 <template>
   <div
-    class="flex-center leading-10 min-w-[5rem] mx-2 cursor-pointer hover:brightness-90 active:brightness-75 select-none transition duration-200"
+    class="mx-2 leading-10 hover:brightness-90 active:brightness-75 transition duration-200 cursor-pointer select-none flex-center min-w-[5rem]"
     :class="selected && 'border-b-2 border-b-link text-link'"
   >
     {{ text }}

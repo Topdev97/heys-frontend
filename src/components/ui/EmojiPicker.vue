@@ -1,43 +1,52 @@
 <template>
-  <div class="emoji-picker bg-white shadow-menu text-center w-300" v-on:click.stop v-on:contextmenu.stop>
+  <div
+    class="text-center bg-white emoji-picker shadow-menu w-300"
+    @click.stop
+    @contextmenu.stop
+  >
     <div class="rounded">
       <div class="pt-2">
         <span
-          v-for="(tab, tid) in state.tabs" :key="tid"
-          @click="state.activeTab = tab"
+          v-for="(tab, tid) in state.tabs"
+          :key="tid"
           :class="tab === state.activeTab ? 'font-semibold' : 'opacity-50'"
           class="cursor-pointer"
           :title="tab"
+          @click="state.activeTab = tab"
         >
-          {{getTabEmoji(tab)}}
+          {{ getTabEmoji(tab) }}
         </span>
       </div>
-      <div class="emoji-search mx-4 my-3">
+      <div class="my-3 mx-4 emoji-search">
         <input
-          class="w-full py-1 outline-none border-b border-solid border-gray-500 text-default"
-          label="Search"
           id="search"
           v-model="state.search"
+          class="py-1 w-full text-default border-b border-gray-500 border-solid outline-none"
+          label="Search"
           autocompele="false"
           autofocus
           required
         />
         <label for="search">Search</label>
       </div>
-      <div class="px-1 pb-2 overflow-auto opacity-75 h-180">
+      <div class="overflow-auto px-1 pb-2 opacity-75 h-180">
         <div v-if="!loading">
           <span
-            v-for="(emoji, eid) in state.currentEmojis.filter(emoji => !search || emoji.name.includes(search.toLowerCase().replace(/\s/g, '_')))"
+            v-for="(emoji, eid) in state.currentEmojis.filter(
+              emoji =>
+                !search ||
+                emoji.name.includes(search.toLowerCase().replace(/\s/g, '_'))
+            )"
             :key="eid"
             class="cursor-pointer"
             :title="emoji.name.replace(/_/g, ' ')"
             @click="$emit('select-emoji', emoji.emoji)"
           >
-            {{emoji.emoji}}
+            {{ emoji.emoji }}
           </span>
         </div>
-        <div v-else class="text-center pt-8">
-          <i class="fas fa-circle-notch fa-spin text-xl" ></i>
+        <div v-else class="pt-8 text-center">
+          <i class="text-xl fas fa-circle-notch fa-spin"></i>
         </div>
       </div>
     </div>
@@ -45,13 +54,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, onBeforeMount, onMounted, watch } from 'vue';
+import { defineComponent, reactive, onBeforeMount, onMounted, watch } from 'vue'
 
 export default defineComponent({
-  components: {
-  },
+  components: {},
   emits: ['select-emoji', 'close', 'closeee'],
-  setup(_, {emit}) {
+  setup(_, { emit }) {
     const state = reactive({
       loading: true,
       tabs: [
@@ -67,7 +75,7 @@ export default defineComponent({
       ],
       search: '',
       activeTab: 'emotions',
-      currentEmojis: []
+      currentEmojis: [],
     })
 
     onBeforeMount(() => {
@@ -76,39 +84,55 @@ export default defineComponent({
 
     onMounted(() => {
       const outsideClickListener = event => {
-        if (event.target.closest('.emoji-picker') === null
-        && event.target.closest('.emoji-picker-btn') === null) {
+        if (
+          event.target.closest('.emoji-picker') === null &&
+          event.target.closest('.emoji-picker-btn') === null
+        ) {
           removeClickListener()
           emit('close')
         }
       }
-      const removeClickListener = () => document.removeEventListener('click', outsideClickListener)
+      const removeClickListener = () =>
+        document.removeEventListener('click', outsideClickListener)
       document.addEventListener('click', outsideClickListener)
     })
 
-    watch(() => state.activeTab, (val) => {
-      state.loading = true
-      if (val !== 'emojis') state.search = ''
-      getEmojis()
-    })
+    watch(
+      () => state.activeTab,
+      val => {
+        state.loading = true
+        if (val !== 'emojis') state.search = ''
+        getEmojis()
+      }
+    )
 
-    watch(() => state.search, (val) => {
-      state.loading = true
-      if (!val && state.activeTab === 'emojis') state.activeTab = 'emotions'
-      else if (val && state.activeTab !== 'emojis') state.activeTab = 'emojis'
-      else if (val) state.loading = false
-    })
+    watch(
+      () => state.search,
+      val => {
+        state.loading = true
+        if (!val && state.activeTab === 'emojis') state.activeTab = 'emotions'
+        else if (val && state.activeTab !== 'emojis') state.activeTab = 'emojis'
+        else if (val) state.loading = false
+      }
+    )
 
     const getEmojis = () => {
       fetch('/src/assets/emojis/' + state.activeTab + '.json')
         .then(r => r.json())
         .then(r => {
-          state.currentEmojis = state.search ? [].concat.apply([], Object.keys(r).map(key => { return r[key] })) : r
+          state.currentEmojis = state.search
+            ? [].concat.apply(
+                [],
+                Object.keys(r).map(key => {
+                  return r[key]
+                })
+              )
+            : r
           state.loading = false
         })
     }
 
-    const getTabEmoji = (tab) => {
+    const getTabEmoji = tab => {
       if (tab === 'emotions') return '😀'
       else if (tab === 'people') return '👋'
       else if (tab === 'nature') return '🐶'
@@ -125,37 +149,37 @@ export default defineComponent({
       getEmojis,
       getTabEmoji,
     }
-  }
+  },
 })
 </script>
 <style scoped>
-  .emoji-search {
-    position: relative;
-  }
-  
-  .emoji-search label {
-    position: absolute;
-    transform-origin: top left;
-    top: 4px;
-    left: 0px;
-    font-size: 16px;
-    color: #333;
-    pointer-events: none;
-    -webkit-transition: all 0.15s ease-out 0s;
-    transition: all 0.15s ease-out 0s;
-  }
+.emoji-search {
+  position: relative;
+}
 
-  .emoji-search input:focus ~ label,
-  .emoji-search input:not(:focus):valid ~ label {
-    transform: translateY(-14px) scale(.75);
-    color: #f06139;
-  }
+.emoji-search label {
+  position: absolute;
+  transform-origin: top left;
+  top: 4px;
+  left: 0px;
+  font-size: 16px;
+  color: #333;
+  pointer-events: none;
+  -webkit-transition: all 0.15s ease-out 0s;
+  transition: all 0.15s ease-out 0s;
+}
 
-  .h-180 {
-    height: 180px;
-  }
+.emoji-search input:focus ~ label,
+.emoji-search input:not(:focus):valid ~ label {
+  transform: translateY(-14px) scale(0.75);
+  color: #f06139;
+}
 
-  .w-300 {
-    width: 300px;
-  }
+.h-180 {
+  height: 180px;
+}
+
+.w-300 {
+  width: 300px;
+}
 </style>
