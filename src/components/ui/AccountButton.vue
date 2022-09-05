@@ -1,14 +1,16 @@
 <script lang="ts" setup>
 import { ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
-import { ethers, BigNumber } from 'ethers'
 import {formatBalance, formatNumber, truncateAddress} from '../../utils'
 import useConnectedAccount from "../../composables/web3/useConnectedAccounts";
 import useMetaMaskProvider from "../../composables/web3/useMetaMaskProvider";
 import useNativeBalance from '../../composables/web3/useNativeBalance';
+import approveWallet from '../../composables/web3/approveWallet';
+import changeNetwork from '../../composables/web3/changeNetwork';
+import addToken from '../../composables/web3/addToken';
+
 import useTokenBalance from "../../composables/web3/useNativeBalance";
-import {TOKENS, USDC_ADDRESSES} from "../../utils/consts";
-import USDCAbi from '@/abis/USDCAbi.json'
+import { TOKENS } from "../../utils/consts";
 
 // consts
 const route = useRoute()
@@ -22,7 +24,6 @@ const { account } = useConnectedAccount()
 const { balance } = useNativeBalance(account, '80001') // '137' = Matic mainnet
 // const { balance } = useTokenBalance(accounts, TOKENS['137'].MATIC.address, '137')
 
-
 // methods
 async function connectWallet() {
   if (!provider) {
@@ -32,26 +33,6 @@ async function connectWallet() {
   } else {
     const accounts = await provider?.send('eth_requestAccounts', [])
     if (accounts?.length > 0) location.reload()
-  }
-}
-
-async function approveWallet() {
-  console.log("qwew")
-  const signer = provider.getSigner()
-  const usdcInstance = new ethers.Contract(
-    USDC_ADDRESSES['USDC'],
-    USDCAbi,
-    signer
-  )
-  console.log("usdcInstance", usdcInstance)
-  let approvedAmount = 50;
-  try {
-
-    const tx = await usdcInstance.approve('0xc341333737C6CDec94D40B839b43684eA9B0e5D8', BigNumber.from(approvedAmount))
-    console.log('tx', tx)
-
-  } catch (error) {
-
   }
 }
 
@@ -98,9 +79,24 @@ async function approveWallet() {
     <button
       title="Approve-button"
       class="rounded-full px-3 py-1 border border-white mr-4"
-      @click="approveWallet"
+      @click="approveWallet(50)"
       >
       Approve
+    </button>
+
+    <button
+      title="Approve-button"
+      class="rounded-full px-3 py-1 border border-white mr-4"
+      @click="changeNetwork"
+      >
+      Add Network
+    </button>
+    <button
+      title="Approve-button"
+      class="rounded-full px-3 py-1 border border-white mr-4"
+      @click="addToken"
+      >
+      Add USDC
     </button>
   </div>
 </template>
