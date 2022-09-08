@@ -123,20 +123,13 @@ function addedNewDoc(doc: Doc) {
           </div>
           <span class="hidden sm:inline-block ml-2"> New </span>
         </button>
-        <button
-          title="Tip"
-          class="py-2 px-4 m-2 bg-thgreen8 btn-white"
-          @click="tipModal = true"
-        >
+        <button title="Tip" class="py-2 px-4 m-2 bg-thgreen8 btn-white" @click="tipModal = true">
           <span class="hidden sm:inline-block ml-2"> Tip </span>
         </button>
       </div>
       <div class="flex-wrap mx-auto max-w-screen-md text-center flex-center">
         <TagButton
-          v-for="tag in (docs?.remindingTags?.length
-            ? docs?.remindingTags
-            : tags ?? []
-          )
+          v-for="tag in (docs?.remindingTags?.length ? docs?.remindingTags : tags ?? [])
             .slice(0, 10)
             .map(tag => ({ id: tag.id, text: tag.title, title: tag.title }))"
           :key="`tag-${tag.title}`"
@@ -154,11 +147,7 @@ function addedNewDoc(doc: Doc) {
           <span class="px-4 mb-0 font-extrabold uppercase">Results</span>
           <div class="flex-grow border-t-2 border-gray-200"></div>
         </div>
-        <FeedCard
-          v-for="(doc, did) in docs?.documents"
-          :key="`doc-${did}`"
-          :index="did"
-        >
+        <FeedCard v-for="(doc, did) in docs?.documents" :key="`doc-${did}`" :index="did">
           <h5 class="mb-2">{{ doc.title }}</h5>
           <div class="mb-2">
             •
@@ -177,9 +166,7 @@ function addedNewDoc(doc: Doc) {
           <div class="mb-2">
             <small class="mr-2"> Upvotes: {{ doc.upvotes }} </small>
             <small class="mr-2"> Comments: {{ doc.comments }} </small>
-            <small class="mr-2">
-              Added: {{ new Date(doc.createdAt).toLocaleDateString() }}
-            </small>
+            <small class="mr-2"> Added: {{ new Date(doc.createdAt).toLocaleDateString() }} </small>
           </div>
         </FeedCard>
       </div>
@@ -192,26 +179,17 @@ function addedNewDoc(doc: Doc) {
         >
           {{ `<` }}
         </button>
-        <button
-          title="Previous page"
-          class="py-2 px-4 m-2 bg-thgreen1 btn-white"
-          @click="filters.page += 1"
-        >
+        <button title="Previous page" class="py-2 px-4 m-2 bg-thgreen1 btn-white" @click="filters.page += 1">
           {{ `>` }}
         </button>
       </div>
 
       <Dialog :open="newDocumentModal" @close="newDocumentModal = false">
-        <div
-          class="fixed inset-0 bg-black/30 backdrop-blur-[2px]"
-          aria-hidden="true"
-        />
+        <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px]" aria-hidden="true" />
         <div class="flex fixed inset-0 z-50 justify-center items-center p-4">
           <DialogPanel class="p-8 w-full bg-white rounded max-w-[40rem]">
             <AddNewModal
-              :existingTags="
-                tags.map(tag => ({ text: tag.title, value: tag.title }))
-              "
+              :existingTags="tags.map(tag => ({ text: tag.title, value: tag.title }))"
               :gathering="gatheringSlug"
               @close-add-new-modal="doc => addedNewDoc(doc)"
             ></AddNewModal>
@@ -219,10 +197,7 @@ function addedNewDoc(doc: Doc) {
         </div>
       </Dialog>
       <Dialog :open="tipModal" @close="tipModal = false">
-        <div
-          class="fixed inset-0 bg-black/30 backdrop-blur-[2px]"
-          aria-hidden="true"
-        />
+        <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px]" aria-hidden="true" />
         <div class="flex fixed inset-0 z-50 justify-center items-center p-4">
           <DialogPanel class="p-8 w-full bg-white rounded max-w-[40rem]">
             <TipModal />

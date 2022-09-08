@@ -18,9 +18,7 @@ const { gathering } = useGathering(gatheringSlug.value)
 </script>
 
 <template>
-  <div
-    class="justify-center pt-6 pb-8 mx-auto max-w-screen-md text-center d-flex align-center"
-  >
+  <div class="justify-center pt-6 pb-8 mx-auto max-w-screen-md text-center d-flex align-center">
     <h1 class="font-medium">{{ gathering?.name }}</h1>
     <h2 class="mb-2 text-xl">{{ gathering?.description }}</h2>
     <div class="mb-2">

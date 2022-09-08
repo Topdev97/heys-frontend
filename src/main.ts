@@ -28,8 +28,4 @@ const vueQueryPluginOptions: VueQueryPluginOptions = {
   },
 }
 
-app
-  .use(VueQueryPlugin, vueQueryPluginOptions)
-  .use(router)
-  .use(store)
-  .mount('#app')
+app.use(VueQueryPlugin, vueQueryPluginOptions).use(router).use(store).mount('#app')

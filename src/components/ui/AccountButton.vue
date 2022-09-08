@@ -36,11 +36,7 @@ async function connectWallet() {
       <div v-if="account">
         <div class="inline-block">
           <span v-if="balance?._isBigNumber" class="ml-2">
-            {{
-              `${formatNumber(formatBalance(balance))} ${
-                TOKENS['80001'].MATIC.denom
-              }`
-            }}
+            {{ `${formatNumber(formatBalance(balance))} ${TOKENS['80001'].MATIC.denom}` }}
           </span>
           <span
             v-else-if="balance === 'Wrong network'"
@@ -57,12 +53,7 @@ async function connectWallet() {
           {{ truncateAddress(account) }}
         </div>
       </div>
-      <button
-        v-else
-        title="Connect wallet"
-        class="py-1 px-3 rounded border-none shadow-none"
-        @click="connectWallet"
-      >
+      <button v-else title="Connect wallet" class="py-1 px-3 rounded border-none shadow-none" @click="connectWallet">
         Connect wallet
       </button>
     </div>

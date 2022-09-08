@@ -27,11 +27,7 @@
         d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"
       ></path>
     </svg>
-    <div
-      v-else-if="state.unicode.includes('<img')"
-      class="h-4 text-center"
-      v-html="state.unicode"
-    ></div>
+    <div v-else-if="state.unicode.includes('<img')" class="h-4 text-center" v-html="state.unicode"></div>
     <div v-else class="text-center">{{ state.unicode }}</div>
   </div>
 </template>
@@ -121,9 +117,7 @@ export default defineComponent({
       for (let i = 0; i < text.length; i++) {
         hash = text.charCodeAt(i) + ((hash << 5) - hash)
       }
-      const color = Math.floor(
-        Math.abs(((Math.sin(hash) * 10000) % 1) * 16777216)
-      ).toString(16)
+      const color = Math.floor(Math.abs(((Math.sin(hash) * 10000) % 1) * 16777216)).toString(16)
       return '#' + Array(6 - color.length + 1).join('0') + color
     }
 

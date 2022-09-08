@@ -1,13 +1,7 @@
 <template>
-  <div
-    class="overflow-auto fixed z-50 bg-white rounded fade-modal absolute-center"
-    style="height: auto"
-  >
+  <div class="overflow-auto fixed z-50 bg-white rounded fade-modal absolute-center" style="height: auto">
     <div class="relative px-4 sm:px-6 pt-12 w-full">
-      <div
-        class="absolute top-5 right-7 cursor-pointer"
-        @click="$emit('close')"
-      >
+      <div class="absolute top-5 right-7 cursor-pointer" @click="$emit('close')">
         <i class="text-2xl fa fa-times"></i>
       </div>
 
@@ -23,9 +17,7 @@
       </h3>
 
       <div class="min-h-26">
-        <h5 class="mb-4 text-center">
-          Support the creator of this doc and the gathering it belongs to.
-        </h5>
+        <h5 class="mb-4 text-center">Support the creator of this doc and the gathering it belongs to.</h5>
         <PaymentSelector />
       </div>
       <button
@@ -33,28 +25,15 @@
         :disabled="state.layoutData.addLoading"
         @click="tip()"
       >
-        <i
-          v-if="!state.layoutData.addLoading"
-          class="mr-2 text-xl text-white fa fa-plus"
-        ></i>
-        <span class="text-xl text-white">{{
-          state.layoutData.addLoading ? 'Tip...' : 'Tip'
-        }}</span>
+        <i v-if="!state.layoutData.addLoading" class="mr-2 text-xl text-white fa fa-plus"></i>
+        <span class="text-xl text-white">{{ state.layoutData.addLoading ? 'Tip...' : 'Tip' }}</span>
       </button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  reactive,
-  onMounted,
-  nextTick,
-  ref,
-  defineEmits,
-  getCurrentInstance,
-} from 'vue'
+import { defineComponent, reactive, onMounted, nextTick, ref, defineEmits, getCurrentInstance } from 'vue'
 import { useRoute } from 'vue-router'
 import EmojiPicker from '@/components/ui/EmojiPicker.vue'
 import PaymentSelector from '@/components/payments/PaymentSelector.vue'

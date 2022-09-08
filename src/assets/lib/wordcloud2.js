@@ -142,10 +142,7 @@ if (!window.clearImmediate) {
 
     while (size) {
       ctx.font = size.toString(10) + 'px sans-serif'
-      if (
-        ctx.measureText('\uFF37').width === hanWidth &&
-        ctx.measureText('m').width === mWidth
-      ) {
+      if (ctx.measureText('\uFF37').width === hanWidth && ctx.measureText('m').width === mWidth) {
         return size + 1
       }
 
@@ -199,9 +196,7 @@ if (!window.clearImmediate) {
           throw new Error('The element id specified is not found.')
         }
       } else if (!el.tagName && !el.appendChild) {
-        throw new Error(
-          'You must pass valid HTML elements, or ID of the element.'
-        )
+        throw new Error('You must pass valid HTML elements, or ID of the element.')
       }
     })
 
@@ -209,8 +204,7 @@ if (!window.clearImmediate) {
     var settings = {
       list: [],
       fontFamily:
-        '"Trebuchet MS", "Heiti TC", "微軟正黑體", ' +
-        '"Arial Unicode MS", "Droid Fallback Sans", sans-serif',
+        '"Trebuchet MS", "Heiti TC", "微軟正黑體", ' + '"Arial Unicode MS", "Droid Fallback Sans", sans-serif',
       fontWeight: 'normal',
       color: 'random-dark',
       minSize: 0, // 0 to disable
@@ -302,10 +296,7 @@ if (!window.clearImmediate) {
           // http://www.wolframalpha.com/input/?i=plot+r+%3D+min(1%2Fabs(cos(t
           // )),1%2Fabs(sin(t)))),+t+%3D+0+..+2*PI
           settings.shape = function shapeSquare(theta) {
-            return Math.min(
-              1 / Math.abs(Math.cos(theta)),
-              1 / Math.abs(Math.sin(theta))
-            )
+            return Math.min(1 / Math.abs(Math.cos(theta)), 1 / Math.abs(Math.sin(theta)))
           }
           break
 
@@ -315,9 +306,7 @@ if (!window.clearImmediate) {
           // %29%29%2C+t+%3D+0+..+2*PI
           settings.shape = function shapeTriangle(theta) {
             var thetaPrime = theta % ((2 * Math.PI) / 3)
-            return (
-              1 / (Math.cos(thetaPrime) + Math.sqrt(3) * Math.sin(thetaPrime))
-            )
+            return 1 / (Math.cos(thetaPrime) + Math.sqrt(3) * Math.sin(thetaPrime))
           }
           break
 
@@ -325,9 +314,7 @@ if (!window.clearImmediate) {
         case 'triangle-upright':
           settings.shape = function shapeTriangle(theta) {
             var thetaPrime = (theta + (Math.PI * 3) / 2) % ((2 * Math.PI) / 3)
-            return (
-              1 / (Math.cos(thetaPrime) + Math.sqrt(3) * Math.sin(thetaPrime))
-            )
+            return 1 / (Math.cos(thetaPrime) + Math.sqrt(3) * Math.sin(thetaPrime))
           }
           break
 
@@ -341,14 +328,9 @@ if (!window.clearImmediate) {
         case 'star':
           settings.shape = function shapeStar(theta) {
             var thetaPrime = (theta + 0.955) % ((2 * Math.PI) / 10)
-            if (
-              ((theta + 0.955) % ((2 * Math.PI) / 5)) - (2 * Math.PI) / 10 >=
-              0
-            ) {
+            if (((theta + 0.955) % ((2 * Math.PI) / 5)) - (2 * Math.PI) / 10 >= 0) {
               return (
-                1 /
-                (Math.cos((2 * Math.PI) / 10 - thetaPrime) +
-                  3.07768 * Math.sin((2 * Math.PI) / 10 - thetaPrime))
+                1 / (Math.cos((2 * Math.PI) / 10 - thetaPrime) + 3.07768 * Math.sin((2 * Math.PI) / 10 - thetaPrime))
               )
             } else {
               return 1 / (Math.cos(thetaPrime) + 3.07768 * Math.sin(thetaPrime))
@@ -430,28 +412,27 @@ if (!window.clearImmediate) {
     var infoGrid = []
     var hovered
 
-    var getInfoGridFromMouseTouchEvent =
-      function getInfoGridFromMouseTouchEvent(evt) {
-        var canvas = evt.currentTarget
-        var rect = canvas.getBoundingClientRect()
-        var clientX
-        var clientY
-        /** Detect if touches are available */
-        if (evt.touches) {
-          clientX = evt.touches[0].clientX
-          clientY = evt.touches[0].clientY
-        } else {
-          clientX = evt.clientX
-          clientY = evt.clientY
-        }
-        var eventX = clientX - rect.left
-        var eventY = clientY - rect.top
-
-        var x = Math.floor((eventX * (canvas.width / rect.width || 1)) / g)
-        var y = Math.floor((eventY * (canvas.height / rect.height || 1)) / g)
-
-        return infoGrid[x][y]
+    var getInfoGridFromMouseTouchEvent = function getInfoGridFromMouseTouchEvent(evt) {
+      var canvas = evt.currentTarget
+      var rect = canvas.getBoundingClientRect()
+      var clientX
+      var clientY
+      /** Detect if touches are available */
+      if (evt.touches) {
+        clientX = evt.touches[0].clientX
+        clientY = evt.touches[0].clientY
+      } else {
+        clientX = evt.clientX
+        clientY = evt.clientY
       }
+      var eventX = clientX - rect.left
+      var eventY = clientY - rect.top
+
+      var x = Math.floor((eventX * (canvas.width / rect.width || 1)) / g)
+      var y = Math.floor((eventY * (canvas.height / rect.height || 1)) / g)
+
+      return infoGrid[x][y]
+    }
 
     var wordcloudhover = function wordcloudhover(evt) {
       var info = getInfoGridFromMouseTouchEvent(evt)
@@ -508,11 +489,7 @@ if (!window.clearImmediate) {
         // Push [x, y, t] t is used solely for getTextColor()
         points.push([
           center[0] + radius * rx * Math.cos((-t / T) * 2 * Math.PI),
-          center[1] +
-            radius *
-              rx *
-              Math.sin((-t / T) * 2 * Math.PI) *
-              settings.ellipticity,
+          center[1] + radius * rx * Math.sin((-t / T) * 2 * Math.PI) * settings.ellipticity,
           (t / T) * 2 * Math.PI,
         ])
       }
@@ -523,10 +500,7 @@ if (!window.clearImmediate) {
 
     /* Return true if we had spent too much time */
     var exceedTime = function exceedTime() {
-      return (
-        settings.abortThreshold > 0 &&
-        new Date().getTime() - escapeTime > settings.abortThreshold
-      )
+      return settings.abortThreshold > 0 && new Date().getTime() - escapeTime > settings.abortThreshold
     }
 
     /* Get the deg of rotation according to settings, and luck. */
@@ -545,22 +519,13 @@ if (!window.clearImmediate) {
 
       if (rotationSteps > 0) {
         // Min rotation + zero or more steps * span of one step
-        return (
-          minRotation +
-          (Math.floor(Math.random() * rotationSteps) * rotationRange) /
-            (rotationSteps - 1)
-        )
+        return minRotation + (Math.floor(Math.random() * rotationSteps) * rotationRange) / (rotationSteps - 1)
       } else {
         return minRotation + Math.random() * rotationRange
       }
     }
 
-    var getTextInfo = function getTextInfo(
-      word,
-      weight,
-      rotateDeg,
-      extraDataArray
-    ) {
+    var getTextInfo = function getTextInfo(word, weight, rotateDeg, extraDataArray) {
       // calculate the acutal font size
       // fontSize === 0 means weightFactor function wants the text skipped,
       // and size < minSize means we cannot draw the text.
@@ -595,21 +560,11 @@ if (!window.clearImmediate) {
       var fcanvas = document.createElement('canvas')
       var fctx = fcanvas.getContext('2d', { willReadFrequently: true })
 
-      fctx.font =
-        fontWeight +
-        ' ' +
-        (fontSize * mu).toString(10) +
-        'px ' +
-        settings.fontFamily
+      fctx.font = fontWeight + ' ' + (fontSize * mu).toString(10) + 'px ' + settings.fontFamily
 
       // Estimate the dimension of the text with measureText().
       var fw = fctx.measureText(word).width / mu
-      var fh =
-        Math.max(
-          fontSize * mu,
-          fctx.measureText('m').width,
-          fctx.measureText('\uFF37').width
-        ) / mu
+      var fh = Math.max(fontSize * mu, fctx.measureText('m').width, fctx.measureText('\uFF37').width) / mu
 
       // Create a boundary box that is larger than our estimates,
       // so text don't get cut of (it sill might)
@@ -631,16 +586,8 @@ if (!window.clearImmediate) {
       var fillTextOffsetY = -fh * 0.4
 
       // Calculate the actual dimension of the canvas, considering the rotation.
-      var cgh = Math.ceil(
-        (boxWidth * Math.abs(Math.sin(rotateDeg)) +
-          boxHeight * Math.abs(Math.cos(rotateDeg))) /
-          g
-      )
-      var cgw = Math.ceil(
-        (boxWidth * Math.abs(Math.cos(rotateDeg)) +
-          boxHeight * Math.abs(Math.sin(rotateDeg))) /
-          g
-      )
+      var cgh = Math.ceil((boxWidth * Math.abs(Math.sin(rotateDeg)) + boxHeight * Math.abs(Math.cos(rotateDeg))) / g)
+      var cgw = Math.ceil((boxWidth * Math.abs(Math.cos(rotateDeg)) + boxHeight * Math.abs(Math.sin(rotateDeg))) / g)
       var width = cgw * g
       var height = cgh * g
 
@@ -661,12 +608,7 @@ if (!window.clearImmediate) {
 
       // Once the width/height is set, ctx info will be reset.
       // Set it again here.
-      fctx.font =
-        fontWeight +
-        ' ' +
-        (fontSize * mu).toString(10) +
-        'px ' +
-        settings.fontFamily
+      fctx.font = fontWeight + ' ' + (fontSize * mu).toString(10) + 'px ' + settings.fontFamily
 
       // Fill the text into the fcanvas.
       // XXX: We cannot because textBaseline = 'top' here because
@@ -676,11 +618,7 @@ if (!window.clearImmediate) {
       // 0.5 * fontSize lower.
       fctx.fillStyle = '#000'
       fctx.textBaseline = 'middle'
-      fctx.fillText(
-        word,
-        fillTextOffsetX * mu,
-        (fillTextOffsetY + fontSize * 0.5) * mu
-      )
+      fctx.fillText(word, fillTextOffsetX * mu, (fillTextOffsetY + fontSize * 0.5) * mu)
 
       // Get the pixels of the text
       var imageData = fctx.getImageData(0, 0, width, height).data
@@ -741,12 +679,7 @@ if (!window.clearImmediate) {
 
       if (debug) {
         fctx.fillStyle = 'rgba(0, 255, 0, 0.5)'
-        fctx.fillRect(
-          bounds[3] * g,
-          bounds[0] * g,
-          (bounds[1] - bounds[3] + 1) * g,
-          (bounds[2] - bounds[0] + 1) * g
-        )
+        fctx.fillRect(bounds[3] * g, bounds[0] * g, (bounds[1] - bounds[3] + 1) * g, (bounds[2] - bounds[0] + 1) * g)
       }
 
       // Return information needed to create the text on the real canvas
@@ -803,14 +736,7 @@ if (!window.clearImmediate) {
       var fontSize = info.fontSize
       var color
       if (getTextColor) {
-        color = getTextColor(
-          word,
-          weight,
-          fontSize,
-          distance,
-          theta,
-          extraDataArray
-        )
+        color = getTextColor(word, weight, fontSize, distance, theta, extraDataArray)
       } else {
         color = settings.color
       }
@@ -839,20 +765,12 @@ if (!window.clearImmediate) {
           ctx.save()
           ctx.scale(1 / mu, 1 / mu)
 
-          ctx.font =
-            fontWeight +
-            ' ' +
-            (fontSize * mu).toString(10) +
-            'px ' +
-            settings.fontFamily
+          ctx.font = fontWeight + ' ' + (fontSize * mu).toString(10) + 'px ' + settings.fontFamily
           ctx.fillStyle = color
 
           // Translate the canvas position to the origin coordinate of where
           // the text should be put.
-          ctx.translate(
-            (gx + info.gw / 2) * g * mu,
-            (gy + info.gh / 2) * g * mu
-          )
+          ctx.translate((gx + info.gw / 2) * g * mu, (gy + info.gh / 2) * g * mu)
 
           if (rotateDeg !== 0) {
             ctx.rotate(-rotateDeg)
@@ -866,11 +784,7 @@ if (!window.clearImmediate) {
           // Here, we use textBaseline = 'middle' and draw the text at exactly
           // 0.5 * fontSize lower.
           ctx.textBaseline = 'middle'
-          ctx.fillText(
-            word,
-            info.fillTextOffsetX * mu,
-            (info.fillTextOffsetY + fontSize * 0.5) * mu
-          )
+          ctx.fillText(word, info.fillTextOffsetX * mu, (info.fillTextOffsetY + fontSize * 0.5) * mu)
 
           // The below box is always matches how <span>s are positioned
           /* ctx.strokeRect(info.fillTextOffsetX, info.fillTextOffsetY,
@@ -884,23 +798,12 @@ if (!window.clearImmediate) {
           var transformRule = ''
           transformRule = 'rotate(' + (-rotateDeg / Math.PI) * 180 + 'deg) '
           if (info.mu !== 1) {
-            transformRule +=
-              'translateX(-' +
-              info.fillTextWidth / 4 +
-              'px) ' +
-              'scale(' +
-              1 / info.mu +
-              ')'
+            transformRule += 'translateX(-' + info.fillTextWidth / 4 + 'px) ' + 'scale(' + 1 / info.mu + ')'
           }
           var styleRules = {
             position: 'absolute',
             display: 'block',
-            font:
-              fontWeight +
-              ' ' +
-              fontSize * info.mu +
-              'px ' +
-              settings.fontFamily,
+            font: fontWeight + ' ' + fontSize * info.mu + 'px ' + settings.fontFamily,
             left: (gx + info.gw / 2) * g + info.fillTextOffsetX + 'px',
             top: (gy + info.gh / 2) * g + info.fillTextOffsetY + 'px',
             width: info.fillTextWidth + 'px',
@@ -1026,10 +929,7 @@ if (!window.clearImmediate) {
       // word is larger than the canvas.
       if (!settings.drawOutOfBound && !settings.shrinkToFit) {
         var bounds = info.bounds
-        if (
-          bounds[1] - bounds[3] + 1 > ngx ||
-          bounds[2] - bounds[0] + 1 > ngy
-        ) {
+        if (bounds[1] - bounds[3] + 1 > ngx || bounds[2] - bounds[0] + 1 > ngy) {
           return false
         }
       }
@@ -1051,18 +951,7 @@ if (!window.clearImmediate) {
         }
 
         // Actually put the text on the canvas
-        drawText(
-          gx,
-          gy,
-          info,
-          word,
-          weight,
-          maxRadius - r,
-          gxy[2],
-          rotateDeg,
-          attributes,
-          extraDataArray
-        )
+        drawText(gx, gy, info, word, weight, maxRadius - r, gxy[2], rotateDeg, attributes, extraDataArray)
 
         // Mark the spaces on the grid as filled
         updateGrid(gx, gy, gw, gh, info, item)
@@ -1144,9 +1033,7 @@ if (!window.clearImmediate) {
       }
 
       // Determine the center of the word cloud
-      center = settings.origin
-        ? [settings.origin[0] / g, settings.origin[1] / g]
-        : [ngx / 2, ngy / 2]
+      center = settings.origin ? [settings.origin[0] / g, settings.origin[1] / g] : [ngx / 2, ngy / 2]
 
       // Maxium radius to look for space
       maxRadius = Math.floor(Math.sqrt(ngx * ngx + ngy * ngy))
@@ -1191,9 +1078,7 @@ if (!window.clearImmediate) {
         /* Read back the pixels of the canvas we got to tell which part of the
            canvas is empty.
            (no clearCanvas only works with a canvas, not divs) */
-        var imageData = canvas
-          .getContext('2d')
-          .getImageData(0, 0, ngx * g, ngy * g).data
+        var imageData = canvas.getContext('2d').getImageData(0, 0, ngx * g, ngy * g).data
 
         gx = ngx
         var x, y
@@ -1208,11 +1093,7 @@ if (!window.clearImmediate) {
               while (x--) {
                 i = 4
                 while (i--) {
-                  if (
-                    imageData[
-                      ((gy * g + y) * ngx * g + (gx * g + x)) * 4 + i
-                    ] !== bgPixel[i]
-                  ) {
+                  if (imageData[((gy * g + y) * ngx * g + (gx * g + x)) * 4 + i] !== bgPixel[i]) {
                     grid[gx][gy] = false
                     break singleGridLoop
                   }

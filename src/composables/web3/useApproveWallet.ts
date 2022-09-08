@@ -7,18 +7,11 @@ export default async function approveWallet(amount: number) {
   const { provider } = useMetaMaskProvider()
 
   const signer = provider.getSigner()
-  const usdcInstance = new ethers.Contract(
-    USDC_ADDRESSES['USDC'],
-    USDCAbi,
-    signer
-  )
+  const usdcInstance = new ethers.Contract(USDC_ADDRESSES['USDC'], USDCAbi, signer)
   console.log('usdcInstance', usdcInstance)
   const approvedAmount = amount
   try {
-    const tx = await usdcInstance.approve(
-      GATHERING_ADDRESSES['gBG'],
-      BigNumber.from(approvedAmount)
-    )
+    const tx = await usdcInstance.approve(GATHERING_ADDRESSES['gBG'], BigNumber.from(approvedAmount))
     console.log('tx', tx)
   } catch (error) {
     console.log('error', error)

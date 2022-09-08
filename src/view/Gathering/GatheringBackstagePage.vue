@@ -26,11 +26,7 @@ const selectedTab = ref(route?.query?.tab?.toString() ?? 'Vote')
 
 // watchers
 watch(selectedTab, newTab => {
-  window.history.replaceState(
-    { page: 'heystacks' },
-    'heystacks',
-    `/g/${gatheringSlug}/backstage?tab=${newTab}`
-  )
+  window.history.replaceState({ page: 'heystacks' }, 'heystacks', `/g/${gatheringSlug}/backstage?tab=${newTab}`)
 })
 </script>
 
@@ -40,9 +36,7 @@ watch(selectedTab, newTab => {
       <HeaderNav />
     </template>
     <template #header-content>
-      <HeaderContent
-        :navLink="{ label: '< Back', path: `/g/${gatheringSlug}` }"
-      />
+      <HeaderContent :navLink="{ label: '< Back', path: `/g/${gatheringSlug}` }" />
     </template>
     <template #command-band>
       <div class="mx-auto max-w-screen-md text-center flex-center">

@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="text-center bg-white emoji-picker shadow-menu w-300"
-    @click.stop
-    @contextmenu.stop
-  >
+  <div class="text-center bg-white emoji-picker shadow-menu w-300" @click.stop @contextmenu.stop>
     <div class="rounded">
       <div class="pt-2">
         <span
@@ -33,9 +29,7 @@
         <div v-if="!loading">
           <span
             v-for="(emoji, eid) in state.currentEmojis.filter(
-              emoji =>
-                !search ||
-                emoji.name.includes(search.toLowerCase().replace(/\s/g, '_'))
+              emoji => !search || emoji.name.includes(search.toLowerCase().replace(/\s/g, '_'))
             )"
             :key="eid"
             class="cursor-pointer"
@@ -62,17 +56,7 @@ export default defineComponent({
   setup(_, { emit }) {
     const state = reactive({
       loading: true,
-      tabs: [
-        'emotions',
-        'people',
-        'nature',
-        'food',
-        'travel',
-        'activities',
-        'objects',
-        'symbols',
-        'flags',
-      ],
+      tabs: ['emotions', 'people', 'nature', 'food', 'travel', 'activities', 'objects', 'symbols', 'flags'],
       search: '',
       activeTab: 'emotions',
       currentEmojis: [],
@@ -84,16 +68,12 @@ export default defineComponent({
 
     onMounted(() => {
       const outsideClickListener = event => {
-        if (
-          event.target.closest('.emoji-picker') === null &&
-          event.target.closest('.emoji-picker-btn') === null
-        ) {
+        if (event.target.closest('.emoji-picker') === null && event.target.closest('.emoji-picker-btn') === null) {
           removeClickListener()
           emit('close')
         }
       }
-      const removeClickListener = () =>
-        document.removeEventListener('click', outsideClickListener)
+      const removeClickListener = () => document.removeEventListener('click', outsideClickListener)
       document.addEventListener('click', outsideClickListener)
     })
 

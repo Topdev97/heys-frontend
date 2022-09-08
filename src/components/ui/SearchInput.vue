@@ -54,10 +54,7 @@
       ></i>
     </div>
     <div
-      v-if="
-        (state.layoutData.searchFocused || state.dropdown.hover) &&
-        filteredTags.length
-      "
+      v-if="(state.layoutData.searchFocused || state.dropdown.hover) && filteredTags.length"
       class="absolute left-4 z-50 text-left bg-white rounded shadow-menu search-dropdown"
       :style="{ bottom: -(filteredTags.length + 1) * 27 + 'px' }"
       @mouseenter="state.dropdown.hover = true"
@@ -120,11 +117,7 @@ export default defineComponent({
     const filteredTags = computed(() => {
       return state.filterObj.search
         ? props.existingTags
-            .filter(tag =>
-              tag.text
-                .toLowerCase()
-                .includes(state.filterObj.search.toLowerCase())
-            )
+            .filter(tag => tag.text.toLowerCase().includes(state.filterObj.search.toLowerCase()))
             .slice(0, 5)
         : []
     })
@@ -143,16 +136,11 @@ export default defineComponent({
     const searchEnter = () => {
       if (state.dropdown.active !== -1) {
         if (props.feed) {
-          emit(
-            'selected-tag',
-            filteredTags.value._value[state.dropdown.active].text
-          )
+          emit('selected-tag', filteredTags.value._value[state.dropdown.active].text)
           state.filterObj.search = ''
           state.dropdown.active = -1
         } else {
-          router.push(
-            '/?tags=' + filteredTags.value._value[state.dropdown.active].text
-          )
+          router.push('/?tags=' + filteredTags.value._value[state.dropdown.active].text)
         }
       } else {
         emit('search', state.filterObj.search)
@@ -162,10 +150,7 @@ export default defineComponent({
     const feedTagClick = event => {
       if (props.feed) {
         event.preventDefault()
-        emit(
-          'selected-tag',
-          filteredTags.value._value[state.dropdown.active].text
-        )
+        emit('selected-tag', filteredTags.value._value[state.dropdown.active].text)
         state.filterObj.search = ''
         state.dropdown.active = -1
       }
@@ -174,8 +159,7 @@ export default defineComponent({
     const arrowKeyPress = event => {
       if (event.key === 'ArrowDown') {
         event.preventDefault()
-        if (filteredTags.value._value.length > state.dropdown.active + 1)
-          state.dropdown.active += 1
+        if (filteredTags.value._value.length > state.dropdown.active + 1) state.dropdown.active += 1
       }
       if (event.key === 'ArrowUp') {
         event.preventDefault()

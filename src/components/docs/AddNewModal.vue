@@ -1,12 +1,7 @@
 <template>
-  <div
-    class="overflow-auto fixed z-50 bg-white rounded fade-modal absolute-center"
-  >
+  <div class="overflow-auto fixed z-50 bg-white rounded fade-modal absolute-center">
     <div class="relative px-4 sm:px-6 pt-12 w-full h-full">
-      <div
-        class="absolute top-5 right-7 cursor-pointer"
-        @click="$emit('close')"
-      >
+      <div class="absolute top-5 right-7 cursor-pointer" @click="$emit('close')">
         <i class="text-2xl fa fa-times"></i>
       </div>
 
@@ -51,10 +46,7 @@
           <span class="text-xl text-white">Write a new doc</span>
         </button>
       </div>
-      <div
-        v-if="state.layoutData.page === 'existing'"
-        class="sm:px-10 text-center"
-      >
+      <div v-if="state.layoutData.page === 'existing'" class="sm:px-10 text-center">
         <a
           class="mb-4 hover:underline cursor-pointer text-emerald-800 active:text-emerald-600"
           @click="state.layoutData.page = 'main'"
@@ -89,12 +81,8 @@
             "
             >Url</label
           >
-          <p
-            v-if="state.newDocumentObj.errors.indexOf('url-error') >= 0"
-            class="text-left text-red-500"
-          >
-            Incorrect url - please double check your link. It should be
-            something like
+          <p v-if="state.newDocumentObj.errors.indexOf('url-error') >= 0" class="text-left text-red-500">
+            Incorrect url - please double check your link. It should be something like
             "https://docs.google.com/document/d/1wf9YFtLFM4LuNkDzbb4hGfZqvb6VnKzJ9iZ"
           </p>
         </div>
@@ -113,19 +101,13 @@
           ></textarea>
           <label
             for="new-modal-description"
-            :class="
-              state.newDocumentObj.errors.indexOf('no-description') >= 0
-                ? `text-orange-600`
-                : `text-default`
-            "
+            :class="state.newDocumentObj.errors.indexOf('no-description') >= 0 ? `text-orange-600` : `text-default`"
           >
             What is this doc about?
           </label>
           <div
             class="absolute right-2 bottom-3 cursor-pointer emoji-picker-btn"
-            @click="
-              state.layoutData.emojiPicker = !state.layoutData.emojiPicker
-            "
+            @click="state.layoutData.emojiPicker = !state.layoutData.emojiPicker"
           >
             <i class="far fa-smile"></i>
           </div>
@@ -159,11 +141,7 @@
           />
           <label
             for="tags-combobox--1"
-            :class="
-              state.newDocumentObj.errors.indexOf('no-tags') >= 0
-                ? `text-orange-600`
-                : `text-default`
-            "
+            :class="state.newDocumentObj.errors.indexOf('no-tags') >= 0 ? `text-orange-600` : `text-default`"
           >
             Tags
           </label>
@@ -189,20 +167,12 @@
           :disabled="state.layoutData.addLoading"
           @click="addDocument()"
         >
-          <i
-            v-if="!state.layoutData.addLoading"
-            class="mr-2 text-xl text-white fa fa-plus"
-          ></i>
-          <span class="text-xl text-white">{{
-            state.layoutData.addLoading ? 'Adding...' : 'Add new doc'
-          }}</span>
+          <i v-if="!state.layoutData.addLoading" class="mr-2 text-xl text-white fa fa-plus"></i>
+          <span class="text-xl text-white">{{ state.layoutData.addLoading ? 'Adding...' : 'Add new doc' }}</span>
         </button>
         <div class="pb-12 min-h-26">
           <h5>Sponsor submission</h5>
-          <small class="block mt-1 mb-4"
-            >Sponsored docs are more likely to be included in the
-            gathering</small
-          >
+          <small class="block mt-1 mb-4">Sponsored docs are more likely to be included in the gathering</small>
           <PaymentSelector />
           <!--          <small>If the doc is not approved, the funds will be returned</small>-->
         </div>
@@ -216,9 +186,7 @@
           Back
         </a>
         <br />
-        <p class="mt-7 mb-2 text-lg font-normal text-default subheading">
-          1. Create a new:
-        </p>
+        <p class="mt-7 mb-2 text-lg font-normal text-default subheading">1. Create a new:</p>
         <div class="flex justify-center">
           <a
             href="https://docs.new"
@@ -234,11 +202,7 @@
               preserveAspectRatio="xMidYMid meet"
             >
               <rect x="5" y="5" width="55" height="55" fill="white"></rect>
-              <g
-                transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)"
-                fill="#4285F4"
-                stroke="none"
-              >
+              <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#4285F4" stroke="none">
                 <path
                   d="M 0.648 639.352 L 0.648 1.409 L 639.352 0.648 L 639.352 639.352 L 0.648 639.352 Z M 500 465 L 500 430 L 320 430 L 140 430 L 140 465 L 140 500 L 320 500 L 500 500 L 500 465 Z M 500 325 L 500 290 L 320 290 L 140 290 L 140 325 L 140 360 L 320 360 L 500 360 L 500 325 Z M 390 185 L 390 150 L 265 150 L 140 150 L 140 185 L 140 220 L 265 220 L 390 220 L 390 185 Z"
                 ></path>
@@ -260,11 +224,7 @@
               preserveAspectRatio="xMidYMid meet"
             >
               <rect x="5" y="5" width="55" height="55" fill="white"></rect>
-              <g
-                transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)"
-                fill="#0F9D58"
-                stroke="none"
-              >
+              <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#0F9D58" stroke="none">
                 <path
                   d="M0 320 l0 -320 320 0 320 0 0 320 0 320 -320 0 -320 0 0 -320z m280 180 l0 -70 145 0 145 0 0 -35 0 -35 -145 0 -145 0 0 -145 0 -145 -35 0 -35 0 0 145 0 145 -70 0 -70 0 0 35 0 35 70 0 70 0 0 70 0 70 35 0 35 0 0 -70z"
                 />
@@ -286,11 +246,7 @@
               preserveAspectRatio="xMidYMid meet"
             >
               <rect x="5" y="5" width="55" height="55" fill="white"></rect>
-              <g
-                transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)"
-                fill="#F4B400"
-                stroke="none"
-              >
+              <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#F4B400" stroke="none">
                 <path
                   d="M0 320 l0 -320 320 0 320 0 0 320 0 320 -320 0 -320 0 0 -320z m570 0 l0 -140 -250 0 -250 0 0 140 0 140 250 0 250 0 0 -140z"
                 />
@@ -300,20 +256,10 @@
           </a>
         </div>
 
-        <p class="mt-7 mb-2 text-lg font-normal text-default subheading">
-          2. Make it public and copy the link:
-        </p>
-        <img
-          alt="Share doc 1"
-          src="/src/assets/img/nd1.jpg"
-          class="block mx-auto w-3/4"
-        />
+        <p class="mt-7 mb-2 text-lg font-normal text-default subheading">2. Make it public and copy the link:</p>
+        <img alt="Share doc 1" src="/src/assets/img/nd1.jpg" class="block mx-auto w-3/4" />
         <br />
-        <img
-          alt="Share doc 2"
-          src="/src/assets/img/nd2.jpg"
-          class="block mx-auto w-3/4"
-        />
+        <img alt="Share doc 2" src="/src/assets/img/nd2.jpg" class="block mx-auto w-3/4" />
 
         <p class="mt-7 mb-2 text-lg font-normal text-default subheading">
           3. Add the link to heystacks:
@@ -329,15 +275,7 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  reactive,
-  onMounted,
-  nextTick,
-  ref,
-  defineEmits,
-  getCurrentInstance,
-} from 'vue'
+import { defineComponent, reactive, onMounted, nextTick, ref, defineEmits, getCurrentInstance } from 'vue'
 import { useRoute } from 'vue-router'
 import { ethers } from 'ethers'
 import EmojiPicker from '@/components/ui/EmojiPicker.vue'
@@ -386,20 +324,12 @@ export default defineComponent({
     const addDocument = async () => {
       state.newDocumentObj.errors = []
       if (!state.newDocumentObj.url) state.newDocumentObj.errors.push('no-url')
-      if (!state.newDocumentObj.description)
-        state.newDocumentObj.errors.push('no-description')
-      if (!state.newDocumentObj.tags.length)
-        state.newDocumentObj.errors.push('no-tags')
+      if (!state.newDocumentObj.description) state.newDocumentObj.errors.push('no-description')
+      if (!state.newDocumentObj.tags.length) state.newDocumentObj.errors.push('no-tags')
       if (
-        !state.newDocumentObj.url.match(
-          /^https:\/\/docs\.google\..{1,6}\/spreadsheets/
-        ) &&
-        !state.newDocumentObj.url.match(
-          /^https:\/\/docs\.google\..{1,6}\/document/
-        ) &&
-        !state.newDocumentObj.url.match(
-          /^https:\/\/docs\.google\..{1,6}\/presentation/
-        )
+        !state.newDocumentObj.url.match(/^https:\/\/docs\.google\..{1,6}\/spreadsheets/) &&
+        !state.newDocumentObj.url.match(/^https:\/\/docs\.google\..{1,6}\/document/) &&
+        !state.newDocumentObj.url.match(/^https:\/\/docs\.google\..{1,6}\/presentation/)
       )
         state.newDocumentObj.errors.push('url-error')
 
@@ -407,18 +337,13 @@ export default defineComponent({
         state.layoutData.addLoading = true
         const docObjCopy = Object.assign({}, state.newDocumentObj)
         docObjCopy.existingTags = []
-        if (route.params.gatheringSlug)
-          docObjCopy.space = route.params.gatheringSlug
+        if (route.params.gatheringSlug) docObjCopy.space = route.params.gatheringSlug
         else if (props.gathering) docObjCopy.space = props.gathering
 
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
 
-        const gatheringInstance = new ethers.Contract(
-          GATHERING_ADDRESSES['gBG'],
-          gatheringAbi,
-          signer
-        )
+        const gatheringInstance = new ethers.Contract(GATHERING_ADDRESSES['gBG'], gatheringAbi, signer)
 
         try {
           const response = await gatheringInstance.addDoc(docObjCopy.url, 0)
@@ -439,16 +364,11 @@ export default defineComponent({
               } else {
                 r.json().then(r => {
                   if (!r.success) {
-                    if (r.reason === 'already-exists')
-                      alert('⚠️ This document has already been added')
+                    if (r.reason === 'already-exists') alert('⚠️ This document has already been added')
                     if (r.reason === 'url-error')
-                      alert(
-                        '⚠️ Url error - please check if your url is in the correct format'
-                      )
+                      alert('⚠️ Url error - please check if your url is in the correct format')
                     if (r.reason === 'cant-access')
-                      alert(
-                        '⚠️ Unable to access this document - are you sure this is a public document?'
-                      )
+                      alert('⚠️ Unable to access this document - are you sure this is a public document?')
                   } else {
                     state.newDocumentObj.title = ''
                     state.newDocumentObj.url = ''
@@ -461,10 +381,7 @@ export default defineComponent({
                         method: 'POST',
                         body: JSON.stringify({ docId: r.document.id }),
                       })
-                      setTimeout(
-                        () => fetch(`/api/sodoc/${r.document.id}`),
-                        3000
-                      )
+                      setTimeout(() => fetch(`/api/sodoc/${r.document.id}`), 3000)
                       emit('close-add-new-modal', r.document)
                     }
                   }
@@ -493,10 +410,7 @@ export default defineComponent({
         }
         const ke = new KeyboardEvent('keydown', enterProps)
         event.target.dispatchEvent(ke)
-        setTimeout(
-          () => document.getElementById('tags-combobox--1').focus(),
-          10
-        )
+        setTimeout(() => document.getElementById('tags-combobox--1').focus(), 10)
       }
       if (event.key === ',') {
         event.preventDefault()
@@ -523,9 +437,7 @@ export default defineComponent({
       } else {
         if (
           state.layoutData.comboboxInput &&
-          state.newDocumentObj.tags
-            .map(tag => tag.text)
-            .indexOf(state.layoutData.comboboxInput) < 0
+          state.newDocumentObj.tags.map(tag => tag.text).indexOf(state.layoutData.comboboxInput) < 0
         ) {
           state.newDocumentObj.tags.push({
             text: state.layoutData.comboboxInput,
@@ -539,9 +451,9 @@ export default defineComponent({
 
     const updateTagCandidate = () => {
       state.newDocumentObj.tagCandidate = (
-        document.querySelector(
-          '.v-autocomplete__content > .v-list > .v-list-item--highlighted'
-        ) || { textContent: 'No data available' }
+        document.querySelector('.v-autocomplete__content > .v-list > .v-list-item--highlighted') || {
+          textContent: 'No data available',
+        }
       ).textContent
     }
 

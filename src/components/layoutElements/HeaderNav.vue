@@ -25,19 +25,13 @@ const gatheringsModal = ref(false)
         >
           <rect x="100" y="100" width="850" height="800" fill="#7b4848"></rect>
           <rect x="10" y="10" width="700" height="700" fill="white"></rect>
-          <g
-            transform="translate(0.000000,800.000000) scale(0.100000,-0.100000)"
-            fill="#d96d1a"
-            stroke="none"
-          >
+          <g transform="translate(0.000000,800.000000) scale(0.100000,-0.100000)" fill="#d96d1a" stroke="none">
             <path
               d="M0 4000 l0 -4000 4000 0 4000 0 0 4000 0 4000 -4000 0 -4000 0 0 -4000z m6740 1695 l0 -445 -2315 0 -2315 0 0 445 0 445 2315 0 2315 0 0 -445z m-870 -1730 l0 -445 -2315 0 -2315 0 0 445 0 445 2315 0 2315 0 0 -445z"
             />
           </g>
         </svg>
-        <h1 class="hidden xs:inline-block ml-1 text-xl font-medium">
-          heystack
-        </h1>
+        <h1 class="hidden xs:inline-block ml-1 text-xl font-medium">heystack</h1>
       </router-link>
     </div>
     <div class="flex">
@@ -62,10 +56,7 @@ const gatheringsModal = ref(false)
     </div>
 
     <Dialog :open="gatheringsModal" @close="gatheringsModal = false">
-      <div
-        class="fixed inset-0 bg-black/30 backdrop-blur-[2px]"
-        aria-hidden="true"
-      />
+      <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px]" aria-hidden="true" />
       <div class="flex fixed inset-0 z-50 justify-center items-center p-4">
         <DialogPanel class="p-8 w-full bg-white rounded max-w-[40rem]">
           <GatheringsModal />

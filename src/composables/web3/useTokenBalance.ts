@@ -3,11 +3,7 @@ import { ethers } from 'ethers'
 import { computed, unref } from 'vue'
 import useMetaMaskProvider from './useMetaMaskProvider'
 
-export default function useTokenBalance(
-  account: any,
-  tokenAddress: string,
-  network: string
-) {
+export default function useTokenBalance(account: any, tokenAddress: string, network: string) {
   const provider = useMetaMaskProvider()
 
   const acc = unref(account)
