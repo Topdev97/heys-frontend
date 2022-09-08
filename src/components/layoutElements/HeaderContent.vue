@@ -1,10 +1,7 @@
 <script lang="ts" setup>
-import { useRoute } from 'vue-router'
-import useGathering from '../../composables/web2/useGathering'
+import useGathering from '@/composables/web2/useGathering'
+import gatheringSlug from '@/composables/utils/useGatheringSlug'
 import { ChartBarIcon } from '@heroicons/vue/solid'
-
-const route = useRoute()
-const gatheringSlug = route.params.gatheringSlug.toString()
 
 interface NavLink {
   label: string
@@ -17,7 +14,7 @@ interface Props {
 
 defineProps<Props>()
 
-const { gathering } = useGathering(gatheringSlug)
+const { gathering } = useGathering(gatheringSlug.value)
 </script>
 
 <template>
@@ -27,11 +24,8 @@ const { gathering } = useGathering(gatheringSlug)
     <h1 class="font-medium">{{ gathering?.name }}</h1>
     <h2 class="mb-2 text-xl">{{ gathering?.description }}</h2>
     <div class="mb-2">
-      <span>gTES</span> • <span>Price: $0.003</span> •
-      <span>Market cap: $21m</span> •
-      <span>
-        <ChartBarIcon class="inline-block pb-1 ml-1 h-5 link fill-thgreen1" />
-      </span>
+      <span>gBG</span> • <span>Price: $0.003</span> •
+      <span>Market cap: $21m</span>
     </div>
     <div>
       <router-link :to="{ path: navLink.path }" class="link-dark">

@@ -1,11 +1,10 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
-import FeedCard from '../../components/atoms/FeedCard.vue'
-import { GATHERING_ADDRESSES } from '../../utils/consts'
-import gatheringAbi from '@/abis/GatheringAbi.json'
+import FeedCard from '@/components/atoms/FeedCard.vue'
 import { ethers } from 'ethers'
-import { Contract, Provider } from 'ethers-multicall'
-import { Doc } from '../../utils/types'
+import { Provider } from 'ethers-multicall'
+import { Doc, DocContract } from '@/utils/types'
+import gatheringInstance from '@/composables/web3/useGatheringContract'
 
 // state
 const votes = [
@@ -20,7 +19,8 @@ const votes = [
       'In the face of environmental collapse, humanity may need to turn to artificial replacements for nature – how might we avoid the most dystopian of these futures?',
   },
 ]
-const docsToVoteOn = ref([] as number[])
+const docsToVoteOn = ref([] as Doc[])
+const loading = ref(true)
 
 // lifecycle
 onMounted(async () => {
@@ -28,51 +28,58 @@ onMounted(async () => {
   const ethcallProvider = new Provider(provider)
   await ethcallProvider.init()
 
-  const gatheringInstance = new Contract(
-    GATHERING_ADDRESSES['gOTB'],
-    gatheringAbi.filter(abi => abi.type === 'function')
-  )
-
+  // get list of ids of docs to vote on
   const docIdsCall = [gatheringInstance.docsToVoteOn()]
   const response1 = await ethcallProvider.all(docIdsCall)
-  const docsToVoteOnInt = response1[0].map(docId => docId.toNumber())
-  docsToVoteOn.value = docsToVoteOnInt
+  const docsToVoteOnInt: number[] = response1[0].map(docId => docId.toNumber())
 
+  // multiCall to get doc details for all of those
   const docsCalls = docsToVoteOnInt.map(docId => gatheringInstance.docs(docId))
-  const response2: Doc[] = await ethcallProvider.all(docsCalls)
-  console.log(response2)
+  const response2: DocContract[] = await ethcallProvider.all(docsCalls)
+  docsToVoteOn.value = response2
+  
+  // get web2 data for each doc
+  // TODO
+  // docsToVoteOn.value = []
+
+  loading.value = false
 })
 </script>
 
 <template>
   <div>
-    <FeedCard
-      v-for="(vote, vid) in votes"
-      :key="`vote-${vid}`"
-      :index="vid"
-      dark
-    >
-      <h5 class="mb-2">{{ vote.title }}</h5>
-      <p class="mb-2">{{ vote.description }}</p>
-      <div class="mb-4">
-        <small class="mr-2"> Turnout: 35% </small>
-        <small class="mr-2"> Approved: 5k (50% rate) </small>
-        <small class="mr-2"> Pass threshold: 25k </small>
-      </div>
-      <div>
-        <button
-          title="Approve"
-          class="inline-block py-1 px-4 mr-4 text-thgreen2 btn-white min-w-[7rem]"
-        >
-          Approve
-        </button>
-        <button
-          title="Reject"
-          class="inline-block py-1 px-4 text-red btn-white min-w-[7rem]"
-        >
-          Reject
-        </button>
-      </div>
-    </FeedCard>
+    <div v-if="!loading">
+      <FeedCard
+        v-for="(doc, did) in docsToVoteOn"
+        :key="`vote-${did}`"
+        :index="did"
+        dark
+      >
+        <h5 class="mb-2">{{ doc.title }}</h5>
+        <p class="mb-2">{{ doc }}</p>
+        <div class="mb-4">
+          <small class="mr-2"> Turnout: 35% </small>
+          <small class="mr-2"> Approved: 5k (50% rate) </small>
+          <small class="mr-2"> Pass threshold: 25k </small>
+        </div>
+        <div>
+          <button
+            title="Approve"
+            class="inline-block py-1 px-4 mr-4 text-thgreen2 btn-white min-w-[7rem]"
+          >
+            Approve
+          </button>
+          <button
+            title="Reject"
+            class="inline-block py-1 px-4 text-red btn-white min-w-[7rem]"
+          >
+            Reject
+          </button>
+        </div>
+      </FeedCard>
+    </div>
+    <div v-else class="flex justify-center">
+      Loading...
+    </div>
   </div>
 </template>

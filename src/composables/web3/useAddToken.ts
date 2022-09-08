@@ -1,6 +1,7 @@
-import { NETWORKS, USDC_ADDRESSES } from '../../utils/consts'
+import { NETWORKS, USDC_ADDRESSES } from '@/utils/consts'
+
 export default async function addToken() {
-  const chainId = Number(NETWORKS.MATIC_MUMBAI)
+  const chainId = NETWORKS.MATIC_MUMBAI
   if (ethereum.networkVersion == chainId) {
     try {
       await ethereum.request({

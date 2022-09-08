@@ -1,4 +1,13 @@
 export interface Doc {
+  id: number
+  uid: string
+  title: string
+  url: string
+}
+
+export interface DocContract {
+  id: number
+  uid: string
   title: string
   url: string
 }

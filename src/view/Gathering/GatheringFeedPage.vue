@@ -4,20 +4,18 @@ import LayoutLight from '@/layouts/LayoutLight.vue'
 import SearchInput from '@/components/ui/SearchInput.vue'
 import TagButton from '@/components/atoms/TagButton.vue'
 import { Dialog, DialogPanel } from '@headlessui/vue'
-import { Doc, MarketData, Tag } from '../../utils/types'
-import useDocs from '../../composables/web2/useDocs'
-import FeedCard from '../../components/atoms/FeedCard.vue'
+import { Doc, MarketData, Tag } from '@/utils/types'
+import useDocs from '@/composables/web2/useDocs'
+import FeedCard from '@/components/atoms/FeedCard.vue'
 import HeaderNav from '@/components/layoutElements/HeaderNav.vue'
 import HeaderContent from '@/components/layoutElements/HeaderContent.vue'
 import Footer from '@/components/layoutElements/Footer.vue'
 import AddNewModal from '@/components/docs/AddNewModal.vue'
 import TipModal from '@/components/payments/TipModal.vue'
-import useTags from '../../composables/web2/useTags'
-import { useRoute } from 'vue-router'
+import useTags from '@/composables/web2/useTags'
+import gatheringSlug from '@/composables/utils/useGatheringSlug'
 
 // consts
-const route = useRoute()
-const gatheringSlug = route.params.gatheringSlug.toString()
 const initialFilters = {
   page: ref(0),
   pageCount: 1,
@@ -75,7 +73,7 @@ function addedNewDoc(doc: Doc) {
     </template>
     <template #header-content>
       <HeaderContent
-        :navLink="{ label: 'Govern', path: `/g/${gatheringSlug}/govern` }"
+        :navLink="{ label: 'Backstage >', path: `/g/${gatheringSlug}/govern` }"
       />
     </template>
     <template #command-band>

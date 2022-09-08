@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import TagIcon from '@/components/atoms/TagIcon.vue'
 
-import { Tag } from '../../utils/types'
+import { Tag } from '@/utils/types'
 
 interface Props {
   tag: Tag

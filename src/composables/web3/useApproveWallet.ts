@@ -1,7 +1,7 @@
 import { ethers, BigNumber } from 'ethers'
 import useMetaMaskProvider from './useMetaMaskProvider'
 import USDCAbi from '@/abis/USDCAbi.json'
-import { USDC_ADDRESSES, GATHERING_ADDRESSES } from '../../utils/consts'
+import { USDC_ADDRESSES, GATHERING_ADDRESSES } from '@/utils/consts'
 
 export default async function approveWallet(amount: number) {
   const { provider } = useMetaMaskProvider()
@@ -16,7 +16,7 @@ export default async function approveWallet(amount: number) {
   const approvedAmount = amount
   try {
     const tx = await usdcInstance.approve(
-      GATHERING_ADDRESSES['gOTB'],
+      GATHERING_ADDRESSES['gBG'],
       BigNumber.from(approvedAmount)
     )
     console.log('tx', tx)

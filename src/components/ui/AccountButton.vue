@@ -1,20 +1,13 @@
 <script lang="ts" setup>
 import { ref, watchEffect } from 'vue'
-import { useRoute } from 'vue-router'
-import { formatBalance, formatNumber, truncateAddress } from '../../utils'
-import useConnectedAccount from '../../composables/web3/useConnectedAccounts'
-import useMetaMaskProvider from '../../composables/web3/useMetaMaskProvider'
-import useNativeBalance from '../../composables/web3/useNativeBalance'
-import approveWallet from '../../composables/web3/approveWallet'
-import changeNetwork from '../../composables/web3/changeNetwork'
-import addToken from '../../composables/web3/addToken'
+import { formatBalance, formatNumber, truncateAddress } from '@/utils'
+import useConnectedAccount from '@/composables/web3/useConnectedAccounts'
+import useMetaMaskProvider from '@/composables/web3/useMetaMaskProvider'
+import useNativeBalance from '@/composables/web3/useNativeBalance'
+import changeNetwork from '@/composables/web3/useChangeNetwork'
 
-import useTokenBalance from '../../composables/web3/useNativeBalance'
-import { TOKENS } from '../../utils/consts'
-
-// consts
-const route = useRoute()
-const gatheringSlug = route.params.gatheringSlug.toString()
+import useTokenBalance from '@/composables/web3/useNativeBalance'
+import { TOKENS } from '@/utils/consts'
 
 // composables
 
@@ -40,12 +33,9 @@ async function connectWallet() {
 <template>
   <div class="flex">
     <div
-      class="inline-block mr-3 text-sm rounded-full border border-white cursor-pointer hover:bg-white/10 active:bg-white/20"
+      class="inline-block mr-3 text-sm rounded-full border border-white"
     >
-      <router-link
-        v-if="account"
-        :to="{ path: `/g/${gatheringSlug}/govern`, query: { tab: 'Finance' } }"
-      >
+      <div v-if="account">
         <div class="inline-block">
           <span v-if="balance?._isBigNumber" class="ml-2">
             {{
@@ -54,17 +44,23 @@ async function connectWallet() {
               }`
             }}
           </span>
+          <span
+            v-else-if="balance === 'Wrong network'"
+            class="ml-2 cursor-pointer hover:opacity-75 active:opacity-50"
+            @click="changeNetwork"
+          >
+            {{ balance }}
+          </span>
           <span v-else class="ml-2">
             {{ balance }}
           </span>
         </div>
         <div
-          class="inline-block py-1 px-2 ml-1 bg-thgreen4 rounded-full border-r border-white"
-          @click="disconnectWallet"
+          class="inline-block py-1 px-2 ml-1 bg-thgreen4 rounded-full"
         >
           {{ truncateAddress(account) }}
         </div>
-      </router-link>
+      </div>
       <button
         v-else
         title="Connect wallet"
@@ -74,27 +70,5 @@ async function connectWallet() {
         Connect wallet
       </button>
     </div>
-    <button
-      title="Approve-button"
-      class="py-1 px-3 mr-4 rounded-full border border-white"
-      @click="approveWallet(50)"
-    >
-      Approve
-    </button>
-
-    <button
-      title="Approve-button"
-      class="py-1 px-3 mr-4 rounded-full border border-white"
-      @click="changeNetwork"
-    >
-      Add Network
-    </button>
-    <button
-      title="Approve-button"
-      class="py-1 px-3 mr-4 rounded-full border border-white"
-      @click="addToken"
-    >
-      Add USDC
-    </button>
   </div>
 </template>

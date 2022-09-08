@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    },
     "useDefineForClassFields": true,
     "module": "esnext",
     "moduleResolution": "node",

@@ -343,7 +343,7 @@ import { ethers } from 'ethers'
 import EmojiPicker from '@/components/ui/EmojiPicker.vue'
 import PaymentSelector from '@/components/payments/PaymentSelector.vue'
 import gatheringAbi from '@/abis/GatheringAbi.json'
-import { GATHERING_ADDRESSES } from '../../utils/consts'
+import { GATHERING_ADDRESSES } from '@/utils/consts'
 
 export default defineComponent({
   components: {
@@ -415,7 +415,7 @@ export default defineComponent({
         const signer = provider.getSigner()
 
         const gatheringInstance = new ethers.Contract(
-          GATHERING_ADDRESSES['gOTB'],
+          GATHERING_ADDRESSES['gBG'],
           gatheringAbi,
           signer
         )
