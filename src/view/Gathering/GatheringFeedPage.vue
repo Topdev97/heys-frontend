@@ -73,7 +73,7 @@ function addedNewDoc(doc: Doc) {
     </template>
     <template #header-content>
       <HeaderContent
-        :navLink="{ label: 'Backstage >', path: `/g/${gatheringSlug}/govern` }"
+        :navLink="{ label: 'Backstage >', path: `/g/${gatheringSlug}/backstage` }"
       />
     </template>
     <template #command-band>

@@ -32,9 +32,7 @@ async function connectWallet() {
 
 <template>
   <div class="flex">
-    <div
-      class="inline-block mr-3 text-sm rounded-full border border-white"
-    >
+    <div class="inline-block mr-3 text-sm rounded-full border border-white">
       <div v-if="account">
         <div class="inline-block">
           <span v-if="balance?._isBigNumber" class="ml-2">
@@ -46,7 +44,7 @@ async function connectWallet() {
           </span>
           <span
             v-else-if="balance === 'Wrong network'"
-            class="ml-2 cursor-pointer hover:opacity-75 active:opacity-50"
+            class="ml-2 hover:opacity-75 active:opacity-50 cursor-pointer"
             @click="changeNetwork"
           >
             {{ balance }}
@@ -55,9 +53,7 @@ async function connectWallet() {
             {{ balance }}
           </span>
         </div>
-        <div
-          class="inline-block py-1 px-2 ml-1 bg-thgreen4 rounded-full"
-        >
+        <div class="inline-block py-1 px-2 ml-1 bg-thgreen4 rounded-full">
           {{ truncateAddress(account) }}
         </div>
       </div>

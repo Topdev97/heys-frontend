@@ -37,7 +37,7 @@ onMounted(async () => {
   const docsCalls = docsToVoteOnInt.map(docId => gatheringInstance.docs(docId))
   const response2: DocContract[] = await ethcallProvider.all(docsCalls)
   docsToVoteOn.value = response2
-  
+
   // get web2 data for each doc
   // TODO
   // docsToVoteOn.value = []
@@ -78,8 +78,6 @@ onMounted(async () => {
         </div>
       </FeedCard>
     </div>
-    <div v-else class="flex justify-center">
-      Loading...
-    </div>
+    <div v-else class="flex justify-center">Loading...</div>
   </div>
 </template>

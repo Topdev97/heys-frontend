@@ -2,7 +2,7 @@ import { createWebHistory, createRouter } from 'vue-router'
 import { RouteRecordRaw } from 'vue-router'
 
 import GatheringFeedPage from '../view/Gathering/GatheringFeedPage.vue'
-import GatheringGovernPage from '../view/Gathering/GatheringGovernPage.vue'
+import GatheringBackstagePage from '../view/Gathering/GatheringBackstagePage.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -16,9 +16,9 @@ const routes: Array<RouteRecordRaw> = [
     component: GatheringFeedPage,
   },
   {
-    path: '/g/:gatheringSlug/govern',
-    name: 'GatheringGovernPage',
-    component: GatheringGovernPage,
+    path: '/g/:gatheringSlug/backstage',
+    name: 'GatheringBackstagePage',
+    component: GatheringBackstagePage,
   },
 ]
 

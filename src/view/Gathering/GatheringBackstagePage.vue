@@ -9,9 +9,9 @@ import useDocs from '@/composables/web2/useDocs'
 import HeaderNav from '@/components/layoutElements/HeaderNav.vue'
 import HeaderContent from '@/components/layoutElements/HeaderContent.vue'
 import Footer from '@/components/layoutElements/Footer.vue'
-import VoteTab from '@/components/govern/VoteTab.vue'
-import ChatTab from '@/components/govern/ChatTab.vue'
-import FinanceTab from '@/components/govern/FinanceTab.vue'
+import VoteTab from '@/components/backstage/VoteTab.vue'
+import ChatTab from '@/components/backstage/ChatTab.vue'
+import FinanceTab from '@/components/backstage/FinanceTab.vue'
 import useTags from '@/composables/web2/useTags'
 import useGathering from '@/composables/web2/useGathering'
 import { useRoute } from 'vue-router'
@@ -29,7 +29,7 @@ watch(selectedTab, newTab => {
   window.history.replaceState(
     { page: 'heystacks' },
     'heystacks',
-    `/g/${gatheringSlug}/govern?tab=${newTab}`
+    `/g/${gatheringSlug}/backstage?tab=${newTab}`
   )
 })
 </script>
