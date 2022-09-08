@@ -179,7 +179,11 @@ function addedNewDoc(doc: Doc) {
         >
           {{ `<` }}
         </button>
-        <button title="Previous page" class="py-2 px-4 m-2 bg-thgreen1 btn-white" @click="filters.page += 1">
+        <button
+          title="Previous page"
+          class="py-2 px-4 m-2 bg-thgreen1 btn-white"
+          @click="filters.page += 1"
+        >
           {{ `>` }}
         </button>
       </div>

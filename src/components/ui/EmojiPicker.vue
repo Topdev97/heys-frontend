@@ -56,7 +56,17 @@ export default defineComponent({
   setup(_, { emit }) {
     const state = reactive({
       loading: true,
-      tabs: ['emotions', 'people', 'nature', 'food', 'travel', 'activities', 'objects', 'symbols', 'flags'],
+      tabs: [
+        'emotions',
+        'people',
+        'nature',
+        'food',
+        'travel',
+        'activities',
+        'objects',
+        'symbols',
+        'flags',
+      ],
       search: '',
       activeTab: 'emotions',
       currentEmojis: [],
@@ -68,7 +78,10 @@ export default defineComponent({
 
     onMounted(() => {
       const outsideClickListener = event => {
-        if (event.target.closest('.emoji-picker') === null && event.target.closest('.emoji-picker-btn') === null) {
+        if (
+          event.target.closest('.emoji-picker') === null &&
+          event.target.closest('.emoji-picker-btn') === null
+        ) {
           removeClickListener()
           emit('close')
         }

@@ -204,7 +204,8 @@ if (!window.clearImmediate) {
     var settings = {
       list: [],
       fontFamily:
-        '"Trebuchet MS", "Heiti TC", "微軟正黑體", ' + '"Arial Unicode MS", "Droid Fallback Sans", sans-serif',
+        '"Trebuchet MS", "Heiti TC", "微軟正黑體", ' +
+        '"Arial Unicode MS", "Droid Fallback Sans", sans-serif',
       fontWeight: 'normal',
       color: 'random-dark',
       minSize: 0, // 0 to disable
@@ -330,7 +331,9 @@ if (!window.clearImmediate) {
             var thetaPrime = (theta + 0.955) % ((2 * Math.PI) / 10)
             if (((theta + 0.955) % ((2 * Math.PI) / 5)) - (2 * Math.PI) / 10 >= 0) {
               return (
-                1 / (Math.cos((2 * Math.PI) / 10 - thetaPrime) + 3.07768 * Math.sin((2 * Math.PI) / 10 - thetaPrime))
+                1 /
+                (Math.cos((2 * Math.PI) / 10 - thetaPrime) +
+                  3.07768 * Math.sin((2 * Math.PI) / 10 - thetaPrime))
               )
             } else {
               return 1 / (Math.cos(thetaPrime) + 3.07768 * Math.sin(thetaPrime))
@@ -500,7 +503,9 @@ if (!window.clearImmediate) {
 
     /* Return true if we had spent too much time */
     var exceedTime = function exceedTime() {
-      return settings.abortThreshold > 0 && new Date().getTime() - escapeTime > settings.abortThreshold
+      return (
+        settings.abortThreshold > 0 && new Date().getTime() - escapeTime > settings.abortThreshold
+      )
     }
 
     /* Get the deg of rotation according to settings, and luck. */
@@ -519,7 +524,10 @@ if (!window.clearImmediate) {
 
       if (rotationSteps > 0) {
         // Min rotation + zero or more steps * span of one step
-        return minRotation + (Math.floor(Math.random() * rotationSteps) * rotationRange) / (rotationSteps - 1)
+        return (
+          minRotation +
+          (Math.floor(Math.random() * rotationSteps) * rotationRange) / (rotationSteps - 1)
+        )
       } else {
         return minRotation + Math.random() * rotationRange
       }
@@ -564,7 +572,8 @@ if (!window.clearImmediate) {
 
       // Estimate the dimension of the text with measureText().
       var fw = fctx.measureText(word).width / mu
-      var fh = Math.max(fontSize * mu, fctx.measureText('m').width, fctx.measureText('\uFF37').width) / mu
+      var fh =
+        Math.max(fontSize * mu, fctx.measureText('m').width, fctx.measureText('\uFF37').width) / mu
 
       // Create a boundary box that is larger than our estimates,
       // so text don't get cut of (it sill might)
@@ -586,8 +595,12 @@ if (!window.clearImmediate) {
       var fillTextOffsetY = -fh * 0.4
 
       // Calculate the actual dimension of the canvas, considering the rotation.
-      var cgh = Math.ceil((boxWidth * Math.abs(Math.sin(rotateDeg)) + boxHeight * Math.abs(Math.cos(rotateDeg))) / g)
-      var cgw = Math.ceil((boxWidth * Math.abs(Math.cos(rotateDeg)) + boxHeight * Math.abs(Math.sin(rotateDeg))) / g)
+      var cgh = Math.ceil(
+        (boxWidth * Math.abs(Math.sin(rotateDeg)) + boxHeight * Math.abs(Math.cos(rotateDeg))) / g
+      )
+      var cgw = Math.ceil(
+        (boxWidth * Math.abs(Math.cos(rotateDeg)) + boxHeight * Math.abs(Math.sin(rotateDeg))) / g
+      )
       var width = cgw * g
       var height = cgh * g
 
@@ -679,7 +692,12 @@ if (!window.clearImmediate) {
 
       if (debug) {
         fctx.fillStyle = 'rgba(0, 255, 0, 0.5)'
-        fctx.fillRect(bounds[3] * g, bounds[0] * g, (bounds[1] - bounds[3] + 1) * g, (bounds[2] - bounds[0] + 1) * g)
+        fctx.fillRect(
+          bounds[3] * g,
+          bounds[0] * g,
+          (bounds[1] - bounds[3] + 1) * g,
+          (bounds[2] - bounds[0] + 1) * g
+        )
       }
 
       // Return information needed to create the text on the real canvas
@@ -784,7 +802,11 @@ if (!window.clearImmediate) {
           // Here, we use textBaseline = 'middle' and draw the text at exactly
           // 0.5 * fontSize lower.
           ctx.textBaseline = 'middle'
-          ctx.fillText(word, info.fillTextOffsetX * mu, (info.fillTextOffsetY + fontSize * 0.5) * mu)
+          ctx.fillText(
+            word,
+            info.fillTextOffsetX * mu,
+            (info.fillTextOffsetY + fontSize * 0.5) * mu
+          )
 
           // The below box is always matches how <span>s are positioned
           /* ctx.strokeRect(info.fillTextOffsetX, info.fillTextOffsetY,
@@ -798,7 +820,8 @@ if (!window.clearImmediate) {
           var transformRule = ''
           transformRule = 'rotate(' + (-rotateDeg / Math.PI) * 180 + 'deg) '
           if (info.mu !== 1) {
-            transformRule += 'translateX(-' + info.fillTextWidth / 4 + 'px) ' + 'scale(' + 1 / info.mu + ')'
+            transformRule +=
+              'translateX(-' + info.fillTextWidth / 4 + 'px) ' + 'scale(' + 1 / info.mu + ')'
           }
           var styleRules = {
             position: 'absolute',
@@ -951,7 +974,18 @@ if (!window.clearImmediate) {
         }
 
         // Actually put the text on the canvas
-        drawText(gx, gy, info, word, weight, maxRadius - r, gxy[2], rotateDeg, attributes, extraDataArray)
+        drawText(
+          gx,
+          gy,
+          info,
+          word,
+          weight,
+          maxRadius - r,
+          gxy[2],
+          rotateDeg,
+          attributes,
+          extraDataArray
+        )
 
         // Mark the spaces on the grid as filled
         updateGrid(gx, gy, gw, gh, info, item)
@@ -1033,7 +1067,9 @@ if (!window.clearImmediate) {
       }
 
       // Determine the center of the word cloud
-      center = settings.origin ? [settings.origin[0] / g, settings.origin[1] / g] : [ngx / 2, ngy / 2]
+      center = settings.origin
+        ? [settings.origin[0] / g, settings.origin[1] / g]
+        : [ngx / 2, ngy / 2]
 
       // Maxium radius to look for space
       maxRadius = Math.floor(Math.sqrt(ngx * ngx + ngy * ngy))

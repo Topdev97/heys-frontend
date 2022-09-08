@@ -53,7 +53,12 @@ async function connectWallet() {
           {{ truncateAddress(account) }}
         </div>
       </div>
-      <button v-else title="Connect wallet" class="py-1 px-3 rounded border-none shadow-none" @click="connectWallet">
+      <button
+        v-else
+        title="Connect wallet"
+        class="py-1 px-3 rounded border-none shadow-none"
+        @click="connectWallet"
+      >
         Connect wallet
       </button>
     </div>

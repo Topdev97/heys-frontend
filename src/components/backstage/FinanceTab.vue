@@ -56,10 +56,15 @@ const revenueData = {
     <div v-if="selectedRevType === 'Yours'">
       <h5>- Current -</h5>
       <strong>{{ revenueData.yours.current.usd }} USD</strong>
-      <p v-for="token in revenueData.yours.current.crypto" :key="`rev-token-current-${token.denom}`">
+      <p
+        v-for="token in revenueData.yours.current.crypto"
+        :key="`rev-token-current-${token.denom}`"
+      >
         {{ token.amount }} {{ token.denom }}
       </p>
-      <button title="Pay out" class="inline-block py-1 px-4 mt-2 mb-6 btn-white min-w-[7rem]">Pay out</button>
+      <button title="Pay out" class="inline-block py-1 px-4 mt-2 mb-6 btn-white min-w-[7rem]">
+        Pay out
+      </button>
     </div>
     <h5>- To date -</h5>
     <strong>{{ revenueData[selectedRevType.toLowerCase()].toDate.usd }} USD</strong>

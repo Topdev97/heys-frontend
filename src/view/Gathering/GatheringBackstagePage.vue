@@ -26,7 +26,11 @@ const selectedTab = ref(route?.query?.tab?.toString() ?? 'Vote')
 
 // watchers
 watch(selectedTab, newTab => {
-  window.history.replaceState({ page: 'heystacks' }, 'heystacks', `/g/${gatheringSlug}/backstage?tab=${newTab}`)
+  window.history.replaceState(
+    { page: 'heystacks' },
+    'heystacks',
+    `/g/${gatheringSlug}/backstage?tab=${newTab}`
+  )
 })
 </script>
 

@@ -58,10 +58,15 @@ onMounted(async () => {
           <small class="mr-2"> Pass threshold: 25k </small>
         </div>
         <div>
-          <button title="Approve" class="inline-block py-1 px-4 mr-4 text-thgreen2 btn-white min-w-[7rem]">
+          <button
+            title="Approve"
+            class="inline-block py-1 px-4 mr-4 text-thgreen2 btn-white min-w-[7rem]"
+          >
             Approve
           </button>
-          <button title="Reject" class="inline-block py-1 px-4 text-red btn-white min-w-[7rem]">Reject</button>
+          <button title="Reject" class="inline-block py-1 px-4 text-red btn-white min-w-[7rem]">
+            Reject
+          </button>
         </div>
       </FeedCard>
     </div>

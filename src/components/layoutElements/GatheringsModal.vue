@@ -3,7 +3,9 @@
     <div v-if="state.layoutData.page === 'list'">
       <div>
         <h3 class="mb-3 font-normal text-center text-default display-1">Gatherings</h3>
-        <h4 class="text-center text-default">A space for public Google docs about specific topics</h4>
+        <h4 class="text-center text-default">
+          A space for public Google docs about specific topics
+        </h4>
       </div>
 
       <div class="min-h-700">
@@ -16,7 +18,10 @@
           New gathering
         </button>
         <div v-for="(space, sid) in state.spaces" :key="'space-' + sid" class="my-2">
-          <router-link :to="{ path: '/s/' + space.slug }" class="no-underline space-link text-orange-600">
+          <router-link
+            :to="{ path: '/s/' + space.slug }"
+            class="no-underline space-link text-orange-600"
+          >
             s/{{ space.name }}<br />
             <span class="font-normal text-default">
               {{ space.description }}
@@ -36,8 +41,8 @@
       </div>
 
       <p class="pt-3 my-6 font-medium text-default subheading">
-        Create a gathering which is a custom feed of your public Google docs. You can control which docs are included as
-        well as the look and feel of the feed.
+        Create a gathering which is a custom feed of your public Google docs. You can control which
+        docs are included as well as the look and feel of the feed.
       </p>
 
       <div class="mb-3 form-group">
@@ -66,10 +71,16 @@
           "
           >Name (slug format)</label
         >
-        <p v-if="state.newSpaceObj.errors.indexOf('name-duplicate') >= 0" class="text-left text-red-500">
+        <p
+          v-if="state.newSpaceObj.errors.indexOf('name-duplicate') >= 0"
+          class="text-left text-red-500"
+        >
           This name already exists - please use a different one
         </p>
-        <p v-if="state.newSpaceObj.errors.indexOf('name-error') >= 0" class="text-left text-ted-500">
+        <p
+          v-if="state.newSpaceObj.errors.indexOf('name-error') >= 0"
+          class="text-left text-ted-500"
+        >
           Please use only letters, numbers and "_" or "-"
         </p>
       </div>
@@ -90,7 +101,11 @@
           ></textarea>
           <label
             for="space-description"
-            :class="state.newSpaceObj.errors.indexOf('no-description') >= 0 ? `text-orange-600` : `text-default`"
+            :class="
+              state.newSpaceObj.errors.indexOf('no-description') >= 0
+                ? `text-orange-600`
+                : `text-default`
+            "
             >Description</label
           >
         </div>
@@ -121,7 +136,11 @@
         />
         <label
           for="space-email"
-          :class="state.newSpaceObj.errors.indexOf('no-email-address') >= 0 ? `text-orange-600` : `text-default`"
+          :class="
+            state.newSpaceObj.errors.indexOf('no-email-address') >= 0
+              ? `text-orange-600`
+              : `text-default`
+          "
         >
           Your gDrive email address (to verify ownership of the docs)
         </label>
@@ -229,8 +248,10 @@ export default defineComponent({
       if (!state.newSpaceObj.name) state.newSpaceObj.errors.push('no-name')
       if (!state.newSpaceObj.description) state.newSpaceObj.errors.push('no-description')
       if (!state.newSpaceObj.emailAddress) state.newSpaceObj.errors.push('no-email-address')
-      if (!state.newSpaceObj.emailAddress.includes('@')) state.newSpaceObj.errors.push('no-email-address')
-      if (state.newSpaceObj.name.match(/[^A-Za-z0-9-_]+/g)) state.newSpaceObj.errors.push('name-error')
+      if (!state.newSpaceObj.emailAddress.includes('@'))
+        state.newSpaceObj.errors.push('no-email-address')
+      if (state.newSpaceObj.name.match(/[^A-Za-z0-9-_]+/g))
+        state.newSpaceObj.errors.push('name-error')
       if (!state.newSpaceObj.errors.length) {
         fetch('/api/spaces/add', {
           method: 'POST',

@@ -81,7 +81,10 @@
             "
             >Url</label
           >
-          <p v-if="state.newDocumentObj.errors.indexOf('url-error') >= 0" class="text-left text-red-500">
+          <p
+            v-if="state.newDocumentObj.errors.indexOf('url-error') >= 0"
+            class="text-left text-red-500"
+          >
             Incorrect url - please double check your link. It should be something like
             "https://docs.google.com/document/d/1wf9YFtLFM4LuNkDzbb4hGfZqvb6VnKzJ9iZ"
           </p>
@@ -101,7 +104,11 @@
           ></textarea>
           <label
             for="new-modal-description"
-            :class="state.newDocumentObj.errors.indexOf('no-description') >= 0 ? `text-orange-600` : `text-default`"
+            :class="
+              state.newDocumentObj.errors.indexOf('no-description') >= 0
+                ? `text-orange-600`
+                : `text-default`
+            "
           >
             What is this doc about?
           </label>
@@ -141,7 +148,11 @@
           />
           <label
             for="tags-combobox--1"
-            :class="state.newDocumentObj.errors.indexOf('no-tags') >= 0 ? `text-orange-600` : `text-default`"
+            :class="
+              state.newDocumentObj.errors.indexOf('no-tags') >= 0
+                ? `text-orange-600`
+                : `text-default`
+            "
           >
             Tags
           </label>
@@ -168,11 +179,15 @@
           @click="addDocument()"
         >
           <i v-if="!state.layoutData.addLoading" class="mr-2 text-xl text-white fa fa-plus"></i>
-          <span class="text-xl text-white">{{ state.layoutData.addLoading ? 'Adding...' : 'Add new doc' }}</span>
+          <span class="text-xl text-white">{{
+            state.layoutData.addLoading ? 'Adding...' : 'Add new doc'
+          }}</span>
         </button>
         <div class="pb-12 min-h-26">
           <h5>Sponsor submission</h5>
-          <small class="block mt-1 mb-4">Sponsored docs are more likely to be included in the gathering</small>
+          <small class="block mt-1 mb-4"
+            >Sponsored docs are more likely to be included in the gathering</small
+          >
           <PaymentSelector />
           <!--          <small>If the doc is not approved, the funds will be returned</small>-->
         </div>
@@ -202,7 +217,11 @@
               preserveAspectRatio="xMidYMid meet"
             >
               <rect x="5" y="5" width="55" height="55" fill="white"></rect>
-              <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#4285F4" stroke="none">
+              <g
+                transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)"
+                fill="#4285F4"
+                stroke="none"
+              >
                 <path
                   d="M 0.648 639.352 L 0.648 1.409 L 639.352 0.648 L 639.352 639.352 L 0.648 639.352 Z M 500 465 L 500 430 L 320 430 L 140 430 L 140 465 L 140 500 L 320 500 L 500 500 L 500 465 Z M 500 325 L 500 290 L 320 290 L 140 290 L 140 325 L 140 360 L 320 360 L 500 360 L 500 325 Z M 390 185 L 390 150 L 265 150 L 140 150 L 140 185 L 140 220 L 265 220 L 390 220 L 390 185 Z"
                 ></path>
@@ -224,7 +243,11 @@
               preserveAspectRatio="xMidYMid meet"
             >
               <rect x="5" y="5" width="55" height="55" fill="white"></rect>
-              <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#0F9D58" stroke="none">
+              <g
+                transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)"
+                fill="#0F9D58"
+                stroke="none"
+              >
                 <path
                   d="M0 320 l0 -320 320 0 320 0 0 320 0 320 -320 0 -320 0 0 -320z m280 180 l0 -70 145 0 145 0 0 -35 0 -35 -145 0 -145 0 0 -145 0 -145 -35 0 -35 0 0 145 0 145 -70 0 -70 0 0 35 0 35 70 0 70 0 0 70 0 70 35 0 35 0 0 -70z"
                 />
@@ -246,7 +269,11 @@
               preserveAspectRatio="xMidYMid meet"
             >
               <rect x="5" y="5" width="55" height="55" fill="white"></rect>
-              <g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" fill="#F4B400" stroke="none">
+              <g
+                transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)"
+                fill="#F4B400"
+                stroke="none"
+              >
                 <path
                   d="M0 320 l0 -320 320 0 320 0 0 320 0 320 -320 0 -320 0 0 -320z m570 0 l0 -140 -250 0 -250 0 0 140 0 140 250 0 250 0 0 -140z"
                 />
@@ -256,7 +283,9 @@
           </a>
         </div>
 
-        <p class="mt-7 mb-2 text-lg font-normal text-default subheading">2. Make it public and copy the link:</p>
+        <p class="mt-7 mb-2 text-lg font-normal text-default subheading">
+          2. Make it public and copy the link:
+        </p>
         <img alt="Share doc 1" src="/src/assets/img/nd1.jpg" class="block mx-auto w-3/4" />
         <br />
         <img alt="Share doc 2" src="/src/assets/img/nd2.jpg" class="block mx-auto w-3/4" />
@@ -275,7 +304,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, onMounted, nextTick, ref, defineEmits, getCurrentInstance } from 'vue'
+import {
+  defineComponent,
+  reactive,
+  onMounted,
+  nextTick,
+  ref,
+  defineEmits,
+  getCurrentInstance,
+} from 'vue'
 import { useRoute } from 'vue-router'
 import { ethers } from 'ethers'
 import EmojiPicker from '@/components/ui/EmojiPicker.vue'
@@ -343,7 +380,11 @@ export default defineComponent({
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
 
-        const gatheringInstance = new ethers.Contract(GATHERING_ADDRESSES['gBG'], gatheringAbi, signer)
+        const gatheringInstance = new ethers.Contract(
+          GATHERING_ADDRESSES['gBG'],
+          gatheringAbi,
+          signer
+        )
 
         try {
           const response = await gatheringInstance.addDoc(docObjCopy.url, 0)
@@ -364,11 +405,14 @@ export default defineComponent({
               } else {
                 r.json().then(r => {
                   if (!r.success) {
-                    if (r.reason === 'already-exists') alert('⚠️ This document has already been added')
+                    if (r.reason === 'already-exists')
+                      alert('⚠️ This document has already been added')
                     if (r.reason === 'url-error')
                       alert('⚠️ Url error - please check if your url is in the correct format')
                     if (r.reason === 'cant-access')
-                      alert('⚠️ Unable to access this document - are you sure this is a public document?')
+                      alert(
+                        '⚠️ Unable to access this document - are you sure this is a public document?'
+                      )
                   } else {
                     state.newDocumentObj.title = ''
                     state.newDocumentObj.url = ''
@@ -451,7 +495,9 @@ export default defineComponent({
 
     const updateTagCandidate = () => {
       state.newDocumentObj.tagCandidate = (
-        document.querySelector('.v-autocomplete__content > .v-list > .v-list-item--highlighted') || {
+        document.querySelector(
+          '.v-autocomplete__content > .v-list > .v-list-item--highlighted'
+        ) || {
           textContent: 'No data available',
         }
       ).textContent
