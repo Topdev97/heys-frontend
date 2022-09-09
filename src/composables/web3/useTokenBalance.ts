@@ -5,7 +5,6 @@ import { Network } from '@ethersproject/networks'
 import { RPC_URL } from '@/utils/consts'
 
 export default function useTokenBalance(account: any, tokenAddress: string, network: number) {
-
   const isEnabled = computed(() => {
     return Boolean(unref(account))
   })

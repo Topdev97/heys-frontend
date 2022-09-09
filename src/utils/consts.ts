@@ -25,7 +25,7 @@ export const NETWORKS = {
 }
 
 export const RPC_URLS: Record<number, string> = {
-  80001: 'https://rpc-mumbai.maticvigil.com'
+  80001: 'https://rpc-mumbai.maticvigil.com',
 }
 
 export const RPC_URL = RPC_URLS[ACTIVE_NETWORK]
