@@ -3,10 +3,7 @@ import { ethers } from 'ethers'
 import { computed, unref } from 'vue'
 import useMetaMaskProvider from './useMetaMaskProvider'
 
-export default function useNativeBalance(
-  account: any,
-  network: number
-) {
+export default function useNativeBalance(account: any, network: number) {
   const { provider } = useMetaMaskProvider()
 
   const isEnabled = computed(() => {

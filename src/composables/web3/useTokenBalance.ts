@@ -1,13 +1,9 @@
 import { useQuery } from 'vue-query'
 import { ethers } from 'ethers'
 import { computed, unref } from 'vue'
-import { Network } from "@ethersproject/networks"
+import { Network } from '@ethersproject/networks'
 
-export default function useTokenBalance(
-  account: any,
-  tokenAddress: string,
-  network: number
-) {
+export default function useTokenBalance(account: any, tokenAddress: string, network: number) {
   const isEnabled = computed(() => {
     return Boolean(unref(account))
   })
