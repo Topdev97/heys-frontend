@@ -6,16 +6,16 @@ import useMetaMaskProvider from '@/composables/web3/useMetaMaskProvider'
 import useNativeBalance from '@/composables/web3/useNativeBalance'
 import changeNetwork from '@/composables/web3/useChangeNetwork'
 
-import useTokenBalance from '@/composables/web3/useNativeBalance'
-import { TOKENS } from '@/utils/consts'
+import useTokenBalance from '@/composables/web3/useTokenBalance'
+import { TOKENS, GATHERING_ADDRESSES, NETWORKS } from '@/utils/consts'
 
 // composables
 
 // state
 const { provider } = useMetaMaskProvider()
 const { account } = useConnectedAccount()
-const { balance } = useNativeBalance(account, '80001') // '137' = Matic mainnet
-// const { balance } = useTokenBalance(accounts, TOKENS['137'].MATIC.address, '137')
+// const { balance } = useNativeBalance(account, NETWORKS.MATIC_MUMBAI) // '137' = Matic mainnet
+const { balance } = useTokenBalance(account, GATHERING_ADDRESSES['gBG'], NETWORKS.MATIC_MUMBAI)
 
 // methods
 async function connectWallet() {
@@ -36,7 +36,7 @@ async function connectWallet() {
       <div v-if="account">
         <div class="inline-block">
           <span v-if="balance?._isBigNumber" class="ml-2">
-            {{ `${formatNumber(formatBalance(balance))} ${TOKENS['80001'].MATIC.denom}` }}
+            {{ `${formatNumber(formatBalance(balance))} gBG` }}
           </span>
           <span
             v-else-if="balance === 'Wrong network'"

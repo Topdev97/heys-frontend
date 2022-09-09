@@ -3,7 +3,10 @@ import { ethers } from 'ethers'
 import { computed, unref } from 'vue'
 import useMetaMaskProvider from './useMetaMaskProvider'
 
-export default function useNativeBalance(account: any, network: string) {
+export default function useNativeBalance(
+  account: any,
+  network: number
+) {
   const { provider } = useMetaMaskProvider()
 
   const isEnabled = computed(() => {
@@ -15,7 +18,7 @@ export default function useNativeBalance(account: any, network: string) {
     () => {
       if (!provider) {
         return 'Not connected'
-      } else if (window.ethereum.networkVersion !== network) {
+      } else if (Number(window.ethereum.networkVersion) !== network) {
         return 'Wrong network'
       } else {
         return provider.getBalance(unref(account))
