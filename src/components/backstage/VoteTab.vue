@@ -5,6 +5,7 @@ import { ethers } from 'ethers'
 import { Provider } from 'ethers-multicall'
 import { Doc, DocContract } from '@/utils/types'
 import gatheringInstance from '@/composables/web3/useGatheringContract'
+import { RPC_URL } from '@/utils/consts'
 
 // state
 const votes = [
@@ -24,7 +25,7 @@ const loading = ref(true)
 
 // lifecycle
 onMounted(async () => {
-  const provider = new ethers.providers.Web3Provider(window.ethereum)
+  const provider = ethers.getDefaultProvider(RPC_URL)
   const ethcallProvider = new Provider(provider)
   await ethcallProvider.init()
 
