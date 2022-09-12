@@ -193,7 +193,7 @@ function addedNewDoc(doc: Doc) {
         <div class="flex fixed inset-0 z-50 justify-center items-center p-4">
           <DialogPanel class="p-8 w-full bg-white rounded max-w-[40rem]">
             <AddNewModal
-              :existingTags="tags.map(tag => ({ text: tag.title, value: tag.title }))"
+              :existingTags="tags?.map(tag => ({ text: tag.title, value: tag.title }))"
               :gathering="gatheringSlug"
               @close-add-new-modal="doc => addedNewDoc(doc)"
             ></AddNewModal>

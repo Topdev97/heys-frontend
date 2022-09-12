@@ -3,14 +3,14 @@ import { NetworkInfo } from './types'
 export const ACTIVE_NETWORK: number = import.meta.env.VITE_ACTIVE_NETWORK ?? 80001
 
 export const TOKENS = {
-  '137': {
+  137: {
     MATIC: {
       address: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
       decimals: 18,
       denom: 'MATIC',
     },
   },
-  '80001': {
+  80001: {
     MATIC: {
       address: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
       decimals: 18,

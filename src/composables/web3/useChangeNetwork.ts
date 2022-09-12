@@ -1,4 +1,4 @@
-import { NETWORKS, TOKENS } from '@/utils/consts'
+import { NETWORKS } from '@/utils/consts'
 
 export default async function changeNetwork() {
   const chainId = NETWORKS.MATIC_MUMBAI

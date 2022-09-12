@@ -7,7 +7,7 @@ import useNativeBalance from '@/composables/web3/useNativeBalance'
 import changeNetwork from '@/composables/web3/useChangeNetwork'
 
 import useTokenBalance from '@/composables/web3/useTokenBalance'
-import { TOKENS, GATHERING_ADDRESSES, NETWORKS } from '@/utils/consts'
+import { GATHERING_ADDRESSES, NETWORKS } from '@/utils/consts'
 
 // composables
 
