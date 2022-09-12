@@ -1,5 +1,5 @@
 import { ethers, BigNumber } from 'ethers'
-import useMetaMaskProvider from './useMetaMaskProvider'
+import useMetaMaskProvider from '../useMetaMaskProvider'
 import USDCAbi from '@/abis/USDCAbi.json'
 import { USDC_ADDRESSES, GATHERING_ADDRESSES } from '@/utils/consts'
 

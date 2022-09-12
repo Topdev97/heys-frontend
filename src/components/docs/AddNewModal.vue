@@ -1,10 +1,61 @@
+<script lang="ts" setup>
+import { reactive, computed } from 'vue'
+
+import EmojiPicker from '@/components/ui/EmojiPicker.vue'
+import PaymentSelector from '@/components/payments/PaymentSelector.vue'
+
+import useConnectedAccount from '@/composables/web3/account/useConnectedAccounts'
+import useConnecteNetwork from '@/composables/web3/account/useConnectedNetwork'
+import useMetaMaskProvider from '@/composables/web3/account/useMetaMaskProvider'
+import requestNetworkSwitch from '@/composables/web3/account/useChangeNetwork'
+import addDocWeb3 from '@/composables/web3/gathering/useAddDoc'
+import { ACTIVE_NETWORK } from '@/utils/consts'
+import { Doc } from '@/utils/types'
+
+// composables
+const { provider } = useMetaMaskProvider()
+const { account } = useConnectedAccount()
+const { connectedChainId } = useConnecteNetwork()
+
+// state
+const state = reactive({
+  layoutData: {
+    comboboxInput: null,
+    addLoading: false,
+    onMobile: false,
+    emojiPicker: false,
+    page: 'main',
+  },
+  newDocumentObj: {
+    url: 'https://docs.google.com/document/d/1wf9YFtLFM4LuNkDzbb4hGfZqvb6VnKzJ9iZ',
+    errors: [],
+    description: 'Test for gathering',
+    tagCandidate: '',
+    tags: ['test'],
+  },
+})
+
+// methods
+async function connectWallet() {
+  await provider?.send('eth_requestAccounts', [])
+}
+
+async function addDoc() {
+  const newDoc = {
+    uid: 'test-uid',
+    url: 'https://google.com/docs/123',
+  } as Doc
+  const tx = await addDocWeb3(newDoc).catch(err => alert(err))
+  if (tx) {
+    // const res = await addDocWeb2(tx)
+    //   .catch(err => alert(err))
+  }
+}
+</script>
+
 <template>
   <div class="overflow-auto fixed z-50 bg-white rounded fade-modal absolute-center">
     <div class="relative px-4 sm:px-6 pt-12 w-full h-full">
-      <div class="absolute top-5 right-7 cursor-pointer" @click="$emit('close')">
-        <i class="text-2xl fa fa-times"></i>
-      </div>
-
       <h3
         class="mb-3 font-normal text-center text-default display-1"
         :style="
@@ -15,6 +66,19 @@
       >
         Share an interesting Doc, Sheet or Slide
       </h3>
+      <div>
+        <p>Network Status</p>
+        <div v-if="!provider">Install or enable MetaMask</div>
+        <div v-else-if="!account">
+          <div>Connect your account first</div>
+          <button class="bg-thgreen8 btn-dark" @click="connectWallet">Connect</button>
+        </div>
+        <div v-else-if="connectedChainId === ACTIVE_NETWORK">Correct network</div>
+        <div v-else>
+          <div>Please switch to 80001</div>
+          <button class="btn-dark" @click="requestNetworkSwitch">Switch</button>
+        </div>
+      </div>
 
       <div v-if="state.layoutData.page === 'main'" class="text-center">
         <br />
@@ -302,243 +366,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import {
-  defineComponent,
-  reactive,
-  onMounted,
-  nextTick,
-  ref,
-  defineEmits,
-  getCurrentInstance,
-} from 'vue'
-import { useRoute } from 'vue-router'
-import { ethers } from 'ethers'
-import EmojiPicker from '@/components/ui/EmojiPicker.vue'
-import PaymentSelector from '@/components/payments/PaymentSelector.vue'
-import gatheringAbi from '@/abis/GatheringAbi.json'
-import { GATHERING_ADDRESSES } from '@/utils/consts'
-
-export default defineComponent({
-  components: {
-    EmojiPicker,
-    PaymentSelector,
-  },
-  props: {
-    existingTags: { type: Array, default: () => [] },
-    gathering: { type: String, default: '' },
-  },
-  emits: ['close', 'close-add-new-modal', 'close-approval-needed'],
-  setup(props, { emit }) {
-    const new_modal_description = ref(null)
-    const route = useRoute()
-
-    const state = reactive({
-      layoutData: {
-        comboboxInput: null,
-        addLoading: false,
-        onMobile: false,
-        emojiPicker: false,
-        page: 'main',
-      },
-      newDocumentObj: {
-        url: 'https://docs.google.com/document/d/1wf9YFtLFM4LuNkDzbb4hGfZqvb6VnKzJ9iZ',
-        errors: [],
-        description: 'Test for gathering',
-        tagCandidate: '',
-        tags: ['test'],
-      },
-    })
-
-    onMounted(() => {
-      state.layoutData.onMobile = window.innerWidth < 600
-      window.addEventListener('resize', () => {
-        state.layoutData.onMobile = window.innerWidth < 600
-      })
-    })
-
-    const addDocument = async () => {
-      state.newDocumentObj.errors = []
-      if (!state.newDocumentObj.url) state.newDocumentObj.errors.push('no-url')
-      if (!state.newDocumentObj.description) state.newDocumentObj.errors.push('no-description')
-      if (!state.newDocumentObj.tags.length) state.newDocumentObj.errors.push('no-tags')
-      if (
-        !state.newDocumentObj.url.match(/^https:\/\/docs\.google\..{1,6}\/spreadsheets/) &&
-        !state.newDocumentObj.url.match(/^https:\/\/docs\.google\..{1,6}\/document/) &&
-        !state.newDocumentObj.url.match(/^https:\/\/docs\.google\..{1,6}\/presentation/)
-      )
-        state.newDocumentObj.errors.push('url-error')
-
-      if (!state.newDocumentObj.errors.length) {
-        state.layoutData.addLoading = true
-        const docObjCopy = Object.assign({}, state.newDocumentObj)
-        docObjCopy.existingTags = []
-        if (route.params.gatheringSlug) docObjCopy.space = route.params.gatheringSlug
-        else if (props.gathering) docObjCopy.space = props.gathering
-
-        const provider = new ethers.providers.Web3Provider(window.ethereum)
-        const signer = provider.getSigner()
-
-        const gatheringInstance = new ethers.Contract(
-          GATHERING_ADDRESSES['gBG'],
-          gatheringAbi,
-          signer
-        )
-
-        try {
-          const response = await gatheringInstance.addDoc(docObjCopy.url, 0)
-          const receipt = (await response?.wait()) as any
-          if (receipt) {
-            fetch('/api/documents/add', {
-              method: 'POST',
-              body: JSON.stringify({
-                ...docObjCopy,
-                docUid: receipt?.events[0]?.args?.docId?.toNumber(),
-              }),
-            }).then(r => {
-              if (r.status !== 200) {
-                r.json().then(r => {
-                  state.layoutData.addLoading = false
-                  alert(r)
-                })
-              } else {
-                r.json().then(r => {
-                  if (!r.success) {
-                    if (r.reason === 'already-exists')
-                      alert('⚠️ This document has already been added')
-                    if (r.reason === 'url-error')
-                      alert('⚠️ Url error - please check if your url is in the correct format')
-                    if (r.reason === 'cant-access')
-                      alert(
-                        '⚠️ Unable to access this document - are you sure this is a public document?'
-                      )
-                  } else {
-                    state.newDocumentObj.title = ''
-                    state.newDocumentObj.url = ''
-                    state.newDocumentObj.description = ''
-                    state.newDocumentObj.tags = []
-                    if (r.approvalNeeded) {
-                      emit('close-approval-needed')
-                    } else {
-                      fetch('/api/documents/create-thumbnail', {
-                        method: 'POST',
-                        body: JSON.stringify({ docId: r.document.id }),
-                      })
-                      setTimeout(() => fetch(`/api/sodoc/${r.document.id}`), 3000)
-                      emit('close-add-new-modal', r.document)
-                    }
-                  }
-                  state.layoutData.addLoading = false
-                })
-              }
-            })
-          }
-        } catch (err) {
-          state.layoutData.addLoading = false
-          console.log(err)
-          alert('Error adding doc')
-        }
-      }
-    }
-
-    const updateTagsOnComma = event => {
-      if (event.key === 'Tab' && state.layoutData.comboboxInput) {
-        event.preventDefault()
-        const enterProps = {
-          bubbles: true,
-          cancelable: true,
-          key: 'Enter',
-          code: 'Enter',
-          keyCode: 13,
-        }
-        const ke = new KeyboardEvent('keydown', enterProps)
-        event.target.dispatchEvent(ke)
-        setTimeout(() => document.getElementById('tags-combobox--1').focus(), 10)
-      }
-      if (event.key === ',') {
-        event.preventDefault()
-        addTag()
-      }
-      if (event.key === 'Enter') {
-        if (state.newDocumentObj.tagCandidate === 'No data available') {
-          addTag()
-        } else {
-          if (state.newDocumentObj.tags.length > 7) {
-            state.layoutData.snackbarText = 'Maximum number of tags reached'
-            state.layoutData.openSnackbar = true
-            state.newDocumentObj.tags.pop()
-          }
-        }
-      }
-      setTimeout(() => updateTagCandidate(), 0)
-    }
-
-    const addTag = () => {
-      if (state.newDocumentObj.tags.length > 7) {
-        state.layoutData.snackbarText = 'Maximum number of tags reached'
-        state.layoutData.openSnackbar = true
-      } else {
-        if (
-          state.layoutData.comboboxInput &&
-          state.newDocumentObj.tags.map(tag => tag.text).indexOf(state.layoutData.comboboxInput) < 0
-        ) {
-          state.newDocumentObj.tags.push({
-            text: state.layoutData.comboboxInput,
-            value: state.layoutData.comboboxInput,
-          })
-        }
-        state.layoutData.comboboxInput = null
-        state.newDocumentObj.tagCandidate = ''
-      }
-    }
-
-    const updateTagCandidate = () => {
-      state.newDocumentObj.tagCandidate = (
-        document.querySelector(
-          '.v-autocomplete__content > .v-list > .v-list-item--highlighted'
-        ) || {
-          textContent: 'No data available',
-        }
-      ).textContent
-    }
-
-    const insertEmoji = emoji => {
-      const el = new_modal_description.value.$el.querySelector('textarea')
-      let cursorPos = el.selectionEnd
-      state.newDocumentObj.description =
-        state.newDocumentObj.description.substring(0, cursorPos) +
-        emoji +
-        state.newDocumentObj.description.substring(cursorPos)
-      cursorPos += 1
-      nextTick(() => {
-        el.setSelectionRange(cursorPos, cursorPos)
-        el.focus()
-      })
-      state.layoutData.emojiPicker = false
-    }
-
-    return {
-      state,
-      emit,
-      addDocument,
-      updateTagsOnComma,
-      addTag,
-      updateTagCandidate,
-      insertEmoji,
-    }
-  },
-})
-</script>
-<style scoped>
-.fade-modal {
-  height: 80vh;
-  max-height: 660px;
-  width: 80vw;
-  max-width: 800px;
-}
-
-.min-h-26 {
-  min-height: 26px;
-}
-</style>

@@ -1,8 +1,8 @@
-import { NETWORKS } from '@/utils/consts'
+import { ACTIVE_NETWORK } from '@/utils/consts'
 
-export default async function changeNetwork() {
-  const chainId = NETWORKS.MATIC_MUMBAI
-  const chainIdHex: string = NETWORKS.MATIC_MUMBAI.toString(16)
+export default async function requestNetworkSwitch() {
+  const chainId = ACTIVE_NETWORK
+  const chainIdHex: string = ACTIVE_NETWORK.toString(16)
 
   if (ethereum.networkVersion !== chainId) {
     try {

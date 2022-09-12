@@ -4,7 +4,7 @@ import FeedCard from '@/components/atoms/FeedCard.vue'
 import { ethers } from 'ethers'
 import { Provider } from 'ethers-multicall'
 import { Doc, DocContract } from '@/utils/types'
-import gatheringInstance from '@/composables/web3/useGatheringContract'
+import { gatheringInstanceMulti } from '@/composables/web3/gathering/useGatheringContract'
 import { RPC_URL } from '@/utils/consts'
 
 // state
@@ -30,12 +30,12 @@ onMounted(async () => {
   await ethcallProvider.init()
 
   // get list of ids of docs to vote on
-  const docIdsCall = [gatheringInstance.docsToVoteOn()]
+  const docIdsCall = [gatheringInstanceMulti.docsToVoteOn()]
   const response1 = await ethcallProvider.all(docIdsCall)
   const docsToVoteOnInt: number[] = response1[0].map(docId => docId.toNumber())
 
   // multiCall to get doc details for all of those
-  const docsCalls = docsToVoteOnInt.map(docId => gatheringInstance.docs(docId))
+  const docsCalls = docsToVoteOnInt.map(docId => gatheringInstanceMulti.docs(docId))
   const response2: DocContract[] = await ethcallProvider.all(docsCalls)
   docsToVoteOn.value = response2
 

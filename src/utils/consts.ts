@@ -1,6 +1,8 @@
 import { NetworkInfo } from './types'
 
-export const ACTIVE_NETWORK: number = import.meta.env.VITE_ACTIVE_NETWORK ?? 80001
+export const ACTIVE_NETWORK: number = import.meta.env.VITE_ACTIVE_NETWORK
+  ? Number(import.meta.env.VITE_ACTIVE_NETWORK)
+  : 80001
 
 export const TOKENS = {
   137: {
