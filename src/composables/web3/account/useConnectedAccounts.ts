@@ -4,7 +4,7 @@ import useMetaMaskProvider from '@/composables/web3/account/useMetaMaskProvider'
 
 const refetchAccountIndex = ref(0)
 
-if (window.ethereum) { 
+if (window.ethereum) {
   ethereum.on('accountsChanged', () => {
     refetchAccountIndex.value += 1
   })
