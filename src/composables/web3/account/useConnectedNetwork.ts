@@ -4,9 +4,11 @@ import useMetaMaskProvider from '@/composables/web3/account/useMetaMaskProvider'
 
 const refetchNetworkIndex = ref(0)
 
-ethereum.on('chainChanged', () => {
-  refetchNetworkIndex.value += 1
-})
+if (window.ethereum) { 
+  ethereum.on('chainChanged', () => {
+    refetchNetworkIndex.value += 1
+  })
+}
 
 export default function useConnectedNetwork() {
   const { provider } = useMetaMaskProvider()

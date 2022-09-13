@@ -4,9 +4,11 @@ import useMetaMaskProvider from '@/composables/web3/account/useMetaMaskProvider'
 
 const refetchAccountIndex = ref(0)
 
-ethereum.on('accountsChanged', () => {
-  refetchAccountIndex.value += 1
-})
+if (window.ethereum) { 
+  ethereum.on('accountsChanged', () => {
+    refetchAccountIndex.value += 1
+  })
+}
 
 export default function useConnectedAccount() {
   const { provider } = useMetaMaskProvider()
