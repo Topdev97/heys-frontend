@@ -1,9 +1,10 @@
+import { CONFIG } from '@/utils/consts'
 import { unref } from 'vue'
 import { useQuery } from 'vue-query'
 
 export default function useGathering(slug) {
   const { data: gathering, ...other } = useQuery(['docs', slug], () => {
-    return fetch('/api/spaces/get', {
+    return fetch(`${CONFIG.API_ADDRESS}/api/gathering`, {
       method: 'POST',
       body: JSON.stringify({
         slug: slug,

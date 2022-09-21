@@ -20,7 +20,6 @@ const initialFilters = {
   page: ref(0),
   pageCount: 1,
   search: '',
-  searchOption: 'Everything',
   tagSearch: '',
   sort: 'Hot',
   type: 'all',
@@ -34,15 +33,14 @@ const tipModal = ref(false)
 
 // composables
 const { docs } = useDocs(
+  1,
   toRef(filters, 'search'),
   toRef(filters, 'tags'),
   toRef(filters, 'page'),
   toRef(filters, 'sort'),
-  toRef(filters, 'type'),
-  toRef(filters, 'searchOption'),
-  gatheringSlug
+  toRef(filters, 'type')
 )
-const { tags } = useTags(toRef(filters, 'sort'))
+const { tags } = useTags(1, toRef(filters, 'sort'))
 
 // computed
 const marketData = computed<MarketData>(() => {
@@ -123,9 +121,9 @@ function addedNewDoc(doc: Doc) {
           </div>
           <span class="hidden sm:inline-block ml-2"> New </span>
         </button>
-        <button title="Tip" class="py-2 px-4 m-2 bg-thgreen8 btn-white" @click="tipModal = true">
+        <!-- <button title="Tip" class="py-2 px-4 m-2 bg-thgreen8 btn-white" @click="tipModal = true">
           <span class="hidden sm:inline-block ml-2"> Tip </span>
-        </button>
+        </button> -->
       </div>
       <div class="flex-wrap mx-auto max-w-screen-md text-center flex-center">
         <TagButton
@@ -147,12 +145,12 @@ function addedNewDoc(doc: Doc) {
           <span class="px-4 mb-0 font-extrabold uppercase">Results</span>
           <div class="flex-grow border-t-2 border-gray-200"></div>
         </div>
-        <FeedCard v-for="(doc, did) in docs?.documents" :key="`doc-${did}`" :index="did">
+        <FeedCard v-for="(doc, did) in docs" :key="`doc-${did}`" :index="did">
           <h5 class="mb-2">{{ doc.title }}</h5>
           <div class="mb-2">
             •
             <div
-              v-for="tag in doc.tags.replace(/'/g, '').split(',')"
+              v-for="tag in doc.tags"
               :key="`tag-${did}-${tag}`"
               class="inline-block ml-1"
             >
@@ -200,14 +198,14 @@ function addedNewDoc(doc: Doc) {
           </DialogPanel>
         </div>
       </Dialog>
-      <Dialog :open="tipModal" @close="tipModal = false">
+      <!-- <Dialog :open="tipModal" @close="tipModal = false">
         <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px]" aria-hidden="true" />
         <div class="flex fixed inset-0 z-50 justify-center items-center p-4">
           <DialogPanel class="p-8 w-full bg-white rounded max-w-[40rem]">
             <TipModal />
           </DialogPanel>
         </div>
-      </Dialog>
+      </Dialog> -->
 
       <div
         v-if="newDocumentModal || tipModal"

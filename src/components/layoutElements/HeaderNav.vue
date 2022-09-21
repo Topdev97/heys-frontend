@@ -40,7 +40,7 @@ const gatheringsModal = ref(false)
     </div>
     <div class="flex">
       <AccountButton />
-      <button
+      <!-- <button
         title="Gatherings"
         class="flex md:inline-block items-center py-1 px-2 text-sm rounded border border-white transition duration-200 hover:bg-white/10 active:bg-white/20"
         @click="gatheringsModal = true"
@@ -56,7 +56,7 @@ const gatheringsModal = ref(false)
           />
         </svg>
         Gatherings
-      </button>
+      </button> -->
     </div>
 
     <Dialog :open="gatheringsModal" @close="gatheringsModal = false">

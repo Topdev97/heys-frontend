@@ -1,16 +1,13 @@
+import { CONFIG } from '@/utils/consts'
 import { unref } from 'vue'
 import { useQuery } from 'vue-query'
 
-export default function useDocs(sort) {
-  const { data: tags, ...other } = useQuery(['docs', sort], () => {
-    return fetch('/api/tags/get', {
-      method: 'POST',
-      body: JSON.stringify({
-        sort: sort.value,
-      }),
+export default function useTags(gatheringId, sort) {
+  const { data: tags, ...other } = useQuery(['tags', gatheringId, sort], () => {
+    return fetch(`${CONFIG.API_ADDRESS}/api/tag/gathering/${gatheringId}`, {
+      method: 'GET'
     })
       .then(r => r.json())
-      .then(r => r.tags)
   })
 
   return { tags, ...other }

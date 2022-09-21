@@ -1,8 +1,8 @@
 {
   "name": "heys-front-end",
-  "version": "1.0.0",
+  "version": "6.0.0",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .js,.ts,.vue --max-warnings 0",

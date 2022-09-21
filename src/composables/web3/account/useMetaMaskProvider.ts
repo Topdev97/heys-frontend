@@ -4,7 +4,7 @@ import { ethers } from 'ethers'
 export default function useMetaMaskProvider() {
   let provider = null
   try {
-    provider = new ethers.providers.Web3Provider(window.ethereum)
+    provider = new ethers.providers.Web3Provider(window.ethereum, 'any')
   } catch (_) {
     console.log('Meta mask not installed')
   }
