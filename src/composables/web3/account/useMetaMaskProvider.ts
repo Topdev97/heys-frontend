@@ -1,14 +1,14 @@
 import { ref } from 'vue'
 import { useQuery } from 'vue-query'
 import { ethers } from 'ethers'
-import { Web3Provider } from "@ethersproject/providers";
+import { Web3Provider } from '@ethersproject/providers'
 
 const provider = ref<Web3Provider | null | undefined>(undefined)
 
 export default function useMetaMaskProvider() {
   if (provider.value === null) {
     return {
-      provider: null
+      provider: null,
     }
   }
 
