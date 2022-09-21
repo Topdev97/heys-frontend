@@ -244,7 +244,6 @@ async function addDoc() {
             </small>
           </transition>
         </div>
-        {{ newDocObj }}
         <button
           class="py-2 mt-5 mb-6 w-full bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
           :disabled="adding"
