@@ -1,7 +1,6 @@
 import { CONFIG } from '@/utils/consts'
 import { DocDataBase } from '@/utils/types'
 
-
 export default function addDocWeb2(newDocData: DocDataBase) {
   return fetch(`${CONFIG.API_ADDRESS}/api/doc`, {
     method: 'POST',
@@ -10,6 +9,7 @@ export default function addDocWeb2(newDocData: DocDataBase) {
       gatheringId: 1,
       ...newDocData,
     }),
-  }).then(r => r.json())
+  })
+    .then(r => r.json())
     .catch(err => console.log(err))
 }

@@ -21,8 +21,8 @@ const existingTags = ['tag-A']
 const tagCandidate = ''
 
 const emit = defineEmits<{
-  (e: 'close'): void;
-}>();
+  (e: 'close'): void
+}>()
 
 // composables
 const { provider } = useMetaMaskProvider()
@@ -47,11 +47,9 @@ const adding = ref(false)
 const errors = ref([] as string[])
 
 // watchers
-watchEffect(
-  () => {
-    newDocObj.tags = tags.value.split(/, |,/)
-  }
-)
+watchEffect(() => {
+  newDocObj.tags = tags.value.split(/, |,/)
+})
 
 // methods
 async function connectWallet() {
@@ -61,7 +59,7 @@ async function connectWallet() {
 async function addDoc() {
   adding.value = true
   await addDocWeb2(newDocObj)
-    .then((data) => {
+    .then(data => {
       console.log(data)
       refetchDocs.value()
       adding.value = false
@@ -74,7 +72,7 @@ async function addDoc() {
   // } as Doc
   // const tx = await addDocWeb3(newDoc).catch(err => alert(err))
   // if (tx) {
-  //   save docId  
+  //   save docId
   // }
 }
 </script>
@@ -111,7 +109,7 @@ async function addDoc() {
         <br />
         <br />
         <button
-          class="py-2 mt-5 mb-4 w-1/2 rounded duration-200 bg-green-900 hover:bg-green-800 active:bg-green-700"
+          class="py-2 mt-5 mb-4 w-1/2 bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
           :style="
             layoutData.onMobile
               ? { 'font-size': '0.8rem!important', 'min-width': '235px' }
@@ -124,7 +122,7 @@ async function addDoc() {
         </button>
         <br />
         <button
-          class="py-2 mt-5 mb-4 w-1/2 rounded duration-200 bg-green-900 hover:bg-green-800 active:bg-green-700"
+          class="py-2 mt-5 mb-4 w-1/2 bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
           :style="
             layoutData.onMobile
               ? { 'font-size': '0.8rem!important', 'min-width': '235px' }
@@ -154,27 +152,20 @@ async function addDoc() {
             v-model="newDocObj.url"
             type="text"
             class="px-3 pt-5 pb-3 mb-0 w-full text-default bg-gray-200 rounded outline-none"
-            :error="
-              errors.indexOf('url-error') >= 0 ||
-              errors.indexOf('no-url') >= 0
-            "
+            :error="errors.indexOf('url-error') >= 0 || errors.indexOf('no-url') >= 0"
             filled
             required
           />
           <label
             for="url-input"
             :class="
-              errors.indexOf('url-error') >= 0 ||
-              errors.indexOf('no-url') >= 0
+              errors.indexOf('url-error') >= 0 || errors.indexOf('no-url') >= 0
                 ? `text-orange-600`
                 : `text-default`
             "
             >Url</label
           >
-          <p
-            v-if="errors.indexOf('url-error') >= 0"
-            class="text-left text-red-500"
-          >
+          <p v-if="errors.indexOf('url-error') >= 0" class="text-left text-red-500">
             Incorrect url - please double check your link. It should be something like
             "https://docs.google.com/document/d/1wf9YFtLFM4LuNkDzbb4hGfZqvb6VnKzJ9iZ"
           </p>
@@ -194,11 +185,7 @@ async function addDoc() {
           ></textarea>
           <label
             for="new-modal-description"
-            :class="
-              errors.indexOf('no-description') >= 0
-                ? `text-orange-600`
-                : `text-default`
-            "
+            :class="errors.indexOf('no-description') >= 0 ? `text-orange-600` : `text-default`"
           >
             What is this doc about?
           </label>
@@ -238,11 +225,7 @@ async function addDoc() {
           />
           <label
             for="tags-combobox--1"
-            :class="
-              errors.indexOf('no-tags') >= 0
-                ? `text-orange-600`
-                : `text-default`
-            "
+            :class="errors.indexOf('no-tags') >= 0 ? `text-orange-600` : `text-default`"
           >
             Tags
           </label>
@@ -251,9 +234,7 @@ async function addDoc() {
           <transition name="fade">
             <small
               v-if="
-                layoutData.comboboxInput &&
-                tagCandidate &&
-                tagCandidate !== 'No data available'
+                layoutData.comboboxInput && tagCandidate && tagCandidate !== 'No data available'
               "
               class="z-20 mb-0 text-left"
             >
@@ -263,16 +244,14 @@ async function addDoc() {
             </small>
           </transition>
         </div>
-        {{newDocObj}}
+        {{ newDocObj }}
         <button
-          class="py-2 mt-5 mb-6 w-full rounded duration-200 bg-green-900 hover:bg-green-800 active:bg-green-700"
+          class="py-2 mt-5 mb-6 w-full bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
           :disabled="adding"
           @click="addDoc()"
         >
           <i v-if="!adding" class="mr-2 text-xl text-white fa fa-plus"></i>
-          <span class="text-xl text-white">{{
-            adding ? 'Adding...' : 'Add new doc'
-          }}</span>
+          <span class="text-xl text-white">{{ adding ? 'Adding...' : 'Add new doc' }}</span>
         </button>
         <div class="pb-12 min-h-26">
           <h5>Sponsor submission</h5>
