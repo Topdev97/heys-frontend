@@ -16,7 +16,8 @@ export default function useConnectedNetwork() {
   const { data: connectedChainId, ...other } = useQuery(
     ['connectedNetwork', !!provider, refetchNetworkIndex],
     () => {
-      if (provider) {
+      console.log('Checking connected network')
+      if (provider?.value) {
         return Number(window.ethereum?.networkVersion)
       } else {
         return 0

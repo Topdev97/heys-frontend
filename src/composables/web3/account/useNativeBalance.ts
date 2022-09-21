@@ -13,12 +13,13 @@ export default function useNativeBalance(account: any, network: number) {
   const { data: balance, ...other } = useQuery(
     ['nativeBalance', !!provider, account],
     () => {
-      if (!provider) {
+      console.log('Checking native token balance')
+      if (!provider?.value) {
         return 'Not connected'
       } else if (Number(window.ethereum.networkVersion) !== network) {
         return 'Wrong network'
       } else {
-        return provider.getBalance(unref(account))
+        return provider.value?.getBalance(unref(account))
       }
     },
     {

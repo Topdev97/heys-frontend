@@ -19,7 +19,7 @@ const gatheringId = 1
 const currentSearchParams = ref<DocFetchParams | null>(null)
 
 // computed
-const enableQuery = computed(() => !!currentSearchParams.value)
+const enabled = computed(() => !!currentSearchParams.value)
 
 export default function useDocs(searchParams?: DocFetchParams) {
   if (searchParams) {
@@ -41,7 +41,7 @@ export default function useDocs(searchParams?: DocFetchParams) {
       }).then(r => r.json())
     },
     {
-      enabled: enableQuery,
+      enabled,
     }
   )
 

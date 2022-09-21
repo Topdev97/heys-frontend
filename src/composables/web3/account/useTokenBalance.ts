@@ -12,6 +12,7 @@ export default function useTokenBalance(account: any, tokenAddress: string, netw
   const { data: balance, ...other } = useQuery(
     ['tokenBalance', tokenAddress, account],
     () => {
+      console.log('Checking token balance')
       if (!account.value) {
         return 'Not connected'
       } else {

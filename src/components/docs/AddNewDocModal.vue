@@ -53,7 +53,7 @@ watchEffect(() => {
 
 // methods
 async function connectWallet() {
-  await provider?.send('eth_requestAccounts', [])
+  await provider?.value?.send('eth_requestAccounts', [])
 }
 
 async function addDoc() {

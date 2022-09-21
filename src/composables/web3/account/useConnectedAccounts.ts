@@ -16,7 +16,8 @@ export default function useConnectedAccount() {
   const { data: account, ...other } = useQuery(
     ['connectedAccounts', !!provider, refetchAccountIndex],
     () => {
-      if (provider) {
+      console.log('Checking connected accounts')
+      if (provider?.value) {
         return ethereum.request({ method: 'eth_accounts' }).then(r => r[0] ?? '')
       } else {
         return ''

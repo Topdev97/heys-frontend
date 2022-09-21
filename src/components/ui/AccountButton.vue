@@ -19,7 +19,7 @@ async function connectWallet() {
   if (!provider) {
     alert('Please install or enable MetaMask first')
   } else {
-    const accounts = await provider?.send('eth_requestAccounts', [])
+    const accounts = await provider.value?.send('eth_requestAccounts', [])
   }
 }
 </script>

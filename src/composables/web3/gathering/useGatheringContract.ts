@@ -12,7 +12,7 @@ export const gatheringInstanceMulti = new Contract(
 )
 
 const { provider } = useMetaMaskProvider()
-const signer = provider?.getSigner()
+const signer = provider?.value?.getSigner()
 
 export const gatheringInstanceMM = new ethers.Contract(
   GATHERING_ADDRESSES['gBG'],
