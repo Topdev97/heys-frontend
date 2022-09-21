@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import FeedCard from '@/components/atoms/FeedCard.vue'
 import { ethers } from 'ethers'
 import { Provider } from 'ethers-multicall'
-import { Doc, DocContract } from '@/utils/types'
+import { DocDataFull, DocContract } from '@/utils/types'
 import { gatheringInstanceMulti } from '@/composables/web3/gathering/useGatheringContract'
 import { RPC_URL } from '@/utils/consts'
 
@@ -20,7 +20,7 @@ const votes = [
       'In the face of environmental collapse, humanity may need to turn to artificial replacements for nature – how might we avoid the most dystopian of these futures?',
   },
 ]
-const docsToVoteOn = ref([] as Doc[])
+const docsToVoteOn = ref([] as DocDataFull[])
 const loading = ref(true)
 
 // lifecycle

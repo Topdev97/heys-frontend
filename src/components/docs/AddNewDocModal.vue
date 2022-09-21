@@ -1,39 +1,57 @@
 <script lang="ts" setup>
-import { reactive, computed } from 'vue'
+import { reactive, ref, watchEffect } from 'vue'
 
 import EmojiPicker from '@/components/ui/EmojiPicker.vue'
 import PaymentSelector from '@/components/payments/PaymentSelector.vue'
+
+import { ACTIVE_NETWORK } from '@/utils/consts'
+import { DocDataBase } from '@/utils/types'
 
 import useConnectedAccount from '@/composables/web3/account/useConnectedAccounts'
 import useConnecteNetwork from '@/composables/web3/account/useConnectedNetwork'
 import useMetaMaskProvider from '@/composables/web3/account/useMetaMaskProvider'
 import requestNetworkSwitch from '@/composables/web3/account/useChangeNetwork'
+
 import addDocWeb3 from '@/composables/web3/gathering/useAddDoc'
-import { ACTIVE_NETWORK } from '@/utils/consts'
-import { Doc } from '@/utils/types'
+import addDocWeb2 from '@/composables/web2/useAddDoc'
+import useDocs from '@/composables/web2/useDocs'
+
+// consts
+const existingTags = ['tag-A']
+const tagCandidate = ''
+
+const emit = defineEmits<{
+  (e: 'close'): void;
+}>();
 
 // composables
 const { provider } = useMetaMaskProvider()
 const { account } = useConnectedAccount()
 const { connectedChainId } = useConnecteNetwork()
+const { refetch: refetchDocs } = useDocs()
 
 // state
-const state = reactive({
-  layoutData: {
-    comboboxInput: null,
-    addLoading: false,
-    onMobile: false,
-    emojiPicker: false,
-    page: 'main',
-  },
-  newDocumentObj: {
-    url: 'https://docs.google.com/document/d/1wf9YFtLFM4LuNkDzbb4hGfZqvb6VnKzJ9iZ',
-    errors: [],
-    description: 'Test for gathering',
-    tagCandidate: '',
-    tags: ['test'],
-  },
+const layoutData = reactive({
+  comboboxInput: null,
+  onMobile: false,
+  emojiPicker: false,
+  page: 'main',
 })
+const newDocObj = reactive({
+  url: 'https://docs.google.com/document/d/1wf9YFtLFM4LuNkDzbb4hGfZqvb6VnKzJ9iZ',
+  description: 'Test for gathering',
+  tags: [],
+} as DocDataBase)
+const tags = ref('test')
+const adding = ref(false)
+const errors = ref([] as string[])
+
+// watchers
+watchEffect(
+  () => {
+    newDocObj.tags = tags.value.split(/, |,/)
+  }
+)
 
 // methods
 async function connectWallet() {
@@ -41,15 +59,23 @@ async function connectWallet() {
 }
 
 async function addDoc() {
-  const newDoc = {
-    uid: 'test-uid',
-    url: 'https://google.com/docs/123',
-  } as Doc
-  const tx = await addDocWeb3(newDoc).catch(err => alert(err))
-  if (tx) {
-    // const res = await addDocWeb2(tx)
-    //   .catch(err => alert(err))
-  }
+  adding.value = true
+  await addDocWeb2(newDocObj)
+    .then((data) => {
+      console.log(data)
+      refetchDocs.value()
+      adding.value = false
+      emit('close')
+    })
+    .catch((err: any) => alert(err))
+  // const newDoc = {
+  //   uid: 'test-uid',
+  //   url: 'https://google.com/docs/123',
+  // } as Doc
+  // const tx = await addDocWeb3(newDoc).catch(err => alert(err))
+  // if (tx) {
+  //   save docId  
+  // }
 }
 </script>
 
@@ -59,7 +85,7 @@ async function addDoc() {
       <h3
         class="mb-3 font-normal text-center text-default display-1"
         :style="
-          state.layoutData.onMobile
+          layoutData.onMobile
             ? { 'font-size': '1.5rem!important', 'line-height': '2.0rem' }
             : { 'font-size': '1.725rem!important' }
         "
@@ -80,40 +106,40 @@ async function addDoc() {
         </div>
       </div>
 
-      <div v-if="state.layoutData.page === 'main'" class="text-center">
+      <div v-if="layoutData.page === 'main'" class="text-center">
         <br />
         <br />
         <br />
         <button
-          class="py-2 mt-5 mb-4 w-1/2 rounded duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400"
+          class="py-2 mt-5 mb-4 w-1/2 rounded duration-200 bg-green-900 hover:bg-green-800 active:bg-green-700"
           :style="
-            state.layoutData.onMobile
+            layoutData.onMobile
               ? { 'font-size': '0.8rem!important', 'min-width': '235px' }
               : { 'font-size': '1.0rem!important', 'min-width': '285px' }
           "
-          @click="state.layoutData.page = 'existing'"
+          @click="layoutData.page = 'existing'"
         >
           <i class="mr-2 text-xl text-white fa fa-file-alt"></i>
           <span class="text-xl text-white">Share a link to existing doc</span>
         </button>
         <br />
         <button
-          class="py-2 mt-5 mb-4 w-1/2 rounded duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400"
+          class="py-2 mt-5 mb-4 w-1/2 rounded duration-200 bg-green-900 hover:bg-green-800 active:bg-green-700"
           :style="
-            state.layoutData.onMobile
+            layoutData.onMobile
               ? { 'font-size': '0.8rem!important', 'min-width': '235px' }
               : { 'font-size': '1.0rem!important', 'min-width': '285px' }
           "
-          @click="state.layoutData.page = 'new'"
+          @click="layoutData.page = 'new'"
         >
           <i class="mr-2 text-xl text-white fa fa-file"></i>
           <span class="text-xl text-white">Write a new doc</span>
         </button>
       </div>
-      <div v-if="state.layoutData.page === 'existing'" class="sm:px-10 text-center">
+      <div v-if="layoutData.page === 'existing'" class="sm:px-10 text-center">
         <a
           class="mb-4 hover:underline cursor-pointer text-emerald-800 active:text-emerald-600"
-          @click="state.layoutData.page = 'main'"
+          @click="layoutData.page = 'main'"
         >
           <i class="mr-1 fa fa-chevron-left"></i>
           Back
@@ -125,12 +151,12 @@ async function addDoc() {
           <input
             id="url-input"
             ref="url-input"
-            v-model="state.newDocumentObj.url"
+            v-model="newDocObj.url"
             type="text"
             class="px-3 pt-5 pb-3 mb-0 w-full text-default bg-gray-200 rounded outline-none"
             :error="
-              state.newDocumentObj.errors.indexOf('url-error') >= 0 ||
-              state.newDocumentObj.errors.indexOf('no-url') >= 0
+              errors.indexOf('url-error') >= 0 ||
+              errors.indexOf('no-url') >= 0
             "
             filled
             required
@@ -138,15 +164,15 @@ async function addDoc() {
           <label
             for="url-input"
             :class="
-              state.newDocumentObj.errors.indexOf('url-error') >= 0 ||
-              state.newDocumentObj.errors.indexOf('no-url') >= 0
+              errors.indexOf('url-error') >= 0 ||
+              errors.indexOf('no-url') >= 0
                 ? `text-orange-600`
                 : `text-default`
             "
             >Url</label
           >
           <p
-            v-if="state.newDocumentObj.errors.indexOf('url-error') >= 0"
+            v-if="errors.indexOf('url-error') >= 0"
             class="text-left text-red-500"
           >
             Incorrect url - please double check your link. It should be something like
@@ -158,10 +184,10 @@ async function addDoc() {
           <textarea
             id="new-modal-description"
             ref="new-modal-description"
-            v-model="state.newDocumentObj.description"
+            v-model="newDocObj.description"
             rows="4"
             class="px-3 pt-5 pb-3 w-full text-default bg-gray-200 rounded outline-none"
-            :error="state.newDocumentObj.errors.indexOf('no-description') >= 0"
+            :error="errors.indexOf('no-description') >= 0"
             maxlength="1000"
             filled
             required
@@ -169,7 +195,7 @@ async function addDoc() {
           <label
             for="new-modal-description"
             :class="
-              state.newDocumentObj.errors.indexOf('no-description') >= 0
+              errors.indexOf('no-description') >= 0
                 ? `text-orange-600`
                 : `text-default`
             "
@@ -178,25 +204,25 @@ async function addDoc() {
           </label>
           <div
             class="absolute right-2 bottom-3 cursor-pointer emoji-picker-btn"
-            @click="state.layoutData.emojiPicker = !state.layoutData.emojiPicker"
+            @click="layoutData.emojiPicker = !layoutData.emojiPicker"
           >
             <i class="far fa-smile"></i>
           </div>
           <EmojiPicker
-            v-if="state.layoutData.emojiPicker"
+            v-if="layoutData.emojiPicker"
             class="absolute z-50 emoji-picker"
             @select-emoji="insertEmoji"
-            @close="state.layoutData.emojiPicker = false"
+            @close="layoutData.emojiPicker = false"
           ></EmojiPicker>
         </div>
         <div class="form-group">
           <input
             id="tags-combobox--1"
             ref="tags--1"
-            v-model="state.newDocumentObj.tags"
+            v-model="tags"
             class="px-3 pt-5 pb-3 mb-0 w-full text-default bg-gray-200 rounded outline-none"
             :items="existingTags"
-            :error="state.newDocumentObj.errors.indexOf('no-tags') >= 0"
+            :error="errors.indexOf('no-tags') >= 0"
             chips
             counter="2"
             multiple
@@ -206,14 +232,14 @@ async function addDoc() {
             auto-select-first
             filled
             required
-            @input="state.layoutData.comboboxInput = null"
+            @input="layoutData.comboboxInput = null"
             @keydown="updateTagsOnComma"
             @blur="addTag"
           />
           <label
             for="tags-combobox--1"
             :class="
-              state.newDocumentObj.errors.indexOf('no-tags') >= 0
+              errors.indexOf('no-tags') >= 0
                 ? `text-orange-600`
                 : `text-default`
             "
@@ -225,26 +251,27 @@ async function addDoc() {
           <transition name="fade">
             <small
               v-if="
-                state.layoutData.comboboxInput &&
-                state.newDocumentObj.tagCandidate &&
-                state.newDocumentObj.tagCandidate !== 'No data available'
+                layoutData.comboboxInput &&
+                tagCandidate &&
+                tagCandidate !== 'No data available'
               "
               class="z-20 mb-0 text-left"
             >
               Enter:
-              <strong>{{ state.newDocumentObj.tagCandidate }}</strong>
+              <strong>{{ tagCandidate }}</strong>
               (comma to ignore)
             </small>
           </transition>
         </div>
+        {{newDocObj}}
         <button
-          class="py-2 mt-5 mb-6 w-full rounded duration-200 bg-orange-600 hover:bg-orange-500 active:bg-orange-400"
-          :disabled="state.layoutData.addLoading"
-          @click="addDocument()"
+          class="py-2 mt-5 mb-6 w-full rounded duration-200 bg-green-900 hover:bg-green-800 active:bg-green-700"
+          :disabled="adding"
+          @click="addDoc()"
         >
-          <i v-if="!state.layoutData.addLoading" class="mr-2 text-xl text-white fa fa-plus"></i>
+          <i v-if="!adding" class="mr-2 text-xl text-white fa fa-plus"></i>
           <span class="text-xl text-white">{{
-            state.layoutData.addLoading ? 'Adding...' : 'Add new doc'
+            adding ? 'Adding...' : 'Add new doc'
           }}</span>
         </button>
         <div class="pb-12 min-h-26">
@@ -256,10 +283,10 @@ async function addDoc() {
           <!--          <small>If the doc is not approved, the funds will be returned</small>-->
         </div>
       </div>
-      <div v-if="state.layoutData.page === 'new'" class="pb-6 text-center">
+      <div v-if="layoutData.page === 'new'" class="pb-6 text-center">
         <a
           class="mb-4 hover:underline cursor-pointer text-emerald-800 active:text-emerald-600"
-          @click="state.layoutData.page = 'main'"
+          @click="layoutData.page = 'main'"
         >
           <i class="mr-1 fa fa-chevron-left"></i>
           Back
@@ -358,7 +385,7 @@ async function addDoc() {
           3. Add the link to heystacks:
           <a
             class="hover:underline cursor-pointer text-emerald-800 active:text-emerald-600"
-            @click="state.layoutData.page = 'existing'"
+            @click="layoutData.page = 'existing'"
             >here</a
           >
         </p>

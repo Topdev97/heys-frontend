@@ -4,42 +4,32 @@ import LayoutLight from '@/layouts/LayoutLight.vue'
 import SearchInput from '@/components/ui/SearchInput.vue'
 import TagButton from '@/components/atoms/TagButton.vue'
 import { Dialog, DialogPanel } from '@headlessui/vue'
-import { Doc, MarketData, Tag } from '@/utils/types'
-import useDocs from '@/composables/web2/useDocs'
+import { DocDataFull, MarketData, Tag } from '@/utils/types'
+import useDocs, { DocFetchParams } from '@/composables/web2/useDocs'
 import FeedCard from '@/components/atoms/FeedCard.vue'
 import HeaderNav from '@/components/layoutElements/HeaderNav.vue'
 import HeaderContent from '@/components/layoutElements/HeaderContent.vue'
 import Footer from '@/components/layoutElements/Footer.vue'
-import AddNewModal from '@/components/docs/AddNewModal.vue'
+import AddNewDocModal from '@/components/docs/AddNewDocModal.vue'
 import TipModal from '@/components/payments/TipModal.vue'
 import useTags from '@/composables/web2/useTags'
 import gatheringSlug from '@/composables/utils/useGatheringSlug'
 
 // consts
 const initialFilters = {
-  page: ref(0),
-  pageCount: 1,
+  page: 0,
   search: '',
-  tagSearch: '',
   sort: 'Hot',
-  type: 'all',
+  type: -1,
   tags: [],
 }
 
 // state
-const filters = reactive({ ...initialFilters })
+const filters = reactive<DocFetchParams>({ ...initialFilters })
 const newDocumentModal = ref(false)
-const tipModal = ref(false)
 
 // composables
-const { docs } = useDocs(
-  1,
-  toRef(filters, 'search'),
-  toRef(filters, 'tags'),
-  toRef(filters, 'page'),
-  toRef(filters, 'sort'),
-  toRef(filters, 'type')
-)
+const { docs } = useDocs(filters)
 const { tags } = useTags(1, toRef(filters, 'sort'))
 
 // computed
@@ -57,10 +47,6 @@ function toggleTags(tag: string) {
   } else {
     filters.tags.splice(tagIdx, 1)
   }
-}
-
-function addedNewDoc(doc: Doc) {
-  console.log(doc)
 }
 </script>
 
@@ -186,11 +172,11 @@ function addedNewDoc(doc: Doc) {
         <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px]" aria-hidden="true" />
         <div class="flex fixed inset-0 z-50 justify-center items-center p-4">
           <DialogPanel class="p-8 w-full bg-white rounded max-w-[40rem]">
-            <AddNewModal
+            <AddNewDocModal
               :existingTags="tags?.map(tag => ({ text: tag.title, value: tag.title }))"
               :gathering="gatheringSlug"
-              @close-add-new-modal="doc => addedNewDoc(doc)"
-            ></AddNewModal>
+              @close="newDocumentModal = false"
+            ></AddNewDocModal>
           </DialogPanel>
         </div>
       </Dialog>
@@ -204,12 +190,11 @@ function addedNewDoc(doc: Doc) {
       </Dialog> -->
 
       <div
-        v-if="newDocumentModal || tipModal"
+        v-if="newDocumentModal"
         class="backdrop"
         @click="
           () => {
             newDocumentModal = false
-            tipModal = false
           }
         "
       ></div>

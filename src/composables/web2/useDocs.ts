@@ -1,11 +1,38 @@
 import { CONFIG } from '@/utils/consts'
-import { unref } from 'vue'
+import { DocType } from '@/utils/types'
+import { reactive, ref, unref, Ref, computed } from 'vue'
 import { useQuery } from 'vue-query'
 
-export default function useDocs(gatheringId, search, tags, page, sort, type) {
+
+// types
+export interface DocFetchParams {
+  search: string
+  tags: string[]
+  page: number
+  sort: string
+  type: DocType
+}
+
+// consts
+const gatheringId = 1
+
+// state
+const currentSearchParams = ref<DocFetchParams | null>(null)
+
+// computed
+const enableQuery = computed(() => !!currentSearchParams.value)
+
+export default function useDocs(searchParams?: DocFetchParams) {
+  if (searchParams) {
+    console.log(searchParams)
+    currentSearchParams.value = searchParams
+  }
+
+  console.log(currentSearchParams.value?.search)
   const { data: docs, ...other } = useQuery(
-    ['docs', gatheringId, search, tags, page, sort, type],
+    ['docs', gatheringId],
     () => {
+      console.log(123)
       return fetch(`${CONFIG.API_ADDRESS}/api/doc/gathering/${gatheringId}`, {
         method: 'GET',
         // body: JSON.stringify({
@@ -16,6 +43,9 @@ export default function useDocs(gatheringId, search, tags, page, sort, type) {
         //   type: type.value,
         // }),
       }).then(r => r.json())
+    },
+    {
+      enabled: enableQuery,
     }
   )
 
