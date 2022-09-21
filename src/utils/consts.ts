@@ -7,7 +7,7 @@ export const ACTIVE_NETWORK: number = import.meta.env.VITE_ACTIVE_NETWORK
   : 80001
 
 export const CONFIG = {
-  API_ADDRESS: env.VITE_API_ADDRESS
+  API_ADDRESS: env.VITE_API_ADDRESS,
 }
 
 export const TOKENS = {

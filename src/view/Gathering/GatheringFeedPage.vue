@@ -149,11 +149,7 @@ function addedNewDoc(doc: Doc) {
           <h5 class="mb-2">{{ doc.title }}</h5>
           <div class="mb-2">
             •
-            <div
-              v-for="tag in doc.tags"
-              :key="`tag-${did}-${tag}`"
-              class="inline-block ml-1"
-            >
+            <div v-for="tag in doc.tags" :key="`tag-${did}-${tag}`" class="inline-block ml-1">
               <span class="link" @click="toggleTags(tag)">
                 {{ tag }}
               </span>
