@@ -274,14 +274,14 @@ async function addDoc() {
           <i v-if="!adding" class="mr-2 text-xl text-white fa fa-plus"></i>
           <span class="text-xl text-white">{{ adding ? 'Adding...' : 'Add new doc' }}</span>
         </button>
-        <div class="pb-12 min-h-26">
+        <!-- <div class="pb-12 min-h-26">
           <h5>Sponsor submission</h5>
           <small class="block mt-1 mb-4"
             >Sponsored docs are more likely to be included in the gathering</small
           >
           <PaymentSelector />
-          <!--          <small>If the doc is not approved, the funds will be returned</small>-->
-        </div>
+          <small>If the doc is not approved, the funds will be returned</small>
+        </div> -->
       </div>
       <div v-if="layoutData.page === 'new'" class="pb-6 text-center">
         <a
