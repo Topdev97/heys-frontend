@@ -1,23 +1,23 @@
 export enum DocType {
-  'all' = -1,
-  'document' = 0,
-  'spreadsheets' = 1,
-  'presentation' = 2,
+  'all' = 0,
+  'document' = 1,
+  'spreadsheets' = 2,
+  'presentation' = 3,
 }
 
 export interface DocDataBase {
   url: string
   description: string
   tags: string[]
+  docId: number
+  docUid: string
+  docType: DocType
 }
 
 export interface DocDataFull extends DocDataBase {
   id: number
   title: string
   slug: string
-  docUid: string
-  docId: number
-  docType: DocType
   upvotes: number
   views: number
   reads: number

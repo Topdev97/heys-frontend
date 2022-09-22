@@ -6,6 +6,7 @@ import PaymentSelector from '@/components/payments/PaymentSelector.vue'
 
 import { ACTIVE_NETWORK } from '@/utils/consts'
 import { DocDataBase } from '@/utils/types'
+import { ethers } from 'ethers'
 
 import useConnectedAccount from '@/composables/web3/account/useConnectedAccounts'
 import useConnecteNetwork from '@/composables/web3/account/useConnectedNetwork'
@@ -14,7 +15,6 @@ import requestNetworkSwitch from '@/composables/web3/account/useChangeNetwork'
 
 import addDocWeb3 from '@/composables/web3/gathering/useAddDoc'
 import addDocWeb2 from '@/composables/web2/useAddDoc'
-import useDocs from '@/composables/web2/useDocs'
 
 // consts
 const existingTags = ['tag-A']
@@ -28,7 +28,6 @@ const emit = defineEmits<{
 const { provider } = useMetaMaskProvider()
 const { account } = useConnectedAccount()
 const { connectedChainId } = useConnecteNetwork()
-const { refetch: refetchDocs } = useDocs()
 
 // state
 const layoutData = reactive({
@@ -41,15 +40,13 @@ const newDocObj = reactive({
   url: 'https://docs.google.com/document/d/1wf9YFtLFM4LuNkDzbb4hGfZqvb6VnKzJ9iZ',
   description: 'Test for gathering',
   tags: [],
+  docId: -1,
+  docUid: '-',
+  docType: 0,
 } as DocDataBase)
 const tags = ref('test')
 const adding = ref(false)
 const errors = ref([] as string[])
-
-// watchers
-watchEffect(() => {
-  newDocObj.tags = tags.value.split(/, |,/)
-})
 
 // methods
 async function connectWallet() {
@@ -58,22 +55,47 @@ async function connectWallet() {
 
 async function addDoc() {
   adding.value = true
-  await addDocWeb2(newDocObj)
-    .then(data => {
-      console.log(data)
-      refetchDocs.value()
-      adding.value = false
-      emit('close')
-    })
-    .catch((err: any) => alert(err))
-  // const newDoc = {
-  //   uid: 'test-uid',
-  //   url: 'https://google.com/docs/123',
-  // } as Doc
-  // const tx = await addDocWeb3(newDoc).catch(err => alert(err))
-  // if (tx) {
-  //   save docId
-  // }
+
+  try {
+    // parsing doc url to extract docId and docType
+    let url = newDocObj.url.match(
+      /(https:\/\/docs\.google\..{1,6}\/.{1,30}?\/.{1,10}?\/.{5,100}?(\/|$))/
+    )?.[0]
+    if (!url) {
+      throw new Error('Wrong doc url format')
+    }
+    if (url.slice(url.length - 1) !== '/') url += '/'
+    if (url.match(/\/u\/\d\//g)) url = url.replace(/\/u\/\d\//, '\/')
+    if (url.includes('/d/e/')) {
+      throw new Error('Published docs are not supported')
+      // docUrl[0] += 'pub'
+    }
+    newDocObj.url = url
+    newDocObj.docUid = url.match(/\/d\/(?:e\/)?(.*)\//)?.[1] ?? '-'
+
+    if (url.includes('/document/')) newDocObj.docType = 1
+    if (url.includes('/spreadsheets/')) newDocObj.docType = 2
+    if (url.includes('/presentation/')) newDocObj.docType = 3
+
+    const tx = await addDocWeb3(newDocObj).catch((err: any) => console.log(err))
+    if (!tx) throw new Error('Transaction error')
+    const res = await tx.tx.wait().catch((err: any) => console.log(err))
+    if (!res) throw new Error('Transaction response error')
+    console.log('res data', res)
+
+    newDocObj.tags = tags.value.split(/, |,/)
+    newDocObj.docId = Number(ethers.utils.hexValue(res.events[0].data))
+
+    const web2Data = await addDocWeb2(newDocObj).catch((err: any) => alert(err))
+    if (!web2Data) throw new Error('Error adding doc to API')
+    console.log(web2Data)
+
+    adding.value = false
+    emit('close')
+  } catch (err) {
+    alert(err)
+    adding.value = false
+  }
 }
 </script>
 

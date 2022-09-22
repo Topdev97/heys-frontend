@@ -30,6 +30,7 @@ module.exports = {
     'tailwindcss/no-custom-classname': 'off',
 
     '@typescript-eslint/no-unused-vars': 'off',
+    'no-useless-escape': 'off',
 
     // Require passing prop names in camelCase
     'vue/attribute-hyphenation': ['error', 'never'],
