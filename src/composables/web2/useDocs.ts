@@ -29,6 +29,7 @@ export default function useDocs(searchParams?: DocFetchParams) {
   const { data: docs, ...other } = useQuery(
     ['docs', gatheringId],
     () => {
+      console.log('Fetching docs')
       return fetch(`${CONFIG.API_ADDRESS}/api/doc/gathering/${gatheringId}`, {
         method: 'GET',
         // body: JSON.stringify({
