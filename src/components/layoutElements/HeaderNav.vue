@@ -9,7 +9,13 @@ const gatheringsModal = ref(false)
 </script>
 <template>
   <div class="flex justify-between items-center">
-    <LogoIcon />
+    <router-link
+      :to="{ path: '/' }"
+      class="opacity-90 active:opacity-75 transition duration-200 hover:scale-105"
+      title="heystacks"
+    >
+      <LogoIcon />
+    </router-link>
     <div class="flex">
       <AccountButton />
       <!-- <button

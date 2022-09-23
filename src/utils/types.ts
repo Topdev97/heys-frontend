@@ -1,3 +1,11 @@
+export interface Gathering {
+  name: string
+  slug: string
+  description: string
+  owners: any // todo
+  customisation: any // todo
+}
+
 export enum DocType {
   'all' = 0,
   'document' = 1,

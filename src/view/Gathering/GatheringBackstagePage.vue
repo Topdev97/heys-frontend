@@ -13,7 +13,6 @@ import VoteTab from '@/components/backstage/VoteTab.vue'
 import ChatTab from '@/components/backstage/ChatTab.vue'
 import FinanceTab from '@/components/backstage/FinanceTab.vue'
 import useTags from '@/composables/web2/useTags'
-import useGathering from '@/composables/web2/useGathering'
 import { useRoute } from 'vue-router'
 
 // consts

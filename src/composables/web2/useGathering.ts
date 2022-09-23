@@ -1,14 +1,23 @@
-import { CONFIG } from '@/utils/consts'
-import { unref } from 'vue'
+import { ref, computed } from 'vue'
+import useGatherings from '@/composables/web2/useGatherings'
+import gatheringSlug from '@/composables/utils/useGatheringSlug'
 import { useQuery } from 'vue-query'
 
-export default function useGathering(slug: any) {
-  const { data: gatherings, ...other } = useQuery(['gatherings', slug], () => {
-    return fetch(`${CONFIG.API_ADDRESS}/api/gathering`, {
-      method: 'GET',
-    })
-      .then(r => r.json())
-      .then(data => data.filter((item: any) => item.slug == slug))
+
+export default function useCurrentGathering() {
+  const { gatherings } = useGatherings()
+
+  const enabled = computed(() => {
+    return !!gatherings.value
   })
-  return { gatherings, ...other }
+
+  const { data: currentGathering } = useQuery(['gathering', gatheringSlug], () => {
+    console.log('Getting gathering')
+    return gatherings.value?.find(gathering => gathering.slug === gatheringSlug.value)
+  },
+  {
+    enabled
+  })
+
+  return { currentGathering }
 }

@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-import useGathering from '@/composables/web2/useGathering'
-import gatheringSlug from '@/composables/utils/useGatheringSlug'
-import { ChartBarIcon } from '@heroicons/vue/solid'
+import useCurrentGathering from '@/composables/web2/useGathering'
 
 interface NavLink {
   label: string
@@ -14,15 +12,15 @@ interface Props {
 
 defineProps<Props>()
 
-const { gatherings } = useGathering(gatheringSlug.value)
+const { currentGathering } = useCurrentGathering()
 </script>
 <template>
   <div
-    v-if="gatherings"
-    class="justify-center pt-6 pb-8 mx-auto max-w-screen-md text-center d-flex align-center"
+    class="justify-center pt-6 pb-7 mx-auto max-w-screen-md text-center d-flex align-center min-h-[12rem]"
+    :class="currentGathering ? '' : 'invisible'"
   >
-    <h1 class="font-medium">{{ gatherings[0]?.name }}</h1>
-    <h2 class="mb-2 text-xl">{{ gatherings[0]?.description }}</h2>
+    <h1 class="font-medium">{{ currentGathering?.name }}</h1>
+    <h2 class="mb-2 text-xl">{{ currentGathering?.description }}</h2>
     <div class="mb-2">
       <span>gBG</span> • <span>Price: $0.003</span> •
       <span>Market cap: $21m</span>

@@ -9,7 +9,7 @@
         <slot name="header-content"></slot>
       </div>
     </div>
-    <div class="p-4 bg-thblue4 command-band">
+    <div class="p-4 bg-thblue4 min-h-[10rem] command-band">
       <slot name="command-band"></slot>
     </div>
     <div class="py-4 px-0 sm:px-4 bg-grey6 body-band" style="min-height: 100vh">
