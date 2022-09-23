@@ -1,8 +1,7 @@
 import { useQuery } from 'vue-query'
 import { ethers } from 'ethers'
 import { computed, unref } from 'vue'
-import { Network } from '@ethersproject/networks'
-import { RPC_URL } from '@/utils/consts'
+import useRPCProvider from './useRPCProvider'
 
 export default function useTokenBalance(account: any, tokenAddress: string, network: number) {
   const isEnabled = computed(() => {
@@ -16,7 +15,7 @@ export default function useTokenBalance(account: any, tokenAddress: string, netw
       if (!account.value) {
         return 'Not connected'
       } else {
-        const provider = ethers.getDefaultProvider(RPC_URL)
+        const { provider } = useRPCProvider()
         // const provider = new AlchemyProvider("maticmum")
 
         const abi = [

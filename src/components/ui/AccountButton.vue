@@ -12,7 +12,7 @@ import { GATHERING_ADDRESSES, NETWORKS } from '@/utils/consts'
 const { provider } = useMetaMaskProvider()
 const { account } = useConnectedAccount()
 
-const { balance } = useTokenBalance(account, GATHERING_ADDRESSES['gBG'], NETWORKS.MATIC_MUMBAI)
+const { balance } = useTokenBalance(account, GATHERING_ADDRESSES['blockchain-gathering'], NETWORKS.MATIC_MUMBAI)
 
 // methods
 async function connectWallet() {

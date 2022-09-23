@@ -12,7 +12,7 @@ export default async function approveWallet(amount: number) {
   const approvedAmount = amount
   try {
     const tx = await usdcInstance.approve(
-      GATHERING_ADDRESSES['gBG'],
+      GATHERING_ADDRESSES['blockchain-gathering'],
       BigNumber.from(approvedAmount)
     )
     console.log('tx', tx)

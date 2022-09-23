@@ -4,8 +4,12 @@ import FeedCard from '@/components/atoms/FeedCard.vue'
 import { BigNumber, ethers } from 'ethers'
 import { Provider } from 'ethers-multicall'
 import { DocDataFull, DocContract } from '@/utils/types'
+import { gatheringInstanceRPC } from '@/composables/web3/gathering/useGatheringContract'
 import { gatheringInstanceMulti } from '@/composables/web3/gathering/useGatheringContract'
 import { RPC_URL } from '@/utils/consts'
+import useGatheringSupply from '@/composables/web3/gathering/useGatheringSupply'
+import { formatBalance } from '@/utils'
+import useRPCProvider from '@/composables/web3/account/useRPCProvider'
 
 // types
 export interface DocVotesResponse {
@@ -37,11 +41,14 @@ const docsToVoteOnData = ref([] as DocDataFull[])
 const loading = ref(true)
 const loadingVoting = ref(true)
 
+// composables
+const { totalSupply } = useGatheringSupply()
+
 // lifecycle
 onMounted(async () => {
   // CHANGE TO QUERY
 
-  const provider = ethers.getDefaultProvider(RPC_URL)
+  const { provider } = useRPCProvider()
   const ethcallProvider = new Provider(provider)
   await ethcallProvider.init()
 
@@ -88,6 +95,8 @@ function vote(docId: number, vote: number) {
 <template>
   <div>
     <div v-if="!loading">
+      <small class="block mb-6 text-center w-full"> gBG total supply: {{ formatBalance(totalSupply) }} </small>
+          
       <FeedCard v-for="(doc, did) in docsToVoteOnVotes" :key="`vote-${did}`" :index="did" dark>
         <h5 class="mb-2">{{ doc.docId }}. {{ doc.docUid }}</h5>
         <small class="mr-2"> Submitter: {{ doc.submitter }} </small>
