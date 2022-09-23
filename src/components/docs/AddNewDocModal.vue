@@ -45,7 +45,7 @@ const newDocObj = reactive({
   docType: 0,
 } as DocDataBase)
 const tags = ref('test')
-const adding = ref(false)
+const loadingAdding = ref(false)
 const errors = ref([] as string[])
 
 // methods
@@ -54,7 +54,7 @@ async function connectWallet() {
 }
 
 async function addDoc() {
-  adding.value = true
+  loadingAdding.value = true
 
   try {
     // parsing doc url to extract docId and docType
@@ -90,11 +90,11 @@ async function addDoc() {
     if (!web2Data) throw new Error('Error adding doc to API')
     console.log(web2Data)
 
-    adding.value = false
+    loadingAdding.value = false
     emit('close')
   } catch (err) {
     alert(err)
-    adding.value = false
+    loadingAdding.value = false
   }
 }
 </script>
@@ -268,11 +268,11 @@ async function addDoc() {
         </div>
         <button
           class="py-2 mt-5 mb-6 w-full bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
-          :disabled="adding"
+          :disabled="loadingAdding"
           @click="addDoc()"
         >
-          <i v-if="!adding" class="mr-2 text-xl text-white fa fa-plus"></i>
-          <span class="text-xl text-white">{{ adding ? 'Adding...' : 'Add new doc' }}</span>
+          <i v-if="!loadingAdding" class="mr-2 text-xl text-white fa fa-plus"></i>
+          <span class="text-xl text-white">{{ loadingAdding ? 'Adding...' : 'Add new doc' }}</span>
         </button>
         <!-- <div class="pb-12 min-h-26">
           <h5>Sponsor submission</h5>
