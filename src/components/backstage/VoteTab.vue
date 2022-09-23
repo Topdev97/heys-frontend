@@ -100,14 +100,14 @@ function vote(docId: number, vote: number) {
         <div>
           <button
             title="Approve"
-            class="inline-block py-1 px-4 mr-4 text-thgreen2 btn-white min-w-[7rem]"
+            class="inline-block py-1 px-4 mr-4 min-w-[7rem] text-thgreen2 btn-white"
             @click="vote(doc.docId, 1)"
           >
             Approve
           </button>
           <button
             title="Reject"
-            class="inline-block py-1 px-4 text-red btn-white min-w-[7rem]"
+            class="inline-block py-1 px-4 min-w-[7rem] text-red btn-white"
             @click="vote(doc.docId, 2)"
           >
             Reject

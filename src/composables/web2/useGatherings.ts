@@ -7,8 +7,7 @@ export default function useGatherings() {
     console.log('Fetching gatherings')
     return fetch(`${CONFIG.API_ADDRESS}/api/gathering`, {
       method: 'GET',
-    })
-      .then(r => r.json() as Promise<Gathering[]>)
+    }).then(r => r.json() as Promise<Gathering[]>)
   })
   return { gatherings, ...other }
 }

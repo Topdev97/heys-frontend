@@ -40,7 +40,7 @@ const gatheringsModal = ref(false)
     <Dialog :open="gatheringsModal" @close="gatheringsModal = false">
       <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px]" aria-hidden="true" />
       <div class="flex fixed inset-0 z-50 justify-center items-center p-4">
-        <DialogPanel class="p-8 w-full bg-white rounded max-w-[40rem]">
+        <DialogPanel class="p-8 w-full max-w-[40rem] bg-white rounded">
           <GatheringsModal />
         </DialogPanel>
       </div>

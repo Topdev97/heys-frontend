@@ -16,7 +16,7 @@ const { currentGathering } = useCurrentGathering()
 </script>
 <template>
   <div
-    class="justify-center pt-6 pb-7 mx-auto max-w-screen-md text-center d-flex align-center min-h-[12rem]"
+    class="justify-center pt-6 pb-7 mx-auto max-w-screen-md min-h-[12rem] text-center d-flex align-center"
     :class="currentGathering ? '' : 'invisible'"
   >
     <h1 class="font-medium">{{ currentGathering?.name }}</h1>
