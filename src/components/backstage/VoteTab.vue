@@ -46,7 +46,6 @@ onMounted(async () => {
   loading.value = false
 })
 </script>
-
 <template>
   <div>
     <div v-if="!loading">

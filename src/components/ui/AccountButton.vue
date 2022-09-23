@@ -23,7 +23,6 @@ async function connectWallet() {
   }
 }
 </script>
-
 <template>
   <div class="flex">
     <div class="inline-block mr-3 text-sm rounded-full border border-white">

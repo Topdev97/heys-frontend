@@ -33,7 +33,6 @@ watch(selectedTab, newTab => {
   )
 })
 </script>
-
 <template>
   <LayoutDark>
     <template #header-nav>

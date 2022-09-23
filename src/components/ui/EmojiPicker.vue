@@ -46,7 +46,6 @@
     </div>
   </div>
 </template>
-
 <script lang="ts">
 import { defineComponent, reactive, onBeforeMount, onMounted, watch } from 'vue'
 
