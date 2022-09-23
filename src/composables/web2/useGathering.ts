@@ -15,7 +15,9 @@ export default function useCurrentGathering() {
     ['gathering', gatheringSlug],
     () => {
       console.log('Getting current gathering')
-      return gatherings.value?.find(gathering => gathering.slug === gatheringSlug.value) as Gathering
+      return gatherings.value?.find(
+        gathering => gathering.slug === gatheringSlug.value
+      ) as Gathering
     },
     {
       enabled,

@@ -7,7 +7,6 @@ import { GATHERING_ADDRESSES } from '@/utils/consts'
 import useMetaMaskProvider from '@/composables/web3/account/useMetaMaskProvider'
 import useRPCProvider from '../account/useRPCProvider'
 
-
 export const gatheringInstanceMulti = new Contract(
   GATHERING_ADDRESSES['blockchain-gathering'],
   gatheringAbi.filter(abi => abi.type === 'function')

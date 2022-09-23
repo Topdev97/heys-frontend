@@ -7,7 +7,7 @@ export default function useGatheringSupply() {
   const { currentGathering } = useCurrentGathering()
 
   const enabled = computed(() => {
-    return Boolean(unref(currentGathering.value?.slug)) && Boolean(!!gatheringInstanceRPC)
+    return Boolean(unref(currentGathering.value?.slug)) && Boolean(gatheringInstanceRPC)
   })
 
   const { data: totalSupply, ...other } = useQuery(

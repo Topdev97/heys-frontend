@@ -8,7 +8,7 @@ const provider = ref<Web3Provider | null | undefined>(undefined)
 export default function useMetaMaskProvider() {
   if (provider.value !== undefined) {
     return {
-      provider
+      provider,
     }
   }
 

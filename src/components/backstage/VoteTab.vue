@@ -95,8 +95,10 @@ function vote(docId: number, vote: number) {
 <template>
   <div>
     <div v-if="!loading">
-      <small class="block mb-6 text-center w-full"> gBG total supply: {{ formatBalance(totalSupply) }} </small>
-          
+      <small class="block mb-6 w-full text-center">
+        gBG total supply: {{ formatBalance(totalSupply) }}
+      </small>
+
       <FeedCard v-for="(doc, did) in docsToVoteOnVotes" :key="`vote-${did}`" :index="did" dark>
         <h5 class="mb-2">{{ doc.docId }}. {{ doc.docUid }}</h5>
         <small class="mr-2"> Submitter: {{ doc.submitter }} </small>
