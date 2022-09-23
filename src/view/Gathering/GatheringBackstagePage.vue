@@ -38,7 +38,7 @@ watch(selectedTab, newTab => {
       <HeaderNav />
     </template>
     <template #header-content>
-      <HeaderContent :navLink="{ label: '< Home', path: `/g/${gatheringSlug}` }" />
+      <HeaderContent :navLink="{ label: '< Public', path: `/g/${gatheringSlug}` }" />
     </template>
     <template #command-band>
       <div class="mx-auto max-w-screen-md text-center flex-center">

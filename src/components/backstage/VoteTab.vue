@@ -1,105 +1,50 @@
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import FeedCard from '@/components/atoms/FeedCard.vue'
-import { BigNumber, ethers } from 'ethers'
-import { Provider } from 'ethers-multicall'
-import { DocDataFull, DocContract } from '@/utils/types'
-import { gatheringInstanceRPC } from '@/composables/web3/gathering/useGatheringContract'
-import { gatheringInstanceMulti } from '@/composables/web3/gathering/useGatheringContract'
-import { RPC_URL } from '@/utils/consts'
 import useGatheringSupply from '@/composables/web3/gathering/useGatheringSupply'
+import useVote from '@/composables/web3/gathering/useVote'
 import { formatBalance } from '@/utils'
-import useRPCProvider from '@/composables/web3/account/useRPCProvider'
+import useVotes from '@/composables/web3/gathering/useVotes'
 
-// types
-export interface DocVotesResponse {
-  docId: number
-  docUid: number
-  approved: boolean
-  submitter: string
-  totalApproveVotesWeight: number
-  totalRejectVotesWeight: number
-  totalAbstainVotesWeight: number
-  totalVotesCount: number
-}
 
 // state
-const votes = [
-  {
-    title: "The country calling 2022 the 'year of coffee'",
-    description:
-      "Coffee isn't just a drink in Saudi Arabia, it's an ancient tradition of hospitality – and as the country opens to tourism, it's also one of its most interesting draws.",
-  },
-  {
-    title: 'Can humanity leave nature behind?',
-    description:
-      'In the face of environmental collapse, humanity may need to turn to artificial replacements for nature – how might we avoid the most dystopian of these futures?',
-  },
-]
-const docsToVoteOnVotes = ref([] as DocVotesResponse[])
-const docsToVoteOnData = ref([] as DocDataFull[])
-const loading = ref(true)
-const loadingVoting = ref(true)
+const loadingVoting = ref(false)
 
 // composables
-const { totalSupply } = useGatheringSupply()
-
-// lifecycle
-onMounted(async () => {
-  // CHANGE TO QUERY
-
-  const { provider } = useRPCProvider()
-  const ethcallProvider = new Provider(provider)
-  await ethcallProvider.init()
-
-  // get list of ids of docs to vote on
-  const docIdsCall = [gatheringInstanceMulti.docsToVoteOn()]
-  const docIdsResponse = await ethcallProvider.all(docIdsCall)
-  const docsToVoteOnIdList: number[] = docIdsResponse[0]
-
-  // multiCall to get doc details for all of those
-  const docsCalls = docsToVoteOnIdList.map(docId => gatheringInstanceMulti.docs(docId))
-  docsToVoteOnVotes.value = await ethcallProvider.all(docsCalls).then(res =>
-    res.map(
-      (r, rid) =>
-        ({
-          docId: docsToVoteOnIdList[rid],
-          docUid: r.docUid,
-          approved: r.approved,
-          submitter: r.submitter,
-          totalApproveVotesWeight: r.totalApproveVotesWeight.toNumber(),
-          totalRejectVotesWeight: r.totalRejectVotesWeight.toNumber(),
-          totalAbstainVotesWeight: r.totalAbstainVotesWeight.toNumber(),
-          totalVotesCount: r.totalVotesCount.toNumber(),
-        } as DocVotesResponse)
-    )
-  )
-
-  // get web2 data for each doc
-  // TODO
-  // docsToVoteOn.value = []
-
-  loading.value = false
-})
+const { totalSupply, refetch: refetchGatheringSupply } = useGatheringSupply()
+const { docsToVoteOn, isLoading: isLoadingVotes, refetch: refetchVotes } = useVotes()
 
 // methods
-function vote(docId: number, vote: number) {
+async function vote(docId: number, vote: number) {
   // vote
   // 1: approve, 2: reject, 3: abstain
   console.log('voting on a doc')
   loadingVoting.value = true
-
+  try {
+    const tx = await useVote(docId, vote).catch((err: any) => console.log(err))
+    if (!tx) throw new Error('Vote transaction error')
+    const res = await tx.tx.wait().catch((err: any) => console.log(err))
+    if (!res) throw new Error('Vote transaction response error')
+    console.log('res data', res)
+    refetchVotes.value()
+    refetchGatheringSupply.value()
+  } catch {
+    loadingVoting.value = false
+  }
   loadingVoting.value = false
 }
 </script>
 <template>
   <div>
-    <div v-if="!loading">
+    <div v-if="!isLoadingVotes">
       <small class="block mb-6 w-full text-center">
         gBG total supply: {{ formatBalance(totalSupply) }}
       </small>
+      <small v-if="loadingVoting" class="block mb-4 mt-4 w-full text-center">
+        Loading...
+      </small>
 
-      <FeedCard v-for="(doc, did) in docsToVoteOnVotes" :key="`vote-${did}`" :index="did" dark>
+      <FeedCard v-for="(doc, did) in docsToVoteOn?.docsToVoteOnVotes" :key="`vote-${did}`" :index="did" dark>
         <h5 class="mb-2">{{ doc.docId }}. {{ doc.docUid }}</h5>
         <small class="mr-2"> Submitter: {{ doc.submitter }} </small>
         <p class="mb-2">{{ doc.approved }}</p>
