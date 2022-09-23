@@ -63,7 +63,7 @@ export default function useVotes() {
       // TODO
       // docsToVoteOn.value = []
       return {
-        docsToVoteOnVotes
+        docsToVoteOnVotes,
       }
     },
     {

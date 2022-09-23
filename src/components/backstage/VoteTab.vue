@@ -6,7 +6,6 @@ import useVote from '@/composables/web3/gathering/useVote'
 import { formatBalance } from '@/utils'
 import useVotes from '@/composables/web3/gathering/useVotes'
 
-
 // state
 const loadingVoting = ref(false)
 
@@ -40,11 +39,14 @@ async function vote(docId: number, vote: number) {
       <small class="block mb-6 w-full text-center">
         gBG total supply: {{ formatBalance(totalSupply) }}
       </small>
-      <small v-if="loadingVoting" class="block mb-4 mt-4 w-full text-center">
-        Loading...
-      </small>
+      <small v-if="loadingVoting" class="block mt-4 mb-4 w-full text-center"> Loading... </small>
 
-      <FeedCard v-for="(doc, did) in docsToVoteOn?.docsToVoteOnVotes" :key="`vote-${did}`" :index="did" dark>
+      <FeedCard
+        v-for="(doc, did) in docsToVoteOn?.docsToVoteOnVotes"
+        :key="`vote-${did}`"
+        :index="did"
+        dark
+      >
         <h5 class="mb-2">{{ doc.docId }}. {{ doc.docUid }}</h5>
         <small class="mr-2"> Submitter: {{ doc.submitter }} </small>
         <p class="mb-2">{{ doc.approved }}</p>
