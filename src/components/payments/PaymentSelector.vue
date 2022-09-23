@@ -4,7 +4,7 @@
 // state
 
 // methods
-</script>
+</script>
 
 <template>
   <div class="sm:flex gap-4">
@@ -30,4 +30,4 @@
       </select>
     </div>
   </div>
-</template>
+</template>

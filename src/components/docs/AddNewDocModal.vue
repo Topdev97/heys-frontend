@@ -75,7 +75,7 @@ async function addDoc() {
   //   save docId
   // }
 }
-</script>
+</script>
 
 <template>
   <div class="overflow-auto fixed z-50 bg-white rounded fade-modal absolute-center">
@@ -370,4 +370,4 @@ async function addDoc() {
       </div>
     </div>
   </div>
-</template>
+</template>

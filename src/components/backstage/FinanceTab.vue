@@ -35,7 +35,7 @@ const revenueData = {
     },
   },
 }
-</script>
+</script>
 
 <template>
   <div class="text-center">
@@ -75,4 +75,4 @@ const revenueData = {
       {{ token.amount }} {{ token.denom }}
     </p>
   </div>
-</template>
+</template>

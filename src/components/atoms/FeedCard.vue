@@ -9,7 +9,6 @@ withDefaults(defineProps<Props>(), {
   dark: false,
 })
 </script>
-
 <template>
   <div
     class="p-8 mb-6 rounded min-h-16"

@@ -14,13 +14,15 @@ interface Props {
 
 defineProps<Props>()
 
-const { gathering } = useGathering(gatheringSlug.value)
-</script>
-
+const { gatherings } = useGathering(gatheringSlug.value)
+</script>
 <template>
-  <div class="justify-center pt-6 pb-8 mx-auto max-w-screen-md text-center d-flex align-center">
-    <h1 class="font-medium">{{ gathering?.name }}</h1>
-    <h2 class="mb-2 text-xl">{{ gathering?.description }}</h2>
+  <div
+    v-if="gatherings"
+    class="justify-center pt-6 pb-8 mx-auto max-w-screen-md text-center d-flex align-center"
+  >
+    <h1 class="font-medium">{{ gatherings[0]?.name }}</h1>
+    <h2 class="mb-2 text-xl">{{ gatherings[0]?.description }}</h2>
     <div class="mb-2">
       <span>gBG</span> • <span>Price: $0.003</span> •
       <span>Market cap: $21m</span>
@@ -31,4 +33,4 @@ const { gathering } = useGathering(gatheringSlug.value)
       </router-link>
     </div>
   </div>
-</template>
+</template>

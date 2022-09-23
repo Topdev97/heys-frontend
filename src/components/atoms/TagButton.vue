@@ -9,7 +9,7 @@ interface Props {
 }
 
 defineProps<Props>()
-</script>
+</script>
 
 <template>
   <button
@@ -21,4 +21,4 @@ defineProps<Props>()
       {{ tag.text }}
     </span>
   </button>
-</template>
+</template>

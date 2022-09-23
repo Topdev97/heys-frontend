@@ -5,7 +5,7 @@ interface Props {
 }
 
 defineProps<Props>()
-</script>
+</script>
 
 <template>
   <div
@@ -14,4 +14,4 @@ defineProps<Props>()
   >
     {{ text }}
   </div>
-</template>
+</template>

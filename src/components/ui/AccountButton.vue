@@ -22,7 +22,7 @@ async function connectWallet() {
     const accounts = await provider.value?.send('eth_requestAccounts', [])
   }
 }
-</script>
+</script>
 
 <template>
   <div class="flex">
@@ -50,4 +50,4 @@ async function connectWallet() {
       </button>
     </div>
   </div>
-</template>
+</template>

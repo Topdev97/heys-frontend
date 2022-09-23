@@ -32,7 +32,7 @@ watch(selectedTab, newTab => {
     `/g/${gatheringSlug}/backstage?tab=${newTab}`
   )
 })
-</script>
+</script>
 
 <template>
   <LayoutDark>
@@ -64,4 +64,4 @@ watch(selectedTab, newTab => {
       <Footer />
     </template>
   </LayoutDark>
-</template>
+</template>
