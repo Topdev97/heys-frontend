@@ -39,7 +39,6 @@ const loadingVoting = ref(true)
 
 // lifecycle
 onMounted(async () => {
-
   // CHANGE TO QUERY
 
   const provider = ethers.getDefaultProvider(RPC_URL)
@@ -53,17 +52,21 @@ onMounted(async () => {
 
   // multiCall to get doc details for all of those
   const docsCalls = docsToVoteOnIdList.map(docId => gatheringInstanceMulti.docs(docId))
-  docsToVoteOnVotes.value = await ethcallProvider.all(docsCalls)
-    .then(res => res.map((r, rid) => ({
-      docId: docsToVoteOnIdList[rid],
-      docUid: r.docUid,
-      approved: r.approved,
-      submitter: r.submitter,
-      totalApproveVotesWeight: r.totalApproveVotesWeight.toNumber(),
-      totalRejectVotesWeight: r.totalRejectVotesWeight.toNumber(),
-      totalAbstainVotesWeight: r.totalAbstainVotesWeight.toNumber(),
-      totalVotesCount: r.totalVotesCount.toNumber(),
-    } as DocVotesResponse)))
+  docsToVoteOnVotes.value = await ethcallProvider.all(docsCalls).then(res =>
+    res.map(
+      (r, rid) =>
+        ({
+          docId: docsToVoteOnIdList[rid],
+          docUid: r.docUid,
+          approved: r.approved,
+          submitter: r.submitter,
+          totalApproveVotesWeight: r.totalApproveVotesWeight.toNumber(),
+          totalRejectVotesWeight: r.totalRejectVotesWeight.toNumber(),
+          totalAbstainVotesWeight: r.totalAbstainVotesWeight.toNumber(),
+          totalVotesCount: r.totalVotesCount.toNumber(),
+        } as DocVotesResponse)
+    )
+  )
 
   // get web2 data for each doc
   // TODO
