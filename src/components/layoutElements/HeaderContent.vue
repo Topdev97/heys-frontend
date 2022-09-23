@@ -15,7 +15,7 @@ interface Props {
 defineProps<Props>()
 
 const { gatherings } = useGathering(gatheringSlug.value)
-</script>
+</script>
 <template>
   <div
     v-if="gatherings"
@@ -33,4 +33,4 @@ const { gatherings } = useGathering(gatheringSlug.value)
       </router-link>
     </div>
   </div>
-</template>
+</template>

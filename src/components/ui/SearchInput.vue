@@ -82,8 +82,7 @@
       </a>
     </div>
   </div>
-</template>
-
+</template>
 <script lang="ts">
 import { defineComponent, onBeforeMount, reactive, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
@@ -176,7 +175,7 @@ export default defineComponent({
     }
   },
 })
-</script>
+</script>
 <style scoped>
 .search-input-wrapper-focused {
   border-color: #f06139 !important;
@@ -240,4 +239,4 @@ export default defineComponent({
 .search-dropdown {
   width: 174px;
 }
-</style>
+</style>

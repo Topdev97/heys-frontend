@@ -5,8 +5,7 @@ interface Props {
 }
 
 defineProps<Props>()
-</script>
-
+</script>
 <template>
   <div
     class="mx-2 leading-10 hover:brightness-90 active:brightness-75 transition duration-200 cursor-pointer select-none flex-center min-w-[5rem]"
@@ -14,4 +13,4 @@ defineProps<Props>()
   >
     {{ text }}
   </div>
-</template>
+</template>

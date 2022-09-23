@@ -35,8 +35,7 @@ const revenueData = {
     },
   },
 }
-</script>
-
+</script>
 <template>
   <div class="text-center">
     <h4 class="mb-2">Your tokens</h4>
@@ -75,4 +74,4 @@ const revenueData = {
       {{ token.amount }} {{ token.denom }}
     </p>
   </div>
-</template>
+</template>

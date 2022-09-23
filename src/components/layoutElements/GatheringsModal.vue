@@ -188,7 +188,7 @@
       </button>
     </div>
   </div>
-</template>
+</template>
 
 <script lang="ts">
 import { reactive, defineComponent, onBeforeMount, nextTick } from 'vue'
@@ -299,7 +299,7 @@ export default defineComponent({
     }
   },
 })
-</script>
+</script>
 <style scoped>
 .display-1 {
   font-size: 1.725rem;
@@ -308,4 +308,4 @@ export default defineComponent({
 .min-h-700 {
   min-height: 700px;
 }
-</style>
+</style>

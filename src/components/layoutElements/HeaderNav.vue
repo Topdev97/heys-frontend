@@ -6,8 +6,7 @@ import LogoIcon from '@/components/atoms/LogoIcon.vue'
 import { Dialog, DialogPanel } from '@headlessui/vue'
 
 const gatheringsModal = ref(false)
-</script>
-
+</script>
 <template>
   <div class="flex justify-between items-center">
     <LogoIcon />
@@ -41,4 +40,4 @@ const gatheringsModal = ref(false)
       </div>
     </Dialog>
   </div>
-</template>
+</template>

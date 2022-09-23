@@ -19,8 +19,7 @@
     ></div>
     <div v-else class="text-center">{{ state.unicode }}</div>
   </div>
-</template>
-
+</template>
 <script lang="ts">
 import { defineComponent, reactive, onBeforeMount } from 'vue'
 import { TagIcon } from '@heroicons/vue/solid'
@@ -119,4 +118,4 @@ export default defineComponent({
     }
   },
 })
-</script>
+</script>

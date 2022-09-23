@@ -49,8 +49,7 @@ function toggleTags(tag: string) {
     filters.tags.splice(tagIdx, 1)
   }
 }
-</script>
-
+</script>
 <template>
   <LayoutLight>
     <template #header-nav>
@@ -188,4 +187,4 @@ function toggleTags(tag: string) {
       <Footer />
     </template>
   </LayoutLight>
-</template>
+</template>

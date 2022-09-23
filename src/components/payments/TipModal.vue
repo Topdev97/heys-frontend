@@ -35,8 +35,7 @@
       </button>
     </div>
   </div>
-</template>
-
+</template>
 <script lang="ts">
 import {
   defineComponent,
@@ -83,7 +82,8 @@ export default defineComponent({
     }
   },
 })
-</script>
+</script>
+
 <style scoped>
 .fade-modal {
   height: 80vh;
@@ -95,4 +95,4 @@ export default defineComponent({
 .min-h-26 {
   min-height: 26px;
 }
-</style>
+</style>

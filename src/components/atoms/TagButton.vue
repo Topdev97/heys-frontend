@@ -9,8 +9,7 @@ interface Props {
 }
 
 defineProps<Props>()
-</script>
-
+</script>
 <template>
   <button
     class="py-1 px-3 my-1 mx-1 text-sm bg-thgreen8 btn-white d-inline-block"
@@ -21,4 +20,4 @@ defineProps<Props>()
       {{ tag.text }}
     </span>
   </button>
-</template>
+</template>

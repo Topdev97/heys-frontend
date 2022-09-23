@@ -45,8 +45,7 @@
       </div>
     </div>
   </div>
-</template>
-
+</template>
 <script lang="ts">
 import { defineComponent, reactive, onBeforeMount, onMounted, watch } from 'vue'
 
@@ -144,7 +143,7 @@ export default defineComponent({
     }
   },
 })
-</script>
+</script>
 <style scoped>
 .emoji-search {
   position: relative;
@@ -175,4 +174,4 @@ export default defineComponent({
 .w-300 {
   width: 300px;
 }
-</style>
+</style>

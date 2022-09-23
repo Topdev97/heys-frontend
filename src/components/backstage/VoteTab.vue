@@ -45,8 +45,7 @@ onMounted(async () => {
 
   loading.value = false
 })
-</script>
-
+</script>
 <template>
   <div>
     <div v-if="!loading">
@@ -73,4 +72,4 @@ onMounted(async () => {
     </div>
     <div v-else class="flex justify-center">Loading...</div>
   </div>
-</template>
+</template>
