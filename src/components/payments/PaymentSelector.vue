@@ -5,7 +5,6 @@
 
 // methods
 </script>
-
 <template>
   <div class="sm:flex gap-4">
     <div class="mb-3 sm:w-2/3 form-group">

@@ -83,7 +83,6 @@
     </div>
   </div>
 </template>
-
 <script lang="ts">
 import { defineComponent, onBeforeMount, reactive, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'

@@ -36,7 +36,6 @@
     </div>
   </div>
 </template>
-
 <script lang="ts">
 import {
   defineComponent,
@@ -84,6 +83,7 @@ export default defineComponent({
   },
 })
 </script>
+
 <style scoped>
 .fade-modal {
   height: 80vh;

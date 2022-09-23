@@ -36,7 +36,6 @@ const revenueData = {
   },
 }
 </script>
-
 <template>
   <div class="text-center">
     <h4 class="mb-2">Your tokens</h4>

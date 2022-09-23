@@ -85,7 +85,6 @@ function vote(docId: number, vote: number) {
   loadingVoting.value = false
 }
 </script>
-
 <template>
   <div>
     <div v-if="!loading">

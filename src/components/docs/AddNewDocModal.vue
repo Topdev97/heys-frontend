@@ -98,7 +98,6 @@ async function addDoc() {
   }
 }
 </script>
-
 <template>
   <div class="overflow-auto fixed z-50 bg-white rounded fade-modal absolute-center">
     <div class="relative px-4 sm:px-6 pt-12 w-full h-full">
