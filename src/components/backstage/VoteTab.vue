@@ -5,6 +5,7 @@ import useGatheringSupply from '@/composables/web3/gathering/useGatheringSupply'
 import useVote from '@/composables/web3/gathering/useVote'
 import { formatBalance } from '@/utils'
 import useVotes from '@/composables/web3/gathering/useVotes'
+import useGatheringTokenBalance from '@/composables/web3/gathering/useGatheringTokenBalance'
 
 // state
 const loadingVoting = ref(false)
@@ -12,6 +13,7 @@ const loadingVoting = ref(false)
 // composables
 const { totalSupply, refetch: refetchGatheringSupply } = useGatheringSupply()
 const { docsToVoteOn, isLoading: isLoadingVotes, refetch: refetchVotes } = useVotes()
+const { refetch: refetchGatheringTokenBalance } = useGatheringTokenBalance()
 
 // methods
 async function vote(docId: number, vote: number) {
@@ -27,6 +29,7 @@ async function vote(docId: number, vote: number) {
     console.log('res data', res)
     refetchVotes.value()
     refetchGatheringSupply.value()
+    refetchGatheringTokenBalance.value()
   } catch {
     loadingVoting.value = false
   }
@@ -39,7 +42,7 @@ async function vote(docId: number, vote: number) {
       <small class="block mb-6 w-full text-center">
         gBG total supply: {{ formatBalance(totalSupply) }}
       </small>
-      <small v-if="loadingVoting" class="block mt-4 mb-4 w-full text-center"> Loading... </small>
+      <small v-if="loadingVoting" class="block mb-4 mt-4 w-full text-center"> Loading... </small>
 
       <FeedCard
         v-for="(doc, did) in docsToVoteOn?.docsToVoteOnVotes"

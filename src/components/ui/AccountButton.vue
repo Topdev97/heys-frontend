@@ -2,21 +2,12 @@
 import { formatBalance, formatNumber, truncateAddress } from '@/utils'
 import useConnectedAccount from '@/composables/web3/account/useConnectedAccounts'
 import useMetaMaskProvider from '@/composables/web3/account/useMetaMaskProvider'
-
-import useTokenBalance from '@/composables/web3/account/useTokenBalance'
-import { GATHERING_ADDRESSES, NETWORKS } from '@/utils/consts'
+import useGatheringTokenBalance from '@/composables/web3/gathering/useGatheringTokenBalance'
 
 // composables
-
-// state
 const { provider } = useMetaMaskProvider()
 const { account } = useConnectedAccount()
-
-const { balance } = useTokenBalance(
-  account,
-  GATHERING_ADDRESSES['blockchain-gathering'],
-  NETWORKS.MATIC_MUMBAI
-)
+const { balance } = useGatheringTokenBalance()
 
 // methods
 async function connectWallet() {
