@@ -42,7 +42,7 @@ async function vote(docId: number, vote: number) {
       <small class="block mb-6 w-full text-center">
         gBG total supply: {{ formatBalance(totalSupply) }}
       </small>
-      <small v-if="loadingVoting" class="block mb-4 mt-4 w-full text-center"> Loading... </small>
+      <small v-if="loadingVoting" class="block mt-4 mb-4 w-full text-center"> Loading... </small>
 
       <FeedCard
         v-for="(doc, did) in docsToVoteOn?.docsToVoteOnVotes"
