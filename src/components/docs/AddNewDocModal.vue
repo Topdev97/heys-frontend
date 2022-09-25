@@ -4,7 +4,7 @@ import { reactive, ref, watchEffect } from 'vue'
 import EmojiPicker from '@/components/ui/EmojiPicker.vue'
 import PaymentSelector from '@/components/payments/PaymentSelector.vue'
 
-import { ACTIVE_NETWORK } from '@/utils/consts'
+import { DEPLOYED_NETWORK } from '@/utils/consts'
 import { DocDataBase } from '@/utils/types'
 import { ethers } from 'ethers'
 
@@ -118,7 +118,7 @@ async function addDoc() {
           <div>Connect your account first</div>
           <button class="bg-thgreen8 btn-dark" @click="connectWallet">Connect</button>
         </div>
-        <div v-else-if="connectedChainId === ACTIVE_NETWORK">Correct network</div>
+        <div v-else-if="connectedChainId === DEPLOYED_NETWORK">Correct network</div>
         <div v-else>
           <div>Please switch to 80001</div>
           <button class="btn-dark" @click="requestNetworkSwitch">Switch</button>

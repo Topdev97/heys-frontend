@@ -1,5 +1,8 @@
 import { useQuery } from 'vue-query'
 import { computed, unref } from 'vue'
+
+import { formatBalance } from '@/utils'
+
 import useCurrentGathering from '@/composables/web2/useGathering'
 import { gatheringInstanceRPC } from '@/composables/web3/gathering/useGatheringContract'
 
@@ -12,10 +15,10 @@ export default function useGatheringSupply() {
 
   const { data: totalSupply, ...other } = useQuery(
     ['gateringSupply', currentGathering.value?.slug],
-    () => {
+    async () => {
       console.log('Checking gathering supply')
 
-      return gatheringInstanceRPC.totalSupply()
+      return formatBalance(await gatheringInstanceRPC.totalSupply())
     },
     {
       enabled,

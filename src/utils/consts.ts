@@ -2,8 +2,8 @@ import { NetworkInfo } from './types'
 
 const env = import.meta.env
 
-export const ACTIVE_NETWORK: number = env.VITE_ACTIVE_NETWORK
-  ? Number(env.VITE_ACTIVE_NETWORK)
+export const DEPLOYED_NETWORK: number = env.DEPLOYED_NETWORK
+  ? Number(env.VITE_DEPLOYED_NETWORK)
   : 80001
 
 export const CONFIG = {
@@ -36,7 +36,7 @@ export const RPC_URLS: Record<number, string> = {
   80001: 'https://rpc-mumbai.maticvigil.com',
 }
 
-export const RPC_URL = RPC_URLS[ACTIVE_NETWORK]
+export const RPC_URL = RPC_URLS[DEPLOYED_NETWORK]
 
 export const GATHERING_ADDRESSES = {
   'blockchain-gathering': '0xc341333737C6CDec94D40B839b43684eA9B0e5D8',

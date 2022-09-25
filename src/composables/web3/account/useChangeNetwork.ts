@@ -1,8 +1,15 @@
-import { ACTIVE_NETWORK } from '@/utils/consts'
+import { DEPLOYED_NETWORK } from '@/utils/consts'
 
-export default async function requestNetworkSwitch() {
-  const chainId = ACTIVE_NETWORK
-  const chainIdHex: string = ACTIVE_NETWORK.toString(16)
+enum NetworkSwitchResponse {
+  'error' = 0,
+  'cancelled' = 1,
+  'switched' = 2,
+  'added_and_switched' = 3,
+}
+
+export default async function requestNetworkSwitch(): Promise<NetworkSwitchResponse> {
+  const chainId = DEPLOYED_NETWORK
+  const chainIdHex: string = DEPLOYED_NETWORK.toString(16)
 
   if (ethereum.networkVersion !== chainId) {
     try {
@@ -10,6 +17,8 @@ export default async function requestNetworkSwitch() {
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: '0x' + chainIdHex }],
       })
+
+      return 2
     } catch (err: any) {
       if (err.code === 4902) {
         await ethereum.request({
@@ -23,9 +32,13 @@ export default async function requestNetworkSwitch() {
             },
           ],
         })
+
+        return 3
       } else {
         console.log('err.code', err)
+        return 1
       }
     }
   }
+  return 0
 }

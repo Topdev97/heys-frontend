@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, computed, unref } from 'vue'
 import { useQuery } from 'vue-query'
 import useMetaMaskProvider from '@/composables/web3/account/useMetaMaskProvider'
 
@@ -15,14 +15,14 @@ export default function useConnectedNetwork() {
 
   const { data: connectedChainId, ...other } = useQuery(
     ['connectedNetwork', !!provider, refetchNetworkIndex],
-    () => {
+    async () => {
       console.log('Checking connected network')
       if (provider?.value) {
-        return Number(window.ethereum?.networkVersion)
+        return Number(await window.ethereum.request({ method: 'net_version' }))
       } else {
         return 0
       }
-    }
+    },
   )
 
   return { connectedChainId, ...other }
