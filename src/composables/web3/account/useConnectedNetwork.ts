@@ -22,7 +22,7 @@ export default function useConnectedNetwork() {
       } else {
         return 0
       }
-    },
+    }
   )
 
   return { connectedChainId, ...other }

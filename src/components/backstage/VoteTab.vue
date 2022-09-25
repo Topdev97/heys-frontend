@@ -16,7 +16,7 @@ const loadingVoting = ref(false)
 const switchedNetwork = ref(false)
 const votingData = ref({
   docId: -1,
-  vote: 3
+  vote: 3,
 })
 
 // composables
@@ -27,11 +27,9 @@ const { connectedChainId } = useConnecteNetwork()
 
 // computed
 const votesFiltered = computed(() => {
-  return docsToVoteOn.value?.docsToVoteOnVotes
-    .filter(doc => 
-      !totalSupply.value
-      || doc.totalRejectVotesWeight < (totalSupply.value * (50 / 100))
-    )
+  return docsToVoteOn.value?.docsToVoteOnVotes.filter(
+    doc => !totalSupply.value || doc.totalRejectVotesWeight < totalSupply.value * (50 / 100)
+  )
 })
 
 // methods
@@ -39,8 +37,9 @@ async function processVote() {
   console.log('voting on a doc')
   loadingVoting.value = true
   try {
-    const tx = await useVote(votingData.value.docId, votingData.value.vote)
-      .catch((err: any) => console.log(err))
+    const tx = await useVote(votingData.value.docId, votingData.value.vote).catch((err: any) =>
+      console.log(err)
+    )
     if (!tx) throw new Error('Vote transaction error')
     const res = await tx.tx.wait().catch((err: any) => console.log(err))
     if (!res) throw new Error('Vote transaction response error')
@@ -57,10 +56,10 @@ async function processVote() {
 async function vote(docId: number, vote: number) {
   // vote
   // 1: approve, 2: reject, 3: abstain
-  
+
   votingData.value = {
     docId,
-    vote
+    vote,
   }
   console.log(connectedChainId.value)
   switchedNetwork.value = false
@@ -78,29 +77,20 @@ async function vote(docId: number, vote: number) {
 }
 
 // lifecycle
-watchEffect(
-  async () => {
-    if (switchedNetwork.value && connectedChainId.value === DEPLOYED_NETWORK) {
-      switchedNetwork.value = false
-      await processVote()
-    }
+watchEffect(async () => {
+  if (switchedNetwork.value && connectedChainId.value === DEPLOYED_NETWORK) {
+    switchedNetwork.value = false
+    await processVote()
   }
-)
+})
 </script>
 <template>
   <div>
     <div v-if="!isLoadingVotes">
-      <small class="block mb-6 w-full text-center">
-        gBG total supply: {{ totalSupply }}
-      </small>
+      <small class="block mb-6 w-full text-center"> gBG total supply: {{ totalSupply }} </small>
       <small v-if="loadingVoting" class="block mt-4 mb-4 w-full text-center"> Loading... </small>
 
-      <FeedCard
-        v-for="(doc, did) in votesFiltered"
-        :key="`vote-${did}`"
-        :index="did"
-        dark
-      >
+      <FeedCard v-for="(doc, did) in votesFiltered" :key="`vote-${did}`" :index="did" dark>
         <h5 class="mb-2">{{ doc.docId }}. {{ doc.docUid }}</h5>
         <small class="mr-2"> Submitter: {{ doc.submitter }} </small>
         <p class="mb-2">{{ doc.approved }}</p>
