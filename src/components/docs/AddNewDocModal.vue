@@ -3,6 +3,7 @@ import { reactive, ref, watchEffect } from 'vue'
 
 import EmojiPicker from '@/components/ui/EmojiPicker.vue'
 import PaymentSelector from '@/components/payments/PaymentSelector.vue'
+import NetStatus from '@/components/ui/NetStatus.vue'
 
 import { DEPLOYED_NETWORK } from '@/utils/consts'
 import { DocDataBase } from '@/utils/types'
@@ -111,6 +112,7 @@ async function addDoc() {
       >
         Share an interesting Doc, Sheet or Slide
       </h3>
+      <!-- <NetStatus/> -->
       <div>
         <p>Network Status</p>
         <div v-if="!provider">Install or enable MetaMask</div>
