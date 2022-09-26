@@ -154,8 +154,8 @@ function toggleTags(tag: string) {
 
       <Dialog :open="newDocumentModal" @close="newDocumentModal = false">
         <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px]" aria-hidden="true" />
-        <div class="flex fixed inset-0 z-50 justify-center items-center p-4">
-          <DialogPanel class="p-8 w-full max-w-[40rem] bg-white rounded">
+        <div class="flex inset-0 z-50 justify-center items-center p-4">
+          <DialogPanel class="p-8 max-w-[40rem] bg-white rounded">
             <AddNewDocModal
               :existingTags="tags?.map(tag => ({ text: tag.title, value: tag.title }))"
               :gathering="gatheringSlug"
