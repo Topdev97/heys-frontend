@@ -78,7 +78,7 @@ async function addDoc() {
     console.log('res data', res)
 
     newDocObj.tags = tags.value.split(/, |,/)
-    newDocObj.docId = Number(ethers.utils.hexValue(res.events[0].data))
+    newDocObj.docId = Number(ethers.utils.hexValue(res.events[0].data)) - 1
 
     const web2Data = await addDocWeb2(newDocObj).catch((err: any) => alert(err))
     if (!web2Data) throw new Error('Error adding doc to API')

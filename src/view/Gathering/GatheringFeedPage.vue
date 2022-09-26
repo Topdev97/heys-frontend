@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, defineComponent, onMounted, reactive, ref, toRef } from 'vue'
+import { computed, defineComponent, onBeforeMount, onMounted, reactive, ref, toRef } from 'vue'
 import LayoutLight from '@/layouts/LayoutLight.vue'
 import SearchInput from '@/components/ui/SearchInput.vue'
 import TagButton from '@/components/atoms/TagButton.vue'
@@ -30,7 +30,7 @@ const filters = reactive<DocFetchParams>({ ...initialFilters })
 const newDocumentModal = ref(false)
 
 // composables
-const { docs } = useDocs(filters)
+const { docs, refetch: refetchDocs } = useDocs(filters)
 const { tags } = useTags(1, toRef(filters, 'sort'))
 
 // computed
@@ -49,6 +49,11 @@ function toggleTags(tag: string) {
     filters.tags.splice(tagIdx, 1)
   }
 }
+
+// lifecycle
+onBeforeMount(() => {
+  if (docs.value) refetchDocs.value()
+})
 </script>
 <template>
   <LayoutLight>

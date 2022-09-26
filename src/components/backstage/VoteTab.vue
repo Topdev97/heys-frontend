@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, watchEffect, computed } from 'vue'
+import { ref, watchEffect, computed, onBeforeMount } from 'vue'
 import FeedCard from '@/components/atoms/FeedCard.vue'
 
 import { DEPLOYED_NETWORK } from '@/utils/consts'
@@ -35,11 +35,11 @@ const votesFiltered = computed(() => {
 // methods
 async function processVote() {
   console.log('voting on a doc')
-  loadingVoting.value = true
   try {
     const tx = await useVote(votingData.value.docId, votingData.value.vote).catch((err: any) =>
       console.log(err)
     )
+    loadingVoting.value = true
     if (!tx) throw new Error('Vote transaction error')
     const res = await tx.tx.wait().catch((err: any) => console.log(err))
     if (!res) throw new Error('Vote transaction response error')
@@ -76,12 +76,17 @@ async function vote(docId: number, vote: number) {
   }
 }
 
-// lifecycle
+// watchers
 watchEffect(async () => {
   if (switchedNetwork.value && connectedChainId.value === DEPLOYED_NETWORK) {
     switchedNetwork.value = false
     await processVote()
   }
+})
+
+// lifecycle
+onBeforeMount(() => {
+  if (docsToVoteOn.value) refetchVotes.value()
 })
 </script>
 <template>
