@@ -1,15 +1,13 @@
 <script lang="ts" setup>
-import { DEPLOYED_NETWORK } from '@/utils/consts'
-import useConnectedAccount from '@/composables/web3/account/useConnectedAccounts'
-import useConnecteNetwork from '@/composables/web3/account/useConnectedNetwork'
 import useMetaMaskProvider from '@/composables/web3/account/useMetaMaskProvider'
 import requestNetworkSwitch from '@/composables/web3/account/useChangeNetwork'
+import useCheckNetworkConnectionStatus, {
+  NetworkConnectionStatus,
+} from '@/composables/web3/account/useNetworkConnectionStatus'
 
 // composables
 const { provider } = useMetaMaskProvider()
-console.log('provider', provider)
-const { account } = useConnectedAccount()
-const { connectedChainId } = useConnecteNetwork()
+const { networkConnectionStatus } = useCheckNetworkConnectionStatus()
 
 // methods
 async function connectWallet() {
@@ -19,26 +17,31 @@ async function connectWallet() {
 <template>
   <div class="flex flex-col">
     <!-- <p class="text-center">Network Status</p> -->
-    <div v-if="!provider">Install or enable MetaMask</div>
-    <div v-else-if="!account" class="flex flex-col">
-      <!-- <div class="text-center">Connect your account first</div> -->
+    <div v-if="NetworkConnectionStatus[networkConnectionStatus] === 'no-provider'">
+      Install or enable MetaMask
+    </div>
+    <div
+      v-else-if="NetworkConnectionStatus[networkConnectionStatus] === 'not-connected'"
+      class="flex flex-col"
+    >
       <button
         class="py-2 mx-auto mt-5 mb-4 w-1/2 text-xl text-white bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
         :style="{ 'min-width': '285px' }"
         @click="connectWallet"
       >
-        Connect
+        Connect your wallet
       </button>
     </div>
-    <div v-else-if="connectedChainId === DEPLOYED_NETWORK" class="text-center">Correct network</div>
-    <div v-else class="flex flex-col">
-      <div class="text-center">Please switch to 80001</div>
+    <div
+      v-else-if="NetworkConnectionStatus[networkConnectionStatus] === 'connected-wrong-network'"
+      class="flex flex-col"
+    >
       <button
         class="py-2 mx-auto mt-5 mb-4 w-1/2 text-xl text-white bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
         :style="{ 'min-width': '285px' }"
         @click="requestNetworkSwitch"
       >
-        Switch
+        Switch to Polygon
       </button>
     </div>
   </div>
