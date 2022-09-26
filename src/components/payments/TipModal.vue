@@ -83,7 +83,6 @@ export default defineComponent({
   },
 })
 </script>
-
 <style scoped>
 .fade-modal {
   height: 80vh;
