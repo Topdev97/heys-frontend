@@ -9,11 +9,6 @@ import { DEPLOYED_NETWORK } from '@/utils/consts'
 import { DocDataBase } from '@/utils/types'
 import { ethers } from 'ethers'
 
-import useConnectedAccount from '@/composables/web3/account/useConnectedAccounts'
-import useConnecteNetwork from '@/composables/web3/account/useConnectedNetwork'
-import useMetaMaskProvider from '@/composables/web3/account/useMetaMaskProvider'
-import requestNetworkSwitch from '@/composables/web3/account/useChangeNetwork'
-
 import addDocWeb3 from '@/composables/web3/gathering/useAddDoc'
 import addDocWeb2 from '@/composables/web2/useAddDoc'
 
@@ -24,11 +19,6 @@ const tagCandidate = ''
 const emit = defineEmits<{
   (e: 'close'): void
 }>()
-
-// composables
-const { provider } = useMetaMaskProvider()
-const { account } = useConnectedAccount()
-const { connectedChainId } = useConnecteNetwork()
 
 // state
 const layoutData = reactive({
@@ -48,11 +38,6 @@ const newDocObj = reactive({
 const tags = ref('test')
 const loadingAdding = ref(false)
 const errors = ref([] as string[])
-
-// methods
-async function connectWallet() {
-  await provider?.value?.send('eth_requestAccounts', [])
-}
 
 async function addDoc() {
   loadingAdding.value = true
@@ -112,25 +97,9 @@ async function addDoc() {
       >
         Share an interesting Doc, Sheet or Slide
       </h3>
-      <!-- <NetStatus/> -->
-      <div>
-        <p>Network Status</p>
-        <div v-if="!provider">Install or enable MetaMask</div>
-        <div v-else-if="!account">
-          <div>Connect your account first</div>
-          <button class="bg-thgreen8 btn-dark" @click="connectWallet">Connect</button>
-        </div>
-        <div v-else-if="connectedChainId === DEPLOYED_NETWORK">Correct network</div>
-        <div v-else>
-          <div>Please switch to 80001</div>
-          <button class="btn-dark" @click="requestNetworkSwitch">Switch</button>
-        </div>
-      </div>
+      <NetStatus />
 
       <div v-if="layoutData.page === 'main'" class="text-center">
-        <br />
-        <br />
-        <br />
         <button
           class="py-2 mt-5 mb-4 w-1/2 bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
           :style="

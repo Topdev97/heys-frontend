@@ -23,17 +23,23 @@ async function connectWallet() {
     <div v-else-if="!account" class="flex flex-col">
       <!-- <div class="text-center">Connect your account first</div> -->
       <button
-        class="py-2 mx-auto mt-5 mb-4 w-1/2 text-white bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
-        :style="{ 'font-size': '1.0rem!important', 'min-width': '285px' }"
+        class="py-2 mx-auto mt-5 mb-4 w-1/2 text-xl text-white bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
+        :style="{ 'min-width': '285px' }"
         @click="connectWallet"
       >
         Connect
       </button>
     </div>
-    <div v-else-if="connectedChainId === DEPLOYED_NETWORK">Correct network</div>
-    <div v-else>
-      <div>Please switch to 80001</div>
-      <button class="btn-dark" @click="requestNetworkSwitch">Switch</button>
+    <div v-else-if="connectedChainId === DEPLOYED_NETWORK" class="text-center">Correct network</div>
+    <div v-else class="flex flex-col">
+      <div class="text-center">Please switch to 80001</div>
+      <button
+        class="py-2 mx-auto mt-5 mb-4 w-1/2 text-xl text-white bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
+        :style="{ 'min-width': '285px' }"
+        @click="requestNetworkSwitch"
+      >
+        Switch
+      </button>
     </div>
   </div>
 </template>
