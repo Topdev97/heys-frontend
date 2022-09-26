@@ -44,6 +44,7 @@ async function processVote() {
     const res = await tx.tx.wait().catch((err: any) => console.log(err))
     if (!res) throw new Error('Vote transaction response error')
     console.log('res data', res)
+
     refetchVotes.value()
     refetchGatheringSupply.value()
     refetchGatheringTokenBalance.value()
@@ -61,7 +62,6 @@ async function vote(docId: number, vote: number) {
     docId,
     vote,
   }
-  console.log(connectedChainId.value)
   switchedNetwork.value = false
   if (connectedChainId.value !== DEPLOYED_NETWORK) {
     const confirmNetworkChange = confirm('Change network to Polygon')

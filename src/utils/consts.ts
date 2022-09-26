@@ -39,7 +39,7 @@ export const RPC_URLS: Record<number, string> = {
 export const RPC_URL = RPC_URLS[DEPLOYED_NETWORK]
 
 export const GATHERING_ADDRESSES = {
-  'blockchain-gathering': '0xc341333737C6CDec94D40B839b43684eA9B0e5D8',
+  'blockchain-gathering': '0x10593824C9E42aae471BAA008a746D9D1C6E06bE',
 }
 
 export const USDC_ADDRESSES = {
