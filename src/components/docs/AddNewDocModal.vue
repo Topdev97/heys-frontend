@@ -41,7 +41,8 @@ const newDocObj = reactive({
 
 const tags = ref('test')
 const loadingAdding = ref(false)
-const errors = ref([] as string[])
+const errorsInput = ref([] as string[])
+const errorAdding = ref('')
 
 // composables
 const { networkConnectionStatus } = useCheckNetworkConnectionStatus()
@@ -49,6 +50,7 @@ const { networkConnectionStatus } = useCheckNetworkConnectionStatus()
 // methods
 async function addDoc() {
   loadingAdding.value = true
+  errorAdding.value = ''
 
   try {
     // parsing doc url to extract docId and docType
@@ -72,7 +74,8 @@ async function addDoc() {
     if (url.includes('/presentation/')) newDocObj.docType = 3
 
     const tx = await addDocWeb3(newDocObj).catch((err: any) => console.log(err))
-    if (!tx) throw new Error('Transaction error')
+    console.log(tx)
+    if (!tx?.tx) throw new Error('Transaction error')
     const res = await tx.tx.wait().catch((err: any) => console.log(err))
     if (!res) throw new Error('Transaction response error')
     console.log('res data', res)
@@ -87,14 +90,16 @@ async function addDoc() {
     loadingAdding.value = false
     emit('close')
   } catch (err) {
-    alert(err)
+    errorAdding.value = err?.toString() ?? 'Error adding the doc'
     loadingAdding.value = false
   }
 }
 </script>
 <template>
-  <div class="overflow-auto fixed z-50 bg-white rounded fade-modal absolute-center">
-    <div class="relative py-12 px-4 sm:px-6 w-full h-full">
+  <div
+    class="overflow-auto fixed z-50 bg-white rounded fade-modal absolute-center w-[96%] max-w-[40rem] min-h-[30rem]"
+  >
+    <div class="relative py-12 px-4 sm:px-6 h-full">
       <h3
         class="mb-3 font-normal text-center text-default display-1"
         :style="
@@ -155,20 +160,20 @@ async function addDoc() {
               v-model="newDocObj.url"
               type="text"
               class="px-3 pt-5 pb-3 mb-0 w-full text-default bg-gray-200 rounded outline-none"
-              :error="errors.indexOf('url-error') >= 0 || errors.indexOf('no-url') >= 0"
+              :error="errorsInput.indexOf('url-error') >= 0 || errorsInput.indexOf('no-url') >= 0"
               filled
               required
             />
             <label
               for="url-input"
               :class="
-                errors.indexOf('url-error') >= 0 || errors.indexOf('no-url') >= 0
+                errorsInput.indexOf('url-error') >= 0 || errorsInput.indexOf('no-url') >= 0
                   ? `text-orange-600`
                   : `text-default`
               "
               >Url</label
             >
-            <p v-if="errors.indexOf('url-error') >= 0" class="text-left text-red-500">
+            <p v-if="errorsInput.indexOf('url-error') >= 0" class="text-left text-red-500">
               Incorrect url - please double check your link. It should be something like
               "https://docs.google.com/document/d/1wf9YFtLFM4LuNkDzbb4hGfZqvb6VnKzJ9iZ"
             </p>
@@ -181,14 +186,16 @@ async function addDoc() {
               v-model="newDocObj.description"
               rows="4"
               class="px-3 pt-5 pb-3 w-full text-default bg-gray-200 rounded outline-none"
-              :error="errors.indexOf('no-description') >= 0"
+              :error="errorsInput.indexOf('no-description') >= 0"
               maxlength="1000"
               filled
               required
             ></textarea>
             <label
               for="new-modal-description"
-              :class="errors.indexOf('no-description') >= 0 ? `text-orange-600` : `text-default`"
+              :class="
+                errorsInput.indexOf('no-description') >= 0 ? `text-orange-600` : `text-default`
+              "
             >
               What is this doc about?
             </label>
@@ -212,7 +219,7 @@ async function addDoc() {
               v-model="tags"
               class="px-3 pt-5 pb-3 mb-0 w-full text-default bg-gray-200 rounded outline-none"
               :items="existingTags"
-              :error="errors.indexOf('no-tags') >= 0"
+              :error="errorsInput.indexOf('no-tags') >= 0"
               chips
               counter="2"
               multiple
@@ -228,7 +235,7 @@ async function addDoc() {
             />
             <label
               for="tags-combobox--1"
-              :class="errors.indexOf('no-tags') >= 0 ? `text-orange-600` : `text-default`"
+              :class="errorsInput.indexOf('no-tags') >= 0 ? `text-orange-600` : `text-default`"
             >
               Tags
             </label>
@@ -248,7 +255,7 @@ async function addDoc() {
             </transition>
           </div>
           <button
-            class="py-2 mt-5 mb-6 w-full bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
+            class="py-2 mt-5 mb-2 w-full bg-green-900 hover:bg-green-800 active:bg-green-700 rounded duration-200"
             :disabled="loadingAdding"
             @click="addDoc()"
           >
@@ -257,6 +264,12 @@ async function addDoc() {
               loadingAdding ? 'Adding...' : 'Add new doc'
             }}</span>
           </button>
+          <small
+            class="block mb-0 text-left text-red h-[1rem]"
+            :class="errorAdding ? '' : 'invisible'"
+          >
+            {{ errorAdding }}
+          </small>
           <!-- <div class="pb-12 min-h-26">
             <h5>Sponsor submission</h5>
             <small class="block mt-1 mb-4"

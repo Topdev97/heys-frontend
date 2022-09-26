@@ -91,6 +91,7 @@ onBeforeMount(() => {
           class="py-2 px-4 m-2 bg-thgreen8 btn-white"
           @click="newDocumentModal = true"
         >
+          Add
           <div style="width: 1rem" class="inline-block">
             <PlusSmIcon class="w-6 h-6" />
           </div>
