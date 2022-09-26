@@ -97,7 +97,7 @@ async function addDoc() {
 </script>
 <template>
   <div
-    class="overflow-auto fixed z-50 bg-white rounded fade-modal absolute-center w-[96%] max-w-[40rem] min-h-[30rem]"
+    class="overflow-auto fixed z-50 w-[96%] max-w-[40rem] min-h-[30rem] bg-white rounded fade-modal absolute-center"
   >
     <div class="relative py-12 px-4 sm:px-6 h-full">
       <h3
@@ -265,7 +265,7 @@ async function addDoc() {
             }}</span>
           </button>
           <small
-            class="block mb-0 text-left text-red h-[1rem]"
+            class="block mb-0 h-[1rem] text-left text-red"
             :class="errorAdding ? '' : 'invisible'"
           >
             {{ errorAdding }}

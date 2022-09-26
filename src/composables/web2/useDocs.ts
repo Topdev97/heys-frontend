@@ -4,10 +4,10 @@ import { reactive, ref, unref, Ref, computed } from 'vue'
 import { useQuery } from 'vue-query'
 
 // types
-export interface DocFetchParams {
+export interface DocsFilters {
+  page?: number
   search: string
   tags: string[]
-  page: number
   sort: string
   type: DocType
 }
@@ -15,36 +15,17 @@ export interface DocFetchParams {
 // consts
 const gatheringId = 1
 
-// state
-const currentSearchParams = ref<DocFetchParams | null>(null)
-
-// computed
-const enabled = computed(() => !!currentSearchParams.value)
-
-export default function useDocs(searchParams?: DocFetchParams) {
-  if (searchParams) {
-    currentSearchParams.value = searchParams
-  }
-
-  const { data: docs, ...other } = useQuery(
-    ['docs', gatheringId],
-    () => {
-      console.log('Fetching docs')
-      return fetch(`${CONFIG.API_ADDRESS}/api/doc/gathering/${gatheringId}`, {
-        method: 'GET',
-        // body: JSON.stringify({
-        //   search: search.value,
-        //   tags: tags.value,
-        //   page: page.value,
-        //   sort: sort.value,
-        //   type: type.value,
-        // }),
-      }).then(r => r.json())
-    },
-    {
-      enabled,
-    }
-  )
+export default function useDocs(filters?: DocsFilters) {
+  const { data: docs, ...other } = useQuery(['docs', gatheringId, filters], () => {
+    console.log('Fetching docs')
+    return fetch(`${CONFIG.API_ADDRESS}/api/doc/gathering/${gatheringId}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...filters,
+      }),
+    }).then(r => r.json())
+  })
 
   return { docs, ...other }
 }

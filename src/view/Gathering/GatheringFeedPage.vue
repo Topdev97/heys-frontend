@@ -4,8 +4,7 @@ import LayoutLight from '@/layouts/LayoutLight.vue'
 import SearchInput from '@/components/ui/SearchInput.vue'
 import TagButton from '@/components/atoms/TagButton.vue'
 import { Dialog, DialogPanel } from '@headlessui/vue'
-import { DocDataFull, MarketData, Tag } from '@/utils/types'
-import useDocs, { DocFetchParams } from '@/composables/web2/useDocs'
+import useDocs, { DocsFilters } from '@/composables/web2/useDocs'
 import FeedCard from '@/components/atoms/FeedCard.vue'
 import HeaderNav from '@/components/layoutElements/HeaderNav.vue'
 import HeaderContent from '@/components/layoutElements/HeaderContent.vue'
@@ -26,17 +25,12 @@ const initialFilters = {
 }
 
 // state
-const filters = reactive<DocFetchParams>({ ...initialFilters })
+const filters = reactive<DocsFilters>({ ...initialFilters })
 const newDocumentModal = ref(false)
 
 // composables
 const { docs, refetch: refetchDocs } = useDocs(filters)
 const { tags } = useTags(1, toRef(filters, 'sort'))
-
-// computed
-const marketData = computed<MarketData>(() => {
-  return {} as MarketData
-})
 
 // methods
 function toggleTags(tag: string) {
@@ -44,7 +38,7 @@ function toggleTags(tag: string) {
   const tagIdx = filters.tags.indexOf(tag)
   if (tagIdx < 0) {
     filters.tags.push(tag)
-    if (!docs.length) filters.search = ''
+    if (!docs.value.length) filters.search = ''
   } else {
     filters.tags.splice(tagIdx, 1)
   }
@@ -91,7 +85,6 @@ onBeforeMount(() => {
           class="py-2 px-4 m-2 bg-thgreen8 btn-white"
           @click="newDocumentModal = true"
         >
-          Add
           <div style="width: 1rem" class="inline-block">
             <PlusSmIcon class="w-6 h-6" />
           </div>
