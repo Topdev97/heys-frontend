@@ -33,7 +33,7 @@ const newDocumentModal = ref(false)
 
 // composables
 const { docs, refetch: refetchDocs } = useDocs(filters)
-const { tags } = useTags(1, toRef(filters, 'sort'))
+const { tags, refetch: refetchTags } = useTags(1, toRef(filters, 'sort'))
 
 // methods
 function toggleTags(tag: string) {
@@ -50,6 +50,7 @@ function toggleTags(tag: string) {
 // lifecycle
 onBeforeMount(() => {
   if (docs.value) refetchDocs.value()
+  if (tags.value) refetchTags.value()
 })
 </script>
 <template>
