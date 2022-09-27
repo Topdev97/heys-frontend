@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
+
 import LayoutDark from '@/layouts/LayoutDark.vue'
-import SearchInput from '@/components/ui/SearchInput.vue'
-import TagButton from '@/components/atoms/TagButton.vue'
+
 import NavTab from '@/components/atoms/NavTab.vue'
 import HeaderNav from '@/components/layoutElements/HeaderNav.vue'
 import HeaderContent from '@/components/layoutElements/HeaderContent.vue'
@@ -10,6 +10,7 @@ import Footer from '@/components/layoutElements/Footer.vue'
 import VoteTab from '@/components/backstage/VoteTab.vue'
 import ChatTab from '@/components/backstage/ChatTab.vue'
 import FinanceTab from '@/components/backstage/FinanceTab.vue'
+
 import { useRoute } from 'vue-router'
 
 // consts

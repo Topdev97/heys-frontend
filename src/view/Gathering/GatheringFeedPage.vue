@@ -1,19 +1,22 @@
 <script lang="ts" setup>
-import { computed, defineComponent, onBeforeMount, onMounted, reactive, ref, toRef } from 'vue'
+import { onBeforeMount, reactive, ref, toRef } from 'vue'
+
 import LayoutLight from '@/layouts/LayoutLight.vue'
 import SearchInput from '@/components/ui/SearchInput.vue'
 import TagButton from '@/components/atoms/TagButton.vue'
-import { Dialog, DialogPanel } from '@headlessui/vue'
-import useDocs, { DocsFilters } from '@/composables/web2/useDocs'
 import FeedCard from '@/components/atoms/FeedCard.vue'
 import HeaderNav from '@/components/layoutElements/HeaderNav.vue'
 import HeaderContent from '@/components/layoutElements/HeaderContent.vue'
 import Footer from '@/components/layoutElements/Footer.vue'
 import AddNewDocModal from '@/components/docs/AddNewDocModal.vue'
 import TipModal from '@/components/payments/TipModal.vue'
+
+import { Dialog, DialogPanel } from '@headlessui/vue'
+import { PlusSmIcon } from '@heroicons/vue/solid'
+
+import useDocs, { DocsFilters } from '@/composables/web2/useDocs'
 import useTags from '@/composables/web2/useTags'
 import gatheringSlug from '@/composables/utils/useGatheringSlug'
-import { PlusSmIcon } from '@heroicons/vue/solid'
 
 // consts
 const initialFilters = {

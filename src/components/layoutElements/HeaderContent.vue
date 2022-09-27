@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+import { formatBalance } from '@/utils'
+
+import useGatheringTokenBalance from '@/composables/web3/gathering/useGatheringTokenBalance'
 import useCurrentGathering from '@/composables/web2/useGathering'
 
 interface NavLink {
@@ -13,6 +16,7 @@ interface Props {
 defineProps<Props>()
 
 const { currentGathering } = useCurrentGathering()
+const { balance } = useGatheringTokenBalance()
 </script>
 <template>
   <div
@@ -25,7 +29,7 @@ const { currentGathering } = useCurrentGathering()
       <span>gBG</span> • <span>Price: $0.003</span> •
       <span>Market cap: $21m</span>
     </div>
-    <div>
+    <div v-if="formatBalance(balance) > 0">
       <router-link :to="{ path: navLink.path }" class="link-dark">
         {{ navLink.label }}
       </router-link>
