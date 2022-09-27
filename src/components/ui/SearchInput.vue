@@ -165,7 +165,7 @@ export default defineComponent({
 </script>
 <style scoped>
 .search-input-wrapper-focused {
-  border-color: #f06139 !important;
+  border-color: #156266 !important;
   -webkit-box-shadow: 0px 0px 2px 1px rgba(240, 97, 57, 0.2);
   box-shadow: 0px 0px 2px 1px rgba(240, 97, 57, 0.2);
 }

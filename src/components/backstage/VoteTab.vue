@@ -10,6 +10,7 @@ import useVotes from '@/composables/web3/gathering/useVotes'
 import useGatheringTokenBalance from '@/composables/web3/gathering/useGatheringTokenBalance'
 import useConnecteNetwork from '@/composables/web3/account/useConnectedNetwork'
 import requestNetworkSwitch from '@/composables/web3/account/useChangeNetwork'
+import { onBeforeRouteUpdate } from 'vue-router'
 
 // state
 const loadingVoting = ref(false)

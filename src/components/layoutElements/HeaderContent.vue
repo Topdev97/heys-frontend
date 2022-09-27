@@ -25,10 +25,10 @@ const { balance } = useGatheringTokenBalance()
   >
     <h1 class="font-medium">{{ currentGathering?.name }}</h1>
     <h2 class="mb-2 text-xl">{{ currentGathering?.description }}</h2>
-    <div class="mb-2">
+    <!-- <div class="mb-2">
       <span>gBG</span> • <span>Price: $0.003</span> •
       <span>Market cap: $21m</span>
-    </div>
+    </div> -->
     <div v-if="formatBalance(balance) > 0">
       <router-link :to="{ path: navLink.path }" class="link-dark">
         {{ navLink.label }}
