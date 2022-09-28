@@ -22,6 +22,9 @@ const routes: Array<RouteRecordRaw> = [
     path: '/g/:gatheringSlug/backstage',
     name: 'GatheringBackstagePage',
     component: GatheringBackstagePage,
+    beforeEnter: async (to, from, next) => {
+      await gatheringBackstageGuard(next)
+    },
   },
   {
     path: '/error',
@@ -33,14 +36,6 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-})
-
-router.beforeEach(async (to, from, next) => {
-  if (to.name === 'GatheringBackstagePage') {
-    await gatheringBackstageGuard(next)
-  } else {
-    next()
-  }
 })
 
 export default router

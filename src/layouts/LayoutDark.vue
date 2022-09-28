@@ -12,7 +12,7 @@
     <div class="flex p-4 min-h-[6rem] bg-thblue4 command-band">
       <slot name="command-band"></slot>
     </div>
-    <div class="py-4 px-0 sm:px-4 bg-grey6 body-band" style="min-height: 100vh">
+    <div class="py-4 bg-grey6 body-band" style="min-height: 100vh">
       <slot name="content"></slot>
     </div>
     <div class="p-4 bg-grey6 footer-band">

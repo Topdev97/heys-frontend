@@ -5,6 +5,7 @@ import LayoutLight from '@/layouts/LayoutLight.vue'
 import SearchInput from '@/components/ui/SearchInput.vue'
 import TagButton from '@/components/atoms/TagButton.vue'
 import FeedCard from '@/components/atoms/FeedCard.vue'
+import TitleHr from '@/components/atoms/TitleHr.vue'
 import HeaderNav from '@/components/layoutElements/HeaderNav.vue'
 import HeaderContent from '@/components/layoutElements/HeaderContent.vue'
 import Footer from '@/components/layoutElements/Footer.vue'
@@ -13,6 +14,7 @@ import TipModal from '@/components/payments/TipModal.vue'
 
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { PlusSmIcon } from '@heroicons/vue/solid'
+import { HeartIcon } from '@heroicons/vue/outline'
 
 import useDocs, { DocsFilters } from '@/composables/web2/useDocs'
 import useTags from '@/composables/web2/useTags'
@@ -113,14 +115,14 @@ onBeforeMount(() => {
       </div>
     </template>
     <template #content>
-      <div class="mx-auto mb-12 max-w-screen-md">
-        <div class="flex items-center pt-6 sm:pt-12 pb-12 mx-auto w-2/3">
-          <div class="flex-grow border-t-2 border-gray-200"></div>
-          <span class="px-4 mb-0 font-extrabold uppercase">Results</span>
-          <div class="flex-grow border-t-2 border-gray-200"></div>
-        </div>
+      <div class="mx-auto mb-12">
+        <TitleHr :title="'Results'" />
         <FeedCard v-for="(doc, did) in docs?.result" :key="`doc-${did}`" :index="did">
-          <h5 class="mb-2">{{ doc.title }}</h5>
+          <h5>{{ doc.title }}</h5>
+          <small class="mb-2 block text-grey"
+            >{{ new Date(doc.createdAt).toLocaleDateString() }}
+          </small>
+          <p class="mb-2">{{ doc.description }}</p>
           <div class="mb-2">
             •
             <div v-for="tag in doc.tags" :key="`tag-${did}-${tag}`" class="inline-block ml-1">
@@ -130,11 +132,14 @@ onBeforeMount(() => {
               •
             </div>
           </div>
-          <p class="mb-2">{{ doc.description }}</p>
-          <div class="mb-2">
-            <small class="mr-2"> Upvotes: {{ doc.upvotes }} </small>
-            <small class="mr-2"> Comments: {{ doc.comments }} </small>
-            <small class="mr-2"> Added: {{ new Date(doc.createdAt).toLocaleDateString() }} </small>
+          <div>
+            <small class="mr-2 flex">
+              <HeartIcon class="w-[1rem]" />
+              <span class="ml-1">
+                {{ doc.upvotes }}
+              </span>
+            </small>
+            <!-- <small class="mr-2"> Comments: {{ doc.comments }} </small> -->
           </div>
         </FeedCard>
       </div>
@@ -143,7 +148,8 @@ onBeforeMount(() => {
           Load More
         </button>
       </div>
-      <!-- <div v-if="docs?.length > 2" class="flex-center">
+
+      <div v-if="docs?.length > 10" class="flex-center">
         <button
           v-if="filters.page > 0"
           title="Previous page"
@@ -159,7 +165,8 @@ onBeforeMount(() => {
         >
           {{ `>` }}
         </button>
-      </div> -->
+      </div>
+   
 
       <Dialog :open="newDocumentModal" @close="newDocumentModal = false">
         <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px]" aria-hidden="true" />

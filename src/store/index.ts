@@ -1,23 +1,21 @@
 import { createStore } from 'vuex'
 
 export const store = createStore({
-  state: {
-    space: null,
+  state() {
+    return {
+      gatheringTokenBalance: null,
+    }
   },
   mutations: {
-    setSpace(state, spaceObj) {
-      state.space = spaceObj
-    },
-
-    removeSpace(state) {
-      state.space = null
+    setGatheringTokenBalance(state, amount) {
+      state.gatheringTokenBalance = amount
     },
   },
   actions: {},
   modules: {},
   getters: {
-    getSpaceData: state => {
-      return state.space
+    getGatheringTokenBalance: state => {
+      return state.gatheringTokenBalance
     },
   },
 })

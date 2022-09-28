@@ -50,7 +50,7 @@ watch(selectedTab, newTab => {
       </div>
     </template>
     <template #content>
-      <div class="pt-10 mx-auto mb-12 max-w-screen-md">
+      <div class="pt-10 mb-12">
         <VoteTab v-if="selectedTab === 'Vote'" />
         <ChatTab v-if="selectedTab === 'Chat'" />
         <FinanceTab v-if="selectedTab === 'Finance'" />
