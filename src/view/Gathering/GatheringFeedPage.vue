@@ -25,6 +25,7 @@ const initialFilters = {
   sort: 'Hot',
   type: -1,
   tags: [],
+  limit: 2,
 }
 
 // state
@@ -41,7 +42,7 @@ function toggleTags(tag: string) {
   const tagIdx = filters.tags.indexOf(tag)
   if (tagIdx < 0) {
     filters.tags.push(tag)
-    if (!docs.value.length) filters.search = ''
+    if (!docs.value?.result.length) filters.search = ''
   } else {
     filters.tags.splice(tagIdx, 1)
   }
@@ -118,7 +119,7 @@ onBeforeMount(() => {
           <span class="px-4 mb-0 font-extrabold uppercase">Results</span>
           <div class="flex-grow border-t-2 border-gray-200"></div>
         </div>
-        <FeedCard v-for="(doc, did) in docs" :key="`doc-${did}`" :index="did">
+        <FeedCard v-for="(doc, did) in docs?.result" :key="`doc-${did}`" :index="did">
           <h5 class="mb-2">{{ doc.title }}</h5>
           <div class="mb-2">
             •
@@ -137,7 +138,12 @@ onBeforeMount(() => {
           </div>
         </FeedCard>
       </div>
-      <div v-if="docs?.length > 10" class="flex-center">
+      <div v-if="!docs?.hasNextPage" class="flex justify-center">
+        <button class="px-1 text-xs rounded border border-black" @click="filters.limit += 2">
+          Load More
+        </button>
+      </div>
+      <!-- <div v-if="docs?.length > 2" class="flex-center">
         <button
           v-if="filters.page > 0"
           title="Previous page"
@@ -153,7 +159,7 @@ onBeforeMount(() => {
         >
           {{ `>` }}
         </button>
-      </div>
+      </div> -->
 
       <Dialog :open="newDocumentModal" @close="newDocumentModal = false">
         <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px]" aria-hidden="true" />
