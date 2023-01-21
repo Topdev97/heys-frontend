@@ -11,7 +11,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 <template>
   <div :class="index % 2 === 0 ? (dark ? 'bg-grey6' : 'bg-grey1') : dark ? 'bg-grey4' : 'bg-white'">
-    <div class="p-8 rounded min-h-16 max-w-screen-md mx-auto">
+    <div class="p-8 mx-auto max-w-screen-md rounded min-h-16">
       <slot />
     </div>
   </div>

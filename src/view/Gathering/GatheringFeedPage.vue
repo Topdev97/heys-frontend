@@ -119,7 +119,7 @@ onBeforeMount(() => {
         <TitleHr :title="'Results'" />
         <FeedCard v-for="(doc, did) in docs?.result" :key="`doc-${did}`" :index="did">
           <h5>{{ doc.title }}</h5>
-          <small class="mb-2 block text-grey"
+          <small class="block mb-2 text-grey"
             >{{ new Date(doc.createdAt).toLocaleDateString() }}
           </small>
           <p class="mb-2">{{ doc.description }}</p>
@@ -133,7 +133,7 @@ onBeforeMount(() => {
             </div>
           </div>
           <div>
-            <small class="mr-2 flex">
+            <small class="flex mr-2">
               <HeartIcon class="w-[1rem]" />
               <span class="ml-1">
                 {{ doc.upvotes }}
@@ -166,7 +166,6 @@ onBeforeMount(() => {
           {{ `>` }}
         </button>
       </div>
-   
 
       <Dialog :open="newDocumentModal" @close="newDocumentModal = false">
         <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px]" aria-hidden="true" />
